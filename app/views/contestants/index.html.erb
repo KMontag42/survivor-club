@@ -12,20 +12,21 @@
       <thead>
       <tr>
         <th>Name</th>
-        <th>Winner</th>
-        <th>Pool Winner</th>
-        <th>Action</th>
+        <th>Job</th>
+        <th>Age</th>
+        <th>Seasons</th>
       </tr>
       </thead>
       <tbody>
       <% @contestants.each do |s| %>
         <tr>
           <td><%= s.name %></td>
-          <td>s.winner</td>
-          <td>s.pool_winner</td>
+          <td><%= s.job %></td>
+          <td><%= s.age %></td>
           <td>
-            <button class="btn btn-default btn-xs">Action</button>
-            <%= link_to 'Edit', edit_contestant_path(s), :class => 'btn btn-primary btn-xs' %>
+            <% s.seasons.each do |season| %>
+              <p><%= season.name %></p>
+            <% end %>
           </td>
         </tr>
       <% end %>

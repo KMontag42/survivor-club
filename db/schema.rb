@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129034116) do
+ActiveRecord::Schema.define(version: 20150129040520) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,25 @@ ActiveRecord::Schema.define(version: 20150129034116) do
   end
 
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
+
+  create_table "contestants", force: true do |t|
+    t.string   "name"
+    t.integer  "age"
+    t.integer  "seasons_id"
+    t.string   "from"
+    t.string   "job"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contestants", ["seasons_id"], name: "index_contestants_on_seasons_id", using: :btree
+
+  create_table "contestants_seasons", id: false, force: true do |t|
+    t.integer  "contestant_id"
+    t.integer  "season_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "episodes", force: true do |t|
     t.string   "name"

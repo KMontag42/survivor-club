@@ -11,4 +11,5 @@
 
 class Season < ActiveRecord::Base
   has_many :episodes
+  has_and_belongs_to_many :seasons
 end

@@ -6,3 +6,6 @@ coffee_script:
 
 java_script:
   enabled: true
+
+scss:
+  enabled: true

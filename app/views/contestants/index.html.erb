@@ -20,7 +20,7 @@
       <tbody>
       <% @contestants.each do |s| %>
         <tr>
-          <td><%= s.name %></td>
+          <td><%= link_to s.name, contestant_path(s) %></td>
           <td><%= s.job %></td>
           <td><%= s.age %></td>
           <td>

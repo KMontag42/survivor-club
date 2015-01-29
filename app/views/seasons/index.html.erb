@@ -1,36 +1,34 @@
-<div class="col-xs-10 col-xs-offset-1">
-  <h1>
-    Seasons
-    <span class="pull-right">
-      <%= link_to 'New', new_season_path, :class => 'btn btn-primary btn-sm' %>
-    </span>
-  </h1>
+<h1>
+  Seasons
+  <span class="pull-right">
+    <%= link_to 'New', new_season_path, :class => 'btn btn-primary btn-sm' %>
+  </span>
+</h1>
 
-  <hr/>
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
+<hr/>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Winner</th>
+      <th>Pool Winner</th>
+      <th>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @seasons.each do |s| %>
       <tr>
-        <th></th>
-        <th>Name</th>
-        <th>Winner</th>
-        <th>Pool Winner</th>
-        <th>Action</th>
+        <td><%= s.number %></td>
+        <td><%= s.name %></td>
+        <td>s.winner</td>
+        <td>s.pool_winner</td>
+        <td>
+          <%= link_to 'Edit', edit_season_path(s), :class => 'btn btn-primary btn-xs' %>
+        </td>
       </tr>
-      </thead>
-      <tbody>
-      <% @seasons.each do |s| %>
-        <tr>
-          <td><%= s.number %></td>
-          <td><%= s.name %></td>
-          <td>s.winner</td>
-          <td>s.pool_winner</td>
-          <td>
-            <%= link_to 'Edit', edit_season_path(s), :class => 'btn btn-primary btn-xs' %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
+    <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,17 +1,14 @@
-<div class="col-xs-10 col-xs-offset-1">
-    <h1>
-      <%= @season.name %>
-      <%= link_to 'Edit', edit_season_path(@season), :class => 'btn btn-primary btn-sm pull-right' %>
-    </h1>
-  <hr/>
-  <div class="clearfix"></div>
-  <%= panel_row :column_class => 'col-xs-6' do %>
-    <%= panel :heading => 'Winner', :context => :success do %>
-      <h2><%= icon :user %> Winner Name</h2>
-    <% end %>
-    <%= panel :heading => 'Pool', :context => :warning do %>
-      <h2><%= icon :flash %> Poolwinner Name</h2>
-    <% end %>
+<h1>
+  <%= @season.name %>
+  <%= link_to 'Edit', edit_season_path(@season), :class => 'btn btn-primary btn-sm pull-right' %>
+</h1>
+<hr/>
+<div class="clearfix"></div>
+<%= panel_row :column_class => 'col-xs-6' do %>
+  <%= panel :heading => 'Winner', :context => :success do %>
+    <h2><%= icon :user %> Winner Name</h2>
   <% end %>
-
-</div>
+  <%= panel :heading => 'Pool', :context => :warning do %>
+    <h2><%= icon :flash %> Poolwinner Name</h2>
+  <% end %>
+<% end %>

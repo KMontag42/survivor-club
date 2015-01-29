@@ -1,36 +1,34 @@
-<div class="col-xs-10 col-xs-offset-1">
-  <h1>
-    Contestants
-    <span class="pull-right">
-      <%= link_to 'New', new_contestant_path, :class => 'btn btn-primary btn-sm' %>
-    </span>
-  </h1>
+<h1>
+  Contestants
+  <span class="pull-right">
+    <%= link_to 'New', new_contestant_path, :class => 'btn btn-primary btn-sm' %>
+  </span>
+</h1>
 
-  <hr/>
-  <div class="table-responsive">
-    <table class="table table-bordered">
-      <thead>
+<hr/>
+<div class="table-responsive">
+  <table class="table table-bordered">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th>Job</th>
+      <th>Age</th>
+      <th>Seasons</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% @contestants.each do |s| %>
       <tr>
-        <th>Name</th>
-        <th>Job</th>
-        <th>Age</th>
-        <th>Seasons</th>
+        <td><%= link_to s.name, contestant_path(s) %></td>
+        <td><%= s.job %></td>
+        <td><%= s.age %></td>
+        <td>
+          <% s.seasons.each do |season| %>
+            <p><%= season.name %></p>
+          <% end %>
+        </td>
       </tr>
-      </thead>
-      <tbody>
-      <% @contestants.each do |s| %>
-        <tr>
-          <td><%= link_to s.name, contestant_path(s) %></td>
-          <td><%= s.job %></td>
-          <td><%= s.age %></td>
-          <td>
-            <% s.seasons.each do |season| %>
-              <p><%= season.name %></p>
-            <% end %>
-          </td>
-        </tr>
-      <% end %>
-      </tbody>
-    </table>
-  </div>
+    <% end %>
+    </tbody>
+  </table>
 </div>

@@ -1,11 +1,9 @@
-<div class="col-xs-8 col-xs-offset-2">
-  <%= form_for @contestant, :layout => :basic do |f| %>
-    <%= f.text_field :name %>
-    <%= f.number_field :age %>
-    <%= f.text_field :job %>
-    <%= f.select :seasons, Season.all.collect {|p| [ p.name, p.id ] },
-                 {},
-                 { :multiple => true } %>
-    <%= f.submit 'Update' %>
-  <% end %>
-</div>
+<%= form_for @contestant, :layout => :basic do |f| %>
+  <%= f.text_field :name %>
+  <%= f.number_field :age %>
+  <%= f.text_field :job %>
+  <%= f.select :seasons, Season.all.collect {|p| [ p.name, p.id ] },
+               {},
+               { :multiple => true } %>
+  <%= f.submit 'Update' %>
+<% end %>

@@ -9,6 +9,7 @@
 #  description :text
 #  created_at  :datetime
 #  updated_at  :datetime
+#  air_date    :date
 #
 
 class Episode < ActiveRecord::Base

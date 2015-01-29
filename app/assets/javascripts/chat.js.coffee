@@ -6,11 +6,10 @@ $(document).on 'ready page:load', ->
   dispatcher.bind 'send_chat', (data) ->
     console.log(data.message) # would output 'this is a message'
     $(".chat").append(
-      "<p>#{data.message}</p>"
+      "<p>#{data.user}: #{data.message}</p>"
     )
 
   $('.send-chat').on 'click', (e)->
     e.preventDefault()
     target = $(e.target)
-    console.log 'yo'
-    dispatcher.trigger('send_chat', {message: $("#chat-line").val()})
+    dispatcher.trigger('send_chat', {message: $("#chat-line").val(), user: App.globals.user.email})

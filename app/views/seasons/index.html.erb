@@ -21,7 +21,7 @@
     <% @seasons.each do |s| %>
       <tr>
         <td><%= s.number %></td>
-        <td><%= s.name %></td>
+        <td><%= link_to s.name, season_path(s) %></td>
         <td>s.winner</td>
         <td>s.pool_winner</td>
         <td>

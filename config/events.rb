@@ -14,6 +14,9 @@ WebsocketRails::EventMap.describe do
 
   subscribe :send_chat, :to => ChatController, :with_method => :send_chat
 
-  subscribe :player_clicked, :to => LiveController, :with_method => :player_clicked
-  subscribe :contestant_clicked, :to => LiveController, :with_method => :contestant_clicked
+  subscribe :player_clicked, :to => LiveController,
+            :with_method => :player_clicked
+
+  subscribe :contestant_clicked, :to => LiveController,
+            :with_method => :contestant_clicked
 end

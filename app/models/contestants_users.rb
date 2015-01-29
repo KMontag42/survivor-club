@@ -8,7 +8,5 @@
 #  created_at    :datetime
 #  updated_at    :datetime
 #
-
 class ContestantsUsers < ActiveRecord::Base
-
 end

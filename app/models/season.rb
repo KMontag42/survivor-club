@@ -11,6 +11,6 @@
 
 class Season < ActiveRecord::Base
   has_many :episodes
-  has_many :contestants_seasons, class_name: 'ContestantsSeasons'
+  has_many :contestants_seasons, class_name: "ContestantsSeasons"
   has_many :contestants, through: :contestants_seasons
 end

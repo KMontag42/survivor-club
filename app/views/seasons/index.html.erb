@@ -7,23 +7,21 @@
 
 <hr/>
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-striped">
     <thead>
     <tr>
-      <th></th>
-      <th>Name</th>
+      <th class="col-xs-2">Name</th>
       <th>Winner</th>
       <th>Pool Winner</th>
-      <th>Action</th>
+      <th class="col-xs-1">Action</th>
     </tr>
     </thead>
     <tbody>
     <% @seasons.each do |s| %>
       <tr>
-        <td><%= s.number %></td>
-        <td><%= s.name %></td>
-        <td>s.winner</td>
-        <td>s.pool_winner</td>
+        <td><%= s.number %> - <%= link_to s.name, season_path(s) %></td>
+        <td></td>
+        <td></td>
         <td>
           <%= link_to 'Edit', edit_season_path(s), :class => 'btn btn-primary btn-xs' %>
         </td>

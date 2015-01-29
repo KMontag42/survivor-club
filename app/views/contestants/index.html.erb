@@ -7,26 +7,22 @@
 
 <hr/>
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-striped">
     <thead>
     <tr>
       <th>Name</th>
       <th>Job</th>
       <th>Age</th>
-      <th>Seasons</th>
+      <th>From</th>
     </tr>
     </thead>
     <tbody>
-    <% @contestants.each do |s| %>
+    <% @contestants.each do |c| %>
       <tr>
-        <td><%= link_to s.name, contestant_path(s) %></td>
-        <td><%= s.job %></td>
-        <td><%= s.age %></td>
-        <td>
-          <% s.seasons.each do |season| %>
-            <p><%= season.name %></p>
-          <% end %>
-        </td>
+        <td><%= link_to c.name, contestant_path(c) %></td>
+        <td><%= c.job %></td>
+        <td><%= c.age %></td>
+        <td><%= c.hometown %></td>
       </tr>
     <% end %>
     </tbody>

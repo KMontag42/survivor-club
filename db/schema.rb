@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129065737) do
+ActiveRecord::Schema.define(version: 20150129164933) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(version: 20150129065737) do
     t.string   "job"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hometown"
   end
 
   add_index "contestants", ["seasons_id"], name: "index_contestants_on_seasons_id", using: :btree

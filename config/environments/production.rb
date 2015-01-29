@@ -81,6 +81,6 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   config.survivor_club = {
-    websocket_url: 'survivor-club.herokuapp.com/websocket'
+    websocket_url: "survivor-club.herokuapp.com/websocket"
   }
 end

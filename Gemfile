@@ -27,6 +27,9 @@ gem 'bootstrap-sass'
 # bootstrap helpers
 gem 'bh'
 
+# for user accounts
+gem 'devise'
+
 # for heroku
 gem 'rails_12factor'
 

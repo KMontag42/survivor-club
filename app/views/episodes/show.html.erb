@@ -1,0 +1,17 @@
+<div class="col-xs-10 col-xs-offset-1">
+    <h1>
+      <%= @episode.name %> - <%= @episode.season.name %>
+      <%= link_to 'Edit', edit_episode_path(@episode), :class => 'btn btn-primary btn-sm pull-right' %>
+    </h1>
+  <hr/>
+  <div class="clearfix"></div>
+  <%= panel_row :column_class => 'col-xs-6' do %>
+    <%= panel :heading => 'Winner', :context => :success do %>
+      <h2><%= icon :user %> Voted Out</h2>
+    <% end %>
+    <%= panel :heading => 'Pool', :context => :warning do %>
+      <h2><%= icon :flash %> Knocked Out</h2>
+    <% end %>
+  <% end %>
+
+</div>

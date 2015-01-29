@@ -1,0 +1,13 @@
+<div class="col-xs-8 col-xs-offset-2">
+  <%= form_for Episode.new, :action => :create, :layout => :basic do |f| %>
+    <%= f.number_field :number %>
+    <%= f.text_field :name %>
+    <%= f.select :season_id do %>
+      <% Season.all.each do |s| %>
+        <%= content_tag(:option, s.name, value: s.id) %>
+      <% end %>
+    <% end %>
+    <%= f.text_area :description %>
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>

@@ -17,7 +17,7 @@ class SeasonsController < ApplicationController
 
   def create
     Season.create!(season_params)
-    redirect_to list_seasons_path
+    redirect_to seasons_path
   end
 
   def update

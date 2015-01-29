@@ -17,7 +17,6 @@
 #
 
 class Contestant < ActiveRecord::Base
-
   has_many :contestants_users, class_name: "ContestantsUsers"
   has_many :contestants, through: :contestants_users
 

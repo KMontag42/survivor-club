@@ -15,6 +15,8 @@
 #  last_sign_in_ip        :string(255)
 #  created_at             :datetime
 #  updated_at             :datetime
+#  first_name             :string(255)
+#  last_name              :string(255)
 #
 # Indexes
 #
@@ -27,4 +29,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :contestants_users, class_name: "ContestantsUsers"
+  has_many :contestants, through: :contestants_users
 end

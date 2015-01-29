@@ -1,7 +1,17 @@
-<h1><%= @episode.name %></h1>
+<%= content_for :body_id do 'game_day' end %>
+<h3><%= @episode.name %></h3>
 <hr/>
 <div class="col-xs-12">
-  <% @episode.season.contestants.each do |c| %>
-    <p><%= c.name %></p>
+  <%= panel_row :column_class => 'col-xs-6' do %>
+    <%= panel :heading => 'Contestants', :context => :info do %>
+      <% @episode.season.contestants.each do |c| %>
+        <div><a href="#" class="contestant"><%= icon :flash %><%= c.name %></a></div>
+      <% end %>
+    <% end %>
+    <%= panel :heading => 'Pool Players', :context => :default do %>
+      <% User.all.each do |u| %>
+        <div><a class="player" href="#"><%= icon :flash %> <%= u.first_name || "Kyle" %></a></div>
+      <% end %>
+    <% end %>
   <% end %>
 </div>

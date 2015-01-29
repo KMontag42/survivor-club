@@ -6,6 +6,7 @@
       <%= content_tag(:option, s.name, :value => s.id) %>
     <% end %>
   <% end %>
+  <%= f.date_field :air_date %>
   <%= f.text_area :description %>
   <%= f.submit 'Update' %>
 <% end %>

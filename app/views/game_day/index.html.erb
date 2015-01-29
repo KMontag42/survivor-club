@@ -1,0 +1,7 @@
+<h1><%= @episode.name %></h1>
+<hr/>
+<div class="col-xs-12">
+  <% @episode.season.contestants.each do |c| %>
+    <p><%= c.name %></p>
+  <% end %>
+</div>

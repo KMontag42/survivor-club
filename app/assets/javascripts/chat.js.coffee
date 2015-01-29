@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).on 'ready page:load', ->
-  dispatcher = new WebSocketRails('localhost:3000/websocket')
+  dispatcher = new WebSocketRails(<%= Rails.application.config.survivor_club[:websocket_url] %>)
   dispatcher.bind 'send_chat', (data) ->
     console.log(data.message) # would output 'this is a message'
     $(".chat").append(

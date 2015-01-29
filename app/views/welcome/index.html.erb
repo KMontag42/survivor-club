@@ -1,15 +1,23 @@
-<div class="jumbotron">
-  <h1>Test</h1>
+<div class="jumbotron text-center">
+  <h1>Survivor Club</h1>
+  <h2 class="text-muted">We are so cool</h2>
+</div>
+<div class="col-xs-6 col-xs-offset-3 text-center">
   <p>Progress on the site:</p>
   <%= progress_bar percentage: 33, animated: true %>
 </div>
+<div class="row">
+  <div class="col-xs-6 col-xs-offset-3 text-center">
+    <div class="chat" id="main-page-chat"
+         style="border: 1px solid black; border-radius: 5px; min-height: 200px;">
 
-<div class="col-xs-6 col-xs-offset-3 text-center">
-  <div class="chat" id="main-page-chat">
-
+    </div>
   </div>
 </div>
-<div class="col-xs-2">
-  <input type="text" id="chat-line"/>
-  <button class="btn btn-primary send-chat">Send</button>
+<br/>
+<div class="row">
+  <div class="col-xs-4 col-xs-offset-4 text-center">
+    <input type="text" id="chat-line"/>
+    <button class="btn btn-primary send-chat">Send</button>
+  </div>
 </div>

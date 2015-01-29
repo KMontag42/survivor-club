@@ -17,6 +17,10 @@
 #
 
 class Contestant < ActiveRecord::Base
+
+  has_many :contestants_users, class_name: "ContestantsUsers"
+  has_many :contestants, through: :contestants_users
+
   has_many :contestants_seasons, class_name: "ContestantsSeasons"
   has_many :seasons, through: :contestants_seasons
 

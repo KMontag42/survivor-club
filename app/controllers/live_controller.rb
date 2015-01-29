@@ -6,6 +6,7 @@ class LiveController < WebsocketRails::BaseController
 
   def contestant_clicked
     new_message = {:message => 'contestant clicked'}
+    WebsocketRails.users[1].send_message(:contestant_clicked, {:message => 'you\'ve got an upvote '})
     broadcast_message :contestant_clicked, new_message
   end
 

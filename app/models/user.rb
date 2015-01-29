@@ -27,4 +27,7 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  has_many :contestants_users, class_name: "ContestantsUsers"
+  has_many :contestants, through: :contestants_users
 end

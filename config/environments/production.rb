@@ -79,4 +79,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.survivor_club = {
+      websocket_url: 'survivor-club.herokuapp.com/websocket'
+  }
 end

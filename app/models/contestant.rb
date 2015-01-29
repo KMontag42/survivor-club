@@ -19,6 +19,15 @@
 class Contestant < ActiveRecord::Base
   has_and_belongs_to_many :seasons
 
+  def self.create(params)
+    _params = params
+    seasons = _params.delete :seasons
+    _contestant = super _params
+    seasons = Season.find(seasons.reject(&:empty?))
+    _contestant.seasons = seasons
+    _contestant.save!
+  end
+
   def update(params)
     _params = params
     seasons = _params.delete :seasons

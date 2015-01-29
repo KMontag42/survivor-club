@@ -7,12 +7,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= navbar do %>
+  <%= vertical do %>
+    <%= link_to 'Home', root_path %>
+  <% end %>
+  <%= horizontal do %>
+    <%= nav class: 'navbar-right' do %>
+      <%= link_to 'Dashboard', root_path %>
+      <%= link_to 'Episodes', root_path %>
+      <%= link_to 'Seasons', root_path %>
+      <%= link_to 'Contestants', root_path %>
+      <%= link_to 'Game Day', root_path %>
+    <% end %>
+  <% end %>
+<% end %>
 <div class="container-fluid">
   <div class="row">
     <%= yield %>
   </div>
 </div>
-
 </body>
 </html>

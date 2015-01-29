@@ -41,6 +41,6 @@ Rails.application.configure do
   config.middleware.delete Rack::Lock
 
   config.survivor_club = {
-    websocket_url: 'localhost:3000/websocket'
+    websocket_url: "localhost:3000/websocket"
   }
 end

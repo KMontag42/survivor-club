@@ -17,7 +17,8 @@
 #
 
 class Contestant < ActiveRecord::Base
-  has_and_belongs_to_many :seasons
+  has_many :contestants_seasons, class_name: 'ContestantsSeasons'
+  has_many :seasons, through: :contestants_seasons
 
   def self.create(params)
     _params = params

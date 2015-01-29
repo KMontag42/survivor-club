@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body id="<%= yield :body_id %>">
-<%= navbar do %>
+<%= navbar inverted:true do %>
   <%= vertical do %>
     <%= link_to 'Home', root_path %>
   <% end %>
@@ -18,6 +18,11 @@
       <%= link_to 'Seasons', seasons_path %>
       <%= link_to 'Contestants', contestants_path %>
       <%= link_to 'Game Day', game_day_path %>
+      <%= dropdown current_user.email do %>
+        <%= link_to 'Profile', root_path %>
+        <%= link_to 'Pool Entries', root_path %>
+        <%= link_to 'Log Out', root_path %>
+      <% end %>
     <% end %>
   <% end %>
 <% end %>

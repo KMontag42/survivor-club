@@ -16,7 +16,7 @@ class ContestantsController < ApplicationController
   end
 
   def create
-    Contestant.create!(contestant_params)
+    Contestant.create(contestant_params)
     redirect_to contestants_path
   end
 

@@ -4,11 +4,14 @@
 </h1>
 <hr/>
 <div class="clearfix"></div>
-<%= panel_row :column_class => 'col-xs-6' do %>
+<%= panel_row :column_class => 'col-xs-4' do %>
+  <%= panel :heading => 'Contestants', :context => :default do %>
+    <% @season.contestants.each do |c| %>
+      <h2><%= icon :user %> <%= link_to c.name, contestant_path(c) %></h2>
+    <% end %>
+  <% end %>
   <%= panel :heading => 'Winner', :context => :success do %>
-    <h2><%= icon :user %> Winner Name</h2>
   <% end %>
   <%= panel :heading => 'Pool', :context => :warning do %>
-    <h2><%= icon :flash %> Poolwinner Name</h2>
   <% end %>
 <% end %>

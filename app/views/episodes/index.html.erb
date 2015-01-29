@@ -7,26 +7,23 @@
 
 <hr/>
 <div class="table-responsive">
-  <table class="table table-bordered">
+  <table class="table table-striped">
     <thead>
     <tr>
-      <th></th>
-      <th>Name</th>
-      <th>Winner</th>
-      <th>Pool Winner</th>
-      <th>Action</th>
+      <th class="col-xs-2">Name</th>
+      <th>Voted Out</th>
+      <th>Knocked Out of Pool</th>
+      <th class="col-xs-1">Action</th>
     </tr>
     </thead>
     <tbody>
-    <% @episodes.each do |s| %>
+    <% @episodes.each do |e| %>
       <tr>
-        <td><%= link_to s.name, episode_path(s) %></td>
-        <td><%= s.name %></td>
-        <td>s.winner</td>
-        <td>s.pool_winner</td>
+        <td><%= link_to e.name, episode_path(e) %></td>
+        <td></td>
+        <td></td>
         <td>
-          <button class="btn btn-default btn-xs">Action</button>
-          <%= link_to 'Edit', edit_episode_path(s), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to 'Edit', edit_episode_path(e), :class => 'btn btn-primary btn-xs' %>
         </td>
       </tr>
     <% end %>

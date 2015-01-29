@@ -6,6 +6,6 @@ class ChatController < WebsocketRails::BaseController
 
   def send_chat
     new_message = {:message => message[:message]}
-    send_message :send_chat, new_message
+    broadcast_message :send_chat, new_message
   end
 end

@@ -15,3 +15,8 @@
 //= require turbolinks
 //= require_tree .
 //= require websocket_rails/main
+
+// global namespace
+var App = {};
+App.globals = {};
+App.globals.user = {};

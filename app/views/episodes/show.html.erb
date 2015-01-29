@@ -1,5 +1,5 @@
 <h1>
-    <%= @episode.name %> - <%= @episode.season.name %>
+    <%= @episode.name %> - <%= @episode.season.try(:name) %>
     <%= link_to 'Edit', edit_episode_path(@episode), :class => 'btn btn-primary btn-sm pull-right' %>
   </h1>
 <hr/>

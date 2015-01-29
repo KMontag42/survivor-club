@@ -20,7 +20,7 @@
     <tbody>
     <% @episodes.each do |s| %>
       <tr>
-        <td><%= s.number %></td>
+        <td><%= link_to s.name, episode_path(s) %></td>
         <td><%= s.name %></td>
         <td>s.winner</td>
         <td>s.pool_winner</td>

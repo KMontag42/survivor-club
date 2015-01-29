@@ -1,0 +1,7 @@
+<div class="col-xs-8 col-xs-offset-2">
+  <%= form_for @season, :layout => :basic do |f| %>
+    <%= f.number_field :number %>
+    <%= f.text_field :name %>
+    <%= f.submit 'Update' %>
+  <% end %>
+</div>

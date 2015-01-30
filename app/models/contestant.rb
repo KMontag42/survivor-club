@@ -6,10 +6,12 @@
 #  name       :string(255)
 #  age        :integer
 #  seasons_id :integer
-#  hometown   :string(255)
+#  from       :string(255)
 #  job        :string(255)
 #  created_at :datetime
 #  updated_at :datetime
+#  hometown   :string(255)
+#  image_url  :string(255)
 #
 # Indexes
 #

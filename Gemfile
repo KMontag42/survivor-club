@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'bootstrap-sass'
 # bootstrap helpers
 gem 'bh'
+# for some nice themes
+gem 'bootswatch-rails'
 
 # for user accounts
 gem 'devise'

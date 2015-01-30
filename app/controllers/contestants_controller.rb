@@ -30,6 +30,6 @@ class ContestantsController < ApplicationController
   private
 
   def contestant_params
-    params.require(:contestant).permit(:name, :age, :job, :seasons => [])
+    params.require(:contestant).permit(:name, :age, :job, :hometown, :seasons => [])
   end
 end

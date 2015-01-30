@@ -2,6 +2,7 @@
   <%= f.text_field :name %>
   <%= f.number_field :age %>
   <%= f.text_field :job %>
+  <%= f.text_field :hometown %>
   <%= f.select :seasons, Season.all.collect {|p| [ p.name, p.id ] },
                {},
                { :multiple => true } %>

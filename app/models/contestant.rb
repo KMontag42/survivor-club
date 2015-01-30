@@ -6,7 +6,7 @@
 #  name       :string(255)
 #  age        :integer
 #  seasons_id :integer
-#  from       :string(255)
+#  hometown   :string(255)
 #  job        :string(255)
 #  created_at :datetime
 #  updated_at :datetime

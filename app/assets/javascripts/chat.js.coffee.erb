@@ -13,3 +13,4 @@ $(document).on 'ready page:load', ->
     e.preventDefault()
     target = $(e.target)
     dispatcher.trigger('send_chat', {message: $("#chat-line").val(), user: App.globals.user.email})
+    $("#chat-line").val('')

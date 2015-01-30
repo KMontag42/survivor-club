@@ -2,36 +2,39 @@
 <html>
 <head>
   <title>Survivor Club</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
   <script type="text/javascript">
     App.globals.user.email = '<%= current_user.try(:email) %>';
   </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<body id="<%= yield :body_id %>">
-<%= navbar do %>
-  <%= vertical do %>
-    <%= link_to 'Home', root_path %>
-  <% end %>
-  <%= horizontal do %>
-    <%= nav class: 'navbar-right' do %>
-      <%= link_to 'Dashboard', root_path %>
-      <%= link_to 'Episodes', episodes_path %>
-      <%= link_to 'Seasons', seasons_path %>
-      <%= link_to 'Contestants', contestants_path %>
-      <%= link_to 'Game Day', game_day_path %>
+<body id="<%= yield :body_id %>" class="<%= yield :body_class %>">
+  <%= navbar do %>
+    <%= vertical do %>
+      <%= link_to 'Home', root_path %>
+    <% end %>
+    <%= horizontal do %>
+      <%= nav class: 'navbar-right' do %>
+        <%= link_to 'Dashboard', root_path %>
+        <%= link_to 'Episodes', episodes_path %>
+        <%= link_to 'Seasons', seasons_path %>
+        <%= link_to 'Contestants', contestants_path %>
+        <%= link_to 'Game Day', game_day_path %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-xs-10 col-xs-offset-1">
-      <p class="notice"><%= notice %></p>
-      <p class="alert hidden"><%= alert %></p>
-      <%= yield %>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-xs-10 col-xs-offset-1">
+        <p class="notice"><%= notice %></p>
+
+        <p class="alert hidden"><%= alert %></p>
+        <%= yield %>
+      </div>
     </div>
   </div>
-</div>
 </body>
 </html>

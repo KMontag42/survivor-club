@@ -20,7 +20,10 @@
     <tbody>
     <% @contestants.each do |c| %>
       <tr>
-        <td><%= image_tag c.image_url, class: 'img-responsive img-rounded hidden-xs' %></td>
+        <td>
+          <%= image_tag c.image_url,
+                        class: 'img-responsive img-rounded hidden-xs' %>
+        </td>
         <td><%= link_to c.name, contestant_path(c) %></td>
         <td><%= c.job %></td>
         <td><%= c.age %></td>

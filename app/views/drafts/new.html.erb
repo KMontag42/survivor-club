@@ -1,0 +1,8 @@
+<h1>
+  New Draft
+</h1>
+<hr/>
+<%= form_for Draft.new, :action => :create, :layout => :basic do |f| %>
+  <%= f.select :season_id, Season.all.collect {|p| [ p.name, p.id ] } %>
+  <%= f.submit 'Save' %>
+<% end %>

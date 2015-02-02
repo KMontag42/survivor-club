@@ -1,0 +1,39 @@
+<h1>
+  Drafts
+  <%= link_to 'New', new_draft_path,
+              class: 'btn btn-sm btn-primary pull-right' %>
+  <div class="clearfix"></div>
+</h1>
+<hr/>
+<%= panel_row column_class: 'col-sm-6 col-xs-12' do %>
+  <% if @current_draft %>
+    <%= panel heading: 'Current Draft', context: :success do %>
+      <div class="container-fluid">
+        <div class="col-xs-6">
+            <%= link_to @current_draft.season.name,
+                        season_path(@current_draft.season) %>
+        </div>
+        <div class="col-xs-6">
+          <% @current_draft.contestants.each do |c| %>
+            <p><%= link_to c.name, contestant_path(c) %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+  <% if @last_draft %>
+    <%= panel heading: 'Last Season', context: :warning do %>
+      <div class="container-fluid">
+        <div class="col-xs-6">
+          <%= link_to @last_draft.season.name,
+                      season_path(@last_draft.season) %>
+        </div>
+        <div class="col-xs-6">
+          <% @last_draft.contestants.each do |c| %>
+            <p><%= link_to c.name, contestant_path(c) %></p>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% end %>

@@ -47,6 +47,9 @@ gem 'spring',        group: :development
 # WebSockets!!
 gem 'websocket-rails'
 
+# for sweet alerts
+gem 'sweetalert2'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

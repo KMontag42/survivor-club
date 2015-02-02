@@ -6,9 +6,11 @@
 <div class="clearfix"></div>
 <%= panel_row :column_class => 'col-xs-4' do %>
   <%= panel :heading => 'Contestants', :context => :default do %>
-    <% @season.contestants.each do |c| %>
-      <h2><%= icon :user %> <%= link_to c.name, contestant_path(c) %></h2>
-    <% end %>
+    <div class="container-fluid">
+      <% @season.contestants.each do |c| %>
+        <p><%= icon :user %> <%= link_to c.name, contestant_path(c) %></p>
+      <% end %>
+    </div>
   <% end %>
   <%= panel :heading => 'Winner', :context => :success do %>
   <% end %>

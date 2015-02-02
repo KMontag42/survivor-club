@@ -7,10 +7,13 @@
 #  number     :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  draft_id   :integer
 #
 
 class Season < ActiveRecord::Base
   has_many :episodes
   has_many :contestants_seasons, class_name: "ContestantsSeasons"
   has_many :contestants, through: :contestants_seasons
+
+  has_one :draft
 end

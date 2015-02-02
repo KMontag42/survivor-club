@@ -5,12 +5,17 @@
 </h1>
 <hr/>
 <div class="clearfix"></div>
-<%= panel_row :column_class => 'col-xs-4' do %>
-  <%= panel :heading => 'Seasons', :context => :success do %>
+<%= panel_row column_class: 'col-xs-4' do %>
+  <%= panel heading: 'Seasons', context: :success do %>
     <div class="container-fluid">
       <% @contestant.seasons.each do |s| %>
         <p><%= link_to s.name, season_path(s) %></p>
       <% end %>
+    </div>
+  <% end %>
+  <%= panel heading: 'Notes', context: :default do %>
+    <div class="container-fluid">
+
     </div>
   <% end %>
 <% end %>

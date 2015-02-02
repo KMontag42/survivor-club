@@ -2,8 +2,10 @@ class DraftsController < ApplicationController
   before_action :authenticate_user!
 
   def index
+    # most recently made Draft
     @current_draft = Draft.last
-    @last_draft = Draft.first
+    # previous Draft
+    @last_draft = Draft.first unless Draft.first == Draft.last
   end
 
   def new

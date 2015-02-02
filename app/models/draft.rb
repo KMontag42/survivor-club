@@ -14,6 +14,4 @@
 
 class Draft < ActiveRecord::Base
   belongs_to :season
-  has_many :drafts_contestants, class_name: "DraftsContestants"
-  has_many :contestants, through: :drafts_contestants
 end

@@ -10,11 +10,13 @@
     <%= panel heading: 'Current Draft', context: :success do %>
       <div class="container-fluid">
         <div class="col-xs-6">
-            <%= link_to @current_draft.season.name,
-                        season_path(@current_draft.season) %>
+          <h4>Season</h4>
+          <%= link_to @current_draft.season.name,
+                      draft_path(@current_draft) %>
         </div>
         <div class="col-xs-6">
-          <% @current_draft.contestants.each do |c| %>
+          <h4>Contestants</h4>
+          <% @current_draft.season.contestants.each do |c| %>
             <p><%= link_to c.name, contestant_path(c) %></p>
           <% end %>
         </div>
@@ -25,11 +27,13 @@
     <%= panel heading: 'Last Season', context: :warning do %>
       <div class="container-fluid">
         <div class="col-xs-6">
+          <h4>Season</h4>
           <%= link_to @last_draft.season.name,
-                      season_path(@last_draft.season) %>
+                      draft_path(@last_draft) %>
         </div>
         <div class="col-xs-6">
-          <% @last_draft.contestants.each do |c| %>
+          <h4>Contestants</h4>
+          <% @last_draft.season.contestants.each do |c| %>
             <p><%= link_to c.name, contestant_path(c) %></p>
           <% end %>
         </div>

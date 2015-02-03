@@ -1,7 +1,7 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-$(document).on 'ready page:load', ->
+$(document).ready ->
   $('body').on 'click', '.character-row', (event) ->
     target = $(event.target)
     contestant_id = target.parent().data 'id'

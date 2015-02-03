@@ -56,6 +56,7 @@
             <th></th>
           </tr>
           </thead>
+          <tbody style="height: 400px; overflow: auto;">
           <% contestants.try(:each) do |c| %>
             <tr>
               <td><%= icon :plus %></td>
@@ -66,43 +67,41 @@
               <td><%= icon :asterisk %></td>
             </tr>
           <% end %>
+          </tbody>
         </table>
       </div>
     </div>
   </div>
   <div class="col-xs-3">
-    <div class="panel panel-default">
+    <div class="panel panel-success">
       <div class="panel-heading">
-        SOMETHING GOES HERE
+        Your Money Picks
       </div>
-      <div class="panel-body">
-        SOMETHING TOTALLY <br/>
-        GOES HERE FOR <br/>
-        SURE BRO
+      <div class="panel-body" style="height: 75px; overflow: auto;">
+        <p>Contestant 1</p>
+        <p>Contestant 2</p>
+        <p>Contestant 3</p>
+        <p>Contestant 4</p>
       </div>
     </div>
-    <div class="panel panel-default">
+    <div class="panel panel-warning">
       <div class="panel-heading">
-        SOMETHING GOES HERE
+        Your Drinking Picks
       </div>
-      <div class="panel-body">
-        SOMETHING TOTALLY <br/>
-        GOES HERE FOR
+      <div class="panel-body" style="height: 75px; overflow: auto;">
+        <p>Contestant 1</p>
+        <p>Contestant 2</p>
+        <p>Contestant 3</p>
+        <p>Contestant 4</p>
+        <p>Contestant 5</p>
       </div>
     </div>
-    <div class="panel panel-default draft-chat">
-      <div class="panel-heading">
-        Chat
-      </div>
-      <div class="panel-body">
-        <div class="chat"></div>
-        <br/>
-        <form class="">
-          <input type="text" id="chat-line" class="form-control"
-                 placeholder="Message"/>
-          <button class="btn btn-primary send-chat form-control">Send</button>
-        </form>
-      </div>
+    <div class="chat"></div>
+    <form class="">
+      <input type="text" id="chat-line" class="form-control"
+             placeholder="Message"/>
+      <button class="btn btn-primary send-chat form-control">Send</button>
+    </form>
     </div>
   </div>
   <div class="clearfix"></div>

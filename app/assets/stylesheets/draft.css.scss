@@ -9,6 +9,8 @@
 .contestant-table {
   height: 375px;
   overflow: auto;
+  margin-bottom: 1rem;
+
   @media(max-width: 768px) {
     height: 250px;
   }

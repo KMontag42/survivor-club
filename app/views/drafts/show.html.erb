@@ -5,7 +5,12 @@
     <div class="panel panel-default">
       <div class="panel-body text-center">
         <h2 class="textfill"><span>Time Left</span></h2>
-        <h4 class="textfill"><span class="text-muted">Round 1</span></h4>
+        <h4 class="textfill">
+          <span class="text-muted round-display"
+                data-round="1" data-round-type="money">
+            Round 1
+          </span>
+        </h4>
         <h3 class="textfill"><span class="countdown"></span></h3>
       </div>
     </div>
@@ -41,7 +46,10 @@
           </div>
           <div class="col-sm-8 col-xs-12">
             <br class="visible-xs-block"/>
-            <span class="btn btn-success center-block">DRAFT</span>
+            <span class="btn btn-success center-block draft-contestant"
+                  data-id="<%= ct.id %>" data-name="<%= ct.name %>">
+              DRAFT
+            </span>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -84,23 +92,14 @@
       <div class="panel-heading">
         Your Money Picks
       </div>
-      <div class="panel-body" style="height: 75px; overflow: auto;">
-        <p>Contestant 1</p>
-        <p>Contestant 2</p>
-        <p>Contestant 3</p>
-        <p>Contestant 4</p>
+      <div class="panel-body money-picks">
       </div>
     </div>
     <div class="panel panel-warning">
       <div class="panel-heading">
         Your Drinking Picks
       </div>
-      <div class="panel-body" style="height: 75px; overflow: auto;">
-        <p>Contestant 1</p>
-        <p>Contestant 2</p>
-        <p>Contestant 3</p>
-        <p>Contestant 4</p>
-        <p>Contestant 5</p>
+      <div class="panel-body drinking-picks">
       </div>
     </div>
     <div class="chat"></div>

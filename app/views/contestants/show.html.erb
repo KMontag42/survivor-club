@@ -1,16 +1,16 @@
 <h1>
   <div class="row">
-    <div class="col-xs-11">
-      <%= image_tag @contestant.image_url, class: 'img-rounded col-xs-1' %>
-      <%= @contestant.name %> - <span class="text-muted"><%= @contestant.job %></span>
+    <div class="col-sm-11 col-xs-8 textfill">
+      <%= image_tag @contestant.image_url, class: 'img-rounded col-sm-1 hidden-xs' %>
+      <span><%= @contestant.name %> - <span class="text-muted"><%= @contestant.job %></span></span>
     </div>
-    <div class="col-xs-1 text-right">
+    <div class="col-sm-1 col-xs-4 text-right">
       <%= link_to 'Edit', edit_contestant_path(@contestant), :class => 'btn btn-primary btn-sm' %>
     </div>
   </div>
 </h1>
 <hr/>
-<%= panel_row column_class: 'col-xs-4' do %>
+<%= panel_row column_class: 'col-sm-4 col-xs-12' do %>
   <%= panel heading: 'Seasons', context: :success do %>
     <div class="container-fluid">
       <% @contestant.seasons.each do |s| %>

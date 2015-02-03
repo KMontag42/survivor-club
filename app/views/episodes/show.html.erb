@@ -1,20 +1,23 @@
 <h1>
   <div class="row">
-    <div class="col-xs-11">
-      <%= @episode.name %> - <%= @episode.season.try(:name) %>
+    <div class="col-sm-6 col-xs-10 textfill">
+      <span><%= @episode.name %></span>
     </div>
-    <div class="col-xs-1 text-right">
+    <div class="col-sm-5 hidden-xs textfill">
+        <span><%= @episode.season.try(:name) %></span>
+    </div>
+    <div class="col-sm-1 col-xs-2 text-right">
       <%= link_to 'Edit', edit_episode_path(@episode),
                   class: 'btn btn-primary btn-sm' %>
     </div>
   </div>
 </h1>
 <hr/>
-<%= panel_row :column_class => 'col-xs-6' do %>
+<%= panel_row :column_class => 'col-sm-6 col-xs-12' do %>
   <%= panel :heading => 'Contestants', :context => :success do %>
-    <h2><%= icon :user %> Voted Out</h2>
+    <p><%= icon :user %> Voted Out</p>
   <% end %>
   <%= panel :heading => 'Pool Players', :context => :warning do %>
-    <h2><%= icon :flash %> Knocked Out</h2>
+    <p><%= icon :flash %> Knocked Out</p>
   <% end %>
 <% end %>

@@ -11,16 +11,18 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
 //= require bootstrap
 //= require sweetalert2
 //= require jquery.countdown
 //= require moment
-//= require turbolinks
-//= require_tree .
 //= require websocket_rails/main
+//= require_tree .
+//= require turbolinks
 
 // global namespace
 var App = {};
 App.globals = {};
 App.globals.user = {};
+App.globals.dispatcher = new WebSocketRails('<%= Rails.application.config.survivor_club[:websocket_url] %>');

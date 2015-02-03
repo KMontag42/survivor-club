@@ -1,16 +1,20 @@
 # Place all the behaviors and hooks related to the matching controller here.
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
-$(document).on 'ready page:load', ->
-  dispatcher = new WebSocketRails('<%= Rails.application.config.survivor_club[:websocket_url] %>')
-  dispatcher.bind 'send_chat', (data) ->
-    console.log(data.message) # would output 'this is a message'
-    $(".chat").append(
-      "<p>#{data.user}: #{data.message}</p>"
-    )
+$(document).ready ->
+  if $('.chat').length > 0
+    dispatcher = App.globals.dispatcher
+    dispatcher.unbind 'send_chat'
+    dispatcher.bind 'send_chat', (data) ->
+      console.log 'send_chat triggered'
+      $(".chat").append(
+        "<p>#{data.user}: #{data.message}</p>"
+      )
 
-  $('.send-chat').on 'click', (e)->
-    e.preventDefault()
-    target = $(e.target)
-    dispatcher.trigger('send_chat', {message: $("#chat-line").val(), user: App.globals.user.name})
-    $("#chat-line").val('')
+    $('.send-chat').off 'click'
+    $('.send-chat').on 'click', (e)->
+      console.log 'clicked send-chat'
+      e.preventDefault()
+      target = $(e.target)
+      dispatcher.trigger('send_chat', {message: $("#chat-line").val(), user: App.globals.user.name})
+      $("#chat-line").val('')

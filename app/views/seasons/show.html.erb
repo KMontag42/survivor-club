@@ -7,12 +7,19 @@
   background-size: cover;
 <% end %>
 <h1>
-  <%= @season.name %>
-  <%= link_to 'Draft', draft_path(@season.draft), class: 'btn btn-primary btn-sm pull-right' if @season.draft %>
-  <%= link_to 'Edit', edit_season_path(@season), :class => 'btn btn-primary btn-sm pull-right' %>
+  <div class="row">
+    <div class="col-xs-10">
+      <%= @season.name %>
+    </div>
+    <div class="col-xs-1 text-right">
+      <%= link_to 'Draft', draft_path(@season.draft), class: 'btn btn-warning btn-sm' if @season.draft %>
+    </div>
+    <div class="col-xs-1 text-right">
+      <%= link_to 'Edit', edit_season_path(@season), :class => 'btn btn-primary btn-sm' %>
+    </div>
+  </div>
 </h1>
 <hr/>
-<div class="clearfix"></div>
 <%= panel_row :column_class => 'col-xs-4' do %>
   <%= panel :heading => 'Contestants', :context => :default do %>
     <div class="container-fluid">

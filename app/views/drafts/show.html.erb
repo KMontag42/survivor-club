@@ -10,7 +10,7 @@
         TIME LEFT TO PICK
       </div>
     </div>
-    <%= panel heading: 'Round 1', context: :info, class: 'text-center' do %>
+    <%= panel heading: 'Round 1', context: :info, class: 'text-center contestants-panel' do %>
       <% User.all.each do |u| %>
         <p><%= u.email %></p>
       <% end %>
@@ -38,12 +38,72 @@
             <span>MORE SHIT GOES HERE</span>
             <p>EVEN MORE GOES HERE</p>
         </div>
+        <div class="clearfix"></div>
       </div>
       <div class="clearfix"></div>
     <% end %>
+    <div class="row">
+      <div class="col-xs-12">
+        <table class="table table-striped" style="height: 400px; overflow: auto;">
+          <thead>
+          <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Job</th>
+            <th>Hometown</th>
+            <th>Tribe</th>
+            <th></th>
+          </tr>
+          </thead>
+          <% contestants.each do |c| %>
+            <tr>
+              <td><%= icon :plus %></td>
+              <td><%= c.name %></td>
+              <td><%= c.age %></td>
+              <td><%= c.job %></td>
+              <td><%= c.hometown %></td>
+              <td><%= icon :asterisk %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
   </div>
   <div class="col-xs-3">
-
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        SOMETHING GOES HERE
+      </div>
+      <div class="panel-body">
+        SOMETHING TOTALLY <br/>
+        GOES HERE FOR <br/>
+        SURE BRO
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        SOMETHING GOES HERE
+      </div>
+      <div class="panel-body">
+        SOMETHING TOTALLY <br/>
+        GOES HERE FOR
+      </div>
+    </div>
+    <div class="panel panel-default draft-chat">
+      <div class="panel-heading">
+        Chat
+      </div>
+      <div class="panel-body">
+        <div class="chat"></div>
+        <br/>
+        <form class="">
+          <input type="text" id="chat-line" class="form-control"
+                 placeholder="Message"/>
+          <button class="btn btn-primary send-chat form-control">Send</button>
+        </form>
+      </div>
+    </div>
   </div>
   <div class="clearfix"></div>
 </div>

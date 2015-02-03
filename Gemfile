@@ -56,6 +56,8 @@ gem 'sweetalert2'
 gem 'jquery-countdown-rails'
 gem 'momentjs-rails'
 
+# for super awesome css animations
+gem 'animate-scss'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

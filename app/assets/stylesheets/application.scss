@@ -12,7 +12,6 @@
  *
  *= require_tree .
  *= require sweetalert2
- *= require jquery.countdown
  *= require_self
  */
 
@@ -22,3 +21,6 @@
 @import "bootstrap";
 
 @import "bootswatch/flatly/bootswatch";
+
+@import 'animate';
+@import 'animate/pulse';

@@ -1,12 +1,12 @@
 <% season = @draft.try(:season) %>
 <% contestants = season.try(:contestants) if season %>
 <div class="row">
-  <div class="col-xs-3">
+  <div class="col-sm-3">
     <div class="panel panel-default">
       <div class="panel-body text-center">
-        <h2>Time Left</h2>
-        <h4 class="text-muted">Round 1:</h4>
-        <h3 class="countdown">2:00</h3>
+        <h2 class="textfill"><span>Time Left</span></h2>
+        <h4 class="textfill"><span class="text-muted">Round 1</span></h4>
+        <h3 class="textfill"><span class="countdown"></span></h3>
       </div>
     </div>
     <%= panel heading: 'Round 1 - Cash', context: :info, class: 'text-center contestants-panel' do %>
@@ -15,7 +15,7 @@
       <% end %>
     <% end %>
   </div>
-  <div class="col-xs-6">
+  <div class="col-sm-6">
     <% contestants.each_with_index do |ct, i| %>
       <% if i > 0 %>
         <% panel_class = 'hidden character-info' %>
@@ -24,24 +24,26 @@
       <% end %>
       <%= panel class: panel_class, data: {id: ct.id} do %>
         <div class="row">
-          <div class="col-xs-5" style="font-size: 32px;">
+          <div class="col-sm-5 textfill">
             <span><%= ct.name %></span>
           </div>
-          <div class="col-xs-4" style="font-size: 16px;">
+          <div class="col-sm-4 textfill">
             <span><%= ct.age %> - <%= ct.job %></span>
           </div>
-          <div class="col-xs-3 text-muted" style="font-size: 16px;">
+          <div class="col-sm-3 text-muted textfill">
             <span><%= ct.hometown %></span>
           </div>
           <div class="clearfix"></div>
         </div>
         <div class="row">
-          <div class="col-xs-4">
+          <div class="col-sm-4">
             <%= image_tag ct.image_url, class:'img-responsive' %>
           </div>
-          <div class="col-xs-8">
+          <div class="col-sm-8">
             <span class="btn btn-success">DRAFT</span>
-            <span>MORE SHIT GOES HERE</span>
+            <span class="textfill">
+              <span>MORE SHIT GOES HERE</span>
+            </span>
           </div>
           <div class="clearfix"></div>
         </div>
@@ -49,7 +51,7 @@
       <% end %>
     <% end %>
     <div class="row">
-      <div class="col-xs-12" style="height: 375px; overflow: auto;">
+      <div class="col-sm-12" style="height: 375px; overflow: auto;">
         <table class="table table-striped table-hover">
           <thead>
           <tr>
@@ -78,7 +80,7 @@
       </div>
     </div>
   </div>
-  <div class="col-xs-3">
+  <div class="col-sm-3">
     <div class="panel panel-success">
       <div class="panel-heading">
         Your Money Picks

@@ -1,9 +1,17 @@
 <h1>
-  <%= @user.name %>
-  <%= link_to 'Edit Profile', edit_user_path(@user),
-              class: 'btn btn-primary btn-sm pull-right' %>
-  <%= link_to 'Logout', destroy_user_session_path(@user),
-              class: 'btn btn-primary btn-sm pull-right', method: :delete %>
+  <div class="row">
+      <div class="col-xs-10">
+        <%= @user.name %>
+      </div>
+    <div class="col-xs-1 text-right">
+      <%= link_to 'Edit Profile', edit_user_path(@user),
+                  class: 'btn btn-primary btn-sm' %>
+    </div>
+    <div class="col-xs-1 text-right">
+      <%= link_to 'Logout', destroy_user_session_path(@user),
+                  class: 'btn btn-primary btn-sm', method: :delete %>
+    </div>
+  </div>
   <div class="clearfix"></div>
 </h1>
 <hr/>

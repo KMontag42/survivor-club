@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   root 'welcome#index'
   get 'game_day', to: 'game_day#index', as: 'game_day'
-  resources :seasons, :episodes, :contestants, :drafts
+  resources :seasons, :episodes, :contestants, :drafts, :tribes
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

@@ -1,5 +1,6 @@
 <%= form_for Season.new, :action => :create, :layout => :basic do |f| %>
   <%= f.number_field :number %>
   <%= f.text_field :name %>
+  <%= f.text_field :image_url %>
   <%= f.submit 'Save' %>
 <% end %>

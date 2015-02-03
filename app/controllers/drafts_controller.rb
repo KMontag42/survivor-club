@@ -12,9 +12,11 @@ class DraftsController < ApplicationController
   end
 
   def show
+    @draft = Draft.find(params[:id])
   end
 
   def edit
+    @draft = Draft.find(params[:id])
   end
 
   def create

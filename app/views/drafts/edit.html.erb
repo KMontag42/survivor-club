@@ -1,2 +1,8 @@
-<h1>Draft#edit</h1>
-<p>Find me in app/views/draft/edit.html.erb</p>
+<h1>
+  Edit Draft - <%= @draft.season.name %>
+</h1>
+<hr/>
+<%= form_for @draft, action: :update, layout: :basic do |f| %>
+  <%= f.select :season_id, Season.all.collect {|p| [ p.name, p.id ] } %>
+  <%= f.submit 'Save' %>
+<% end %>

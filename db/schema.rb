@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150202133741) do
+ActiveRecord::Schema.define(version: 20150203012919) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20150202133741) do
   end
 
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
+
+  create_table "contestant_tribes", force: true do |t|
+    t.integer  "contestant_id"
+    t.integer  "tribe_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contestant_tribes", ["contestant_id"], name: "index_contestant_tribes_on_contestant_id", using: :btree
+  add_index "contestant_tribes", ["tribe_id"], name: "index_contestant_tribes_on_tribe_id", using: :btree
 
   create_table "contestants", force: true do |t|
     t.string   "name"
@@ -216,7 +226,18 @@ ActiveRecord::Schema.define(version: 20150202133741) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "draft_id"
+    t.string   "image_url"
   end
+
+  create_table "tribes", force: true do |t|
+    t.string   "name"
+    t.string   "color"
+    t.integer  "season_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "tribes", ["season_id"], name: "index_tribes_on_season_id", using: :btree
 
   create_table "user_events", force: true do |t|
     t.integer  "user_id"

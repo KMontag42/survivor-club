@@ -27,7 +27,9 @@
         <%= link_to 'Contestants', contestants_path %>
         <%= link_to 'Tribes', tribes_path %>
         <%= link_to 'Game Day', game_day_path %>
-        <%= link_to icon(:user), user_path(current_user) %>
+        <% if user_signed_in? %>
+          <%= link_to icon(:user), user_path(current_user) %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

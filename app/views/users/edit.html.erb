@@ -1,0 +1,8 @@
+<h1>Edit - <%= @user.name %></h1>
+<hr/>
+<%= form_for @user, action: :update, layout: :basic do |f| %>
+  <%= f.text_field :first_name %>
+  <%= f.text_field :last_name %>
+  <%= f.text_field :email %>
+  <%= f.submit 'Save' %>
+<% end %>

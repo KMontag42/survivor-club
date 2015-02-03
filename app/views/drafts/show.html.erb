@@ -12,7 +12,7 @@
     </div>
     <%= panel heading: 'Round 1', context: :info, class: 'text-center contestants-panel' do %>
       <% User.all.each do |u| %>
-        <p><%= u.email %></p>
+        <p><%= u.name %></p>
       <% end %>
     <% end %>
   </div>

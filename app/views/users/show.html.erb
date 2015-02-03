@@ -1,0 +1,9 @@
+<h1>
+  <%= @user.name %>
+  <%= link_to 'Edit Profile', edit_user_path(@user),
+              class: 'btn btn-primary btn-sm pull-right' %>
+  <%= link_to 'Logout', destroy_user_session_path(@user),
+              class: 'btn btn-primary btn-sm pull-right', method: :delete %>
+  <div class="clearfix"></div>
+</h1>
+<hr/>

@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'game_day', to: 'game_day#index', as: 'game_day'
   resources :seasons, :episodes, :contestants, :drafts, :tribes
+  resources :users, except: :show
+  get "users/:id/profile", to: "users#show", as: "user_path"
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

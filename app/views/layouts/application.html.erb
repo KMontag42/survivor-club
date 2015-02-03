@@ -7,6 +7,7 @@
   <%= csrf_meta_tags %>
   <script type="text/javascript">
     App.globals.user.email = '<%= current_user.try(:email) %>';
+    App.globals.user.name = '<%= current_user.try(:name) %>';
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -26,6 +27,9 @@
         <%= link_to 'Contestants', contestants_path %>
         <%= link_to 'Tribes', tribes_path %>
         <%= link_to 'Game Day', game_day_path %>
+        <% if user_signed_in? %>
+          <%= link_to icon(:user), user_path(current_user) %>
+        <% end %>
       <% end %>
     <% end %>
   <% end %>

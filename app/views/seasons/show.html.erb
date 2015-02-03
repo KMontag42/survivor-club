@@ -1,5 +1,6 @@
 <h1>
   <%= @season.name %>
+  <%= link_to 'Draft', draft_path(@season.draft), class: 'btn btn-primary btn-sm pull-right' if @season.draft %>
   <%= link_to 'Edit', edit_season_path(@season), :class => 'btn btn-primary btn-sm pull-right' %>
 </h1>
 <hr/>

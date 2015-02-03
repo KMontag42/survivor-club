@@ -25,6 +25,9 @@ class Contestant < ActiveRecord::Base
   has_many :contestants_seasons, class_name: "ContestantsSeasons"
   has_many :seasons, through: :contestants_seasons
 
+  has_many :contestant_tribes
+  has_many :tribes, through: :contestant_tribes
+
   def self.create(params)
     _params = params
     seasons = _params.delete :seasons

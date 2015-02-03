@@ -1,11 +1,17 @@
 $(document).ready ->
+  countdown_elements = $('.countdown')
+  round_display = $('.round-display')
   reset_countdown = ->
-    $('.countdown').countdown('pause')
-    $('.countdown').addClass 'animated pulse'
+    countdown_elements.countdown('pause')
+    countdown_elements.addClass 'animated pulse'
+
     setTimeout( ->
-      $('.countdown').removeClass 'animated pulse'
-      $('.countdown').countdown('destroy')
-      $('.countdown').countdown(
+      current_round = parseInt round_display.data('round')
+      round_display.html("Round #{current_round + 1}")
+      round_display.data 'round', current_round + 1
+      countdown_elements.removeClass 'animated pulse'
+      countdown_elements.countdown('destroy')
+      countdown_elements.countdown(
         {
           compact: true,
           until: moment().add(10, 'seconds').toDate(),
@@ -14,8 +20,7 @@ $(document).ready ->
       )
     , 3000)
 
-
-  $('.countdown').countdown(
+  countdown_elements.countdown(
     {
       compact: true,
       until: moment().add(10, 'seconds').toDate(),

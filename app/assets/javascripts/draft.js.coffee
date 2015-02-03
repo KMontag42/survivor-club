@@ -7,3 +7,4 @@ $(document).ready ->
     contestant_id = target.parent().data 'id'
     $(".character-info:visible").addClass('hidden')
     $(".character-info[data-id=#{contestant_id}]").removeClass('hidden')
+

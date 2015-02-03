@@ -5,7 +5,12 @@
     <div class="panel panel-default">
       <div class="panel-body text-center">
         <h2 class="textfill"><span>Time Left</span></h2>
-        <h4 class="textfill"><span class="text-muted">Round 1</span></h4>
+        <h4 class="textfill">
+          <span class="text-muted round-display"
+                data-round="1">
+            Round 1
+          </span>
+        </h4>
         <h3 class="textfill"><span class="countdown"></span></h3>
       </div>
     </div>
@@ -41,7 +46,10 @@
           </div>
           <div class="col-sm-8 col-xs-12">
             <br class="visible-xs-block"/>
-            <span class="btn btn-success center-block">DRAFT</span>
+            <span class="btn btn-success center-block draft-contestant"
+                  data-id="<%= ct.id %>" data-name="<%= ct.name %>">
+              DRAFT
+            </span>
           </div>
           <div class="clearfix"></div>
         </div>

@@ -11,7 +11,7 @@
     </div>
     <%= panel heading: 'Round 1 - Cash', context: :info, class: 'text-center contestants-panel' do %>
       <% User.all.each do |u| %>
-        <p><%= u.name %></p>
+        <p><%= u.name == ' ' ? u.email : u.name%></p>
       <% end %>
     <% end %>
   </div>

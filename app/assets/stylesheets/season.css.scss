@@ -1,7 +1,5 @@
-body.season-bg {
-  color: white;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+body {
+  &.season-bg {
+    color: #ffffff;
+  }
 }

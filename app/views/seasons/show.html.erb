@@ -1,6 +1,9 @@
 <%= content_for :body_class do 'season-bg' end %>
 <%= content_for :body_style do %>
   background: url(<%= @season.image_url %>) no-repeat center center fixed;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  -webkit-background-size: cover;
   background-size: cover;
 <% end %>
 <h1>

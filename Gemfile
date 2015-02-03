@@ -50,6 +50,9 @@ gem 'websocket-rails'
 # for sweet alerts
 gem 'sweetalert2'
 
+gem 'jquery-countdown-rails'
+gem 'momentjs-rails'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

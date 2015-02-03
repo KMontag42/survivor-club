@@ -1,6 +1,17 @@
 .contestants-panel {
   height: 380px;
   overflow: auto;
+  @media(max-width: 768px) {
+    height: 150px;
+  }
+}
+
+.contestant-table {
+  height: 375px;
+  overflow: auto;
+  @media(max-width: 768px) {
+    height: 145px;
+  }
 }
 
 .draft-chat {

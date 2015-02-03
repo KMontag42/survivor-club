@@ -1,5 +1,5 @@
 GIT
-  remote: git@github.com:websocket-rails/websocket-rails.git
+  remote: git://github.com/websocket-rails/websocket-rails.git
   revision: 712fd4e35325887956724be388821121a866c7fc
   branch: master
   specs:

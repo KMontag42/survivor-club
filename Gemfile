@@ -47,7 +47,7 @@ gem 'spring',        group: :development
 
 # WebSockets!!
 gem 'websocket-rails',
-    git: 'git@github.com:websocket-rails/websocket-rails.git',
+    git: 'git://github.com/websocket-rails/websocket-rails.git',
     branch: 'master'
 
 # for sweet alerts

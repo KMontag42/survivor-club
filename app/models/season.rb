@@ -8,6 +8,7 @@
 #  created_at :datetime
 #  updated_at :datetime
 #  draft_id   :integer
+#  image_url  :string(255)
 #
 
 class Season < ActiveRecord::Base

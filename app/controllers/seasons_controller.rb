@@ -30,6 +30,6 @@ class SeasonsController < ApplicationController
   private
 
   def season_params
-    params.require(:season).permit(:number, :name)
+    params.require(:season).permit(:number, :name, :image_url)
   end
 end

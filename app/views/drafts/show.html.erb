@@ -1,2 +1,49 @@
-<h1>Draft#show</h1>
-<p>Find me in app/views/draft/show.html.erb</p>
+<% season = @draft.season %>
+<% contestants = season.contestants %>
+<div class="row">
+  <div class="col-xs-3">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        TIME LEFT TO PICK
+        TIME LEFT TO PICK
+        TIME LEFT TO PICK
+        TIME LEFT TO PICK
+      </div>
+    </div>
+    <%= panel heading: 'Round 1', context: :info, class: 'text-center' do %>
+      <% User.all.each do |u| %>
+        <p><%= u.email %></p>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="col-xs-6 character-info">
+    <%= panel do %>
+      <div class="row">
+          <div class="col-xs-5" style="font-size: 32px;">
+              <span><%= contestants.first.name %></span>
+          </div>
+        <div class="col-xs-4" style="font-size: 16px;">
+            <span><%= contestants.first.age %> - <%= contestants.first.job %></span>
+        </div>
+        <div class="col-xs-3 text-muted" style="font-size: 16px;">
+          <span><%= contestants.first.hometown %></span>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row">
+        <div class="col-xs-4">
+          <%= image_tag contestants.first.image_url, class:'img-responsive' %>
+        </div>
+        <div class="col-xs-8">
+            <span>MORE SHIT GOES HERE</span>
+            <p>EVEN MORE GOES HERE</p>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+    <% end %>
+  </div>
+  <div class="col-xs-3">
+
+  </div>
+  <div class="clearfix"></div>
+</div>

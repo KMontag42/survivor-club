@@ -24,6 +24,7 @@ $(document).ready ->
     target.addClass('disabled')
 
   countdown_elements = $('.countdown')
+  contestants_panel = $('.contestants-panel')
   reset_countdown = ->
     countdown_elements.countdown('pause')
     countdown_elements.addClass 'animated pulse'
@@ -32,19 +33,31 @@ $(document).ready ->
       current_round = parseInt round_display.data('round')
       round_display.html("Round #{current_round + 1}")
       round_display.data 'round', current_round + 1
+
       if current_round + 1 > 3
         round_display.data 'round-type', 'drinking'
         $('.draft-contestant').removeClass 'btn-success'
         $('.draft-contestant').addClass 'btn-warning'
-      countdown_elements.removeClass 'animated pulse'
-      countdown_elements.countdown('destroy')
-      countdown_elements.countdown(
-        {
-          compact: true,
-          until: moment().add(10, 'seconds').toDate(),
-          onExpiry: reset_countdown
-        }
-      )
+
+      current_player = contestants_panel.children('p').first()
+      new_player = current_player.clone()
+
+      current_player.addClass 'animated fadeOutUp'
+      current_player.one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
+        current_player.remove()
+        new_player.show()
+        new_player.addClass 'animated fadeInUp'
+        contestants_panel.append(new_player)
+
+        countdown_elements.removeClass 'animated pulse'
+        countdown_elements.countdown('destroy')
+        countdown_elements.countdown(
+          {
+            compact: true,
+            until: moment().add(10, 'seconds').toDate(),
+            onExpiry: reset_countdown
+          }
+        )
     , 3000)
 
   countdown_elements.countdown(

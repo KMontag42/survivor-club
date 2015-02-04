@@ -43,7 +43,7 @@ $(document).ready ->
       new_player = current_player.clone()
 
       current_player.addClass 'animated fadeOutUp'
-      current_player.one 'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', ->
+      current_player.one App.globals.animation_event_callback, ->
         current_player.remove()
         new_player.show()
         new_player.addClass 'animated fadeInUp'

@@ -26,3 +26,5 @@ var App = {};
 App.globals = {};
 App.globals.user = {};
 App.globals.dispatcher = new WebSocketRails('<%= Rails.application.config.survivor_club[:websocket_url] %>');
+App.globals.animation_event_callback =
+  'webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend';

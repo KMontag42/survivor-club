@@ -1,5 +1,6 @@
 <% season = @draft.try(:season) %>
 <% contestants = season.try(:contestants) if season %>
+<% users = User.all.sort %>
 <div class="row">
   <div class="col-sm-3 col-xs-12">
     <div class="panel panel-default">
@@ -11,12 +12,15 @@
             Round 1
           </span>
         </h4>
+        <p class="contestant-name text-success"><%= users.first.name %></p>
         <h3 class="textfill"><span class="countdown"></span></h3>
       </div>
     </div>
     <%= panel heading: 'Round 1 - Cash', context: :info, class: 'text-center contestants-panel' do %>
-      <% User.all.each do |u| %>
-        <p class="textfill"><span><%= u.name == ' ' ? u.email : u.name%></span></p>
+      <% users.each do |u| %>
+        <p class="textfill" data-name="<%= u.name %>">
+          <span><%= u.name %></span>
+        </p>
       <% end %>
     <% end %>
   </div>
@@ -108,7 +112,6 @@
              placeholder="Message"/>
       <button class="btn btn-primary send-chat form-control">Send</button>
     </form>
-    </div>
   </div>
   <div class="clearfix"></div>
 </div>

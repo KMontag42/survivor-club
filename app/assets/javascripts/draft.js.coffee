@@ -3,6 +3,9 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   round_display = $('.round-display')
+  countdown_elements = $('.countdown')
+  contestants_panel = $('.contestants-panel')
+  contestant_name = $('.contestant-name')
 
   $('body').on 'click', '.character-row', (event) ->
     target = $(event.target)
@@ -15,16 +18,17 @@ $(document).ready ->
     target = $(event.target)
     contestant_name = target.data 'name'
     round_type = round_display.data 'round-type'
-
+    # this is where we make the event call,
+    # and then a listener handles the visual update
     if round_type == 'money'
       $('.money-picks').append "<p>#{contestant_name}</p>"
     else
       $('.drinking-picks').append "<p>#{contestant_name}</p>"
 
     target.addClass('disabled')
+#    else
+#      swal 'Whoops!', "You aren't the active player", 'error'
 
-  countdown_elements = $('.countdown')
-  contestants_panel = $('.contestants-panel')
   reset_countdown = ->
     countdown_elements.countdown('pause')
     countdown_elements.addClass 'animated pulse'
@@ -45,9 +49,13 @@ $(document).ready ->
       current_player.addClass 'animated fadeOutUp'
       current_player.one App.globals.animation_event_callback, ->
         current_player.remove()
+        next_player = contestants_panel.children('p').first()
+
         new_player.show()
         new_player.addClass 'animated fadeInUp'
         contestants_panel.append(new_player)
+
+        contestant_name.html(next_player.data('name'))
 
         countdown_elements.removeClass 'animated pulse'
         countdown_elements.countdown('destroy')

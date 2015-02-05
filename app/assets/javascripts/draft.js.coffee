@@ -17,13 +17,19 @@ $(document).ready ->
     event.preventDefault()
     target = $(event.target)
     contestant_name = target.data 'name'
+    contestant_id = target.data 'id'
+    contestant_tr = $("[data-id=#{contestant_id}]")
     round_type = round_display.data 'round-type'
+
+    contestant_tr.addClass('danger disabled')
     # this is where we make the event call,
     # and then a listener handles the visual update
     if round_type == 'money'
       $('.money-picks').append "<p>#{contestant_name}</p>"
     else
       $('.drinking-picks').append "<p>#{contestant_name}</p>"
+
+
 
     target.addClass('disabled')
 #    else

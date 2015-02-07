@@ -35,6 +35,6 @@ class User < ActiveRecord::Base
 
   def name
     name = "#{first_name} #{last_name}"
-    name == ' ' ? self.email : name
+    name == " " ? email : name
   end
 end

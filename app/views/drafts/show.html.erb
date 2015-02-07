@@ -1,7 +1,8 @@
 <% season = @draft.try(:season) %>
 <% contestants = season.try(:contestants) if season %>
 <% users = User.all.sort %>
-<div class="row">
+<%= content_for :body_id do 'draft' end %>
+<div class="row hidden" id="draft_container">
   <div class="col-sm-3 col-xs-12">
     <div class="panel panel-default">
       <div class="panel-body text-center">

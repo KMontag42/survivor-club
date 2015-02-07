@@ -14,4 +14,7 @@
 
 class Draft < ActiveRecord::Base
   belongs_to :season
+  has_many :picks
+
+  ROUND_TYPE = %w(cash drinking)
 end

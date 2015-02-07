@@ -19,4 +19,9 @@ WebsocketRails::EventMap.describe do
 
   subscribe :contestant_clicked, to: LiveController,
                                  with_method: :contestant_clicked
+
+  namespace :drafts do
+    subscribe :next_player, to: DraftEventsController, with_method: :next_player
+    subscribe :join_draft, to: DraftEventsController, with_method: :join_draft
+  end
 end

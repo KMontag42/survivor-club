@@ -34,6 +34,7 @@ class User < ActiveRecord::Base
   has_many :contestants, through: :contestants_users
 
   def name
-    "#{first_name} #{last_name}"
+    name = "#{first_name} #{last_name}"
+    name == " " ? email : name
   end
 end

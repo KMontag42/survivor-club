@@ -20,12 +20,12 @@ $(document).ready ->
       $("#draft_container").removeClass 'hidden'
 
     swal({
-        title: 'Ready to join the draft?',
-        text: 'THE TIME IS NOW',
-        type: 'success'
-        showCancelButton: true,
-        confirmButtonText: 'Join'
-      }, (confirm) ->
+      title: 'Ready to join the draft?',
+      text: 'THE TIME IS NOW',
+      type: 'success'
+      showCancelButton: true,
+      confirmButtonText: 'Join'
+    }, (confirm) ->
       if confirm
         dispatcher.trigger 'drafts.join_draft'
       else

@@ -35,7 +35,6 @@ $(document).ready ->
       contestant_id = parseInt target.data 'id'
       round_type = round_display.data 'round-type'
 
-      target.addClass('disabled')
       dispatcher.trigger('drafts.pick_contestant', {
         user_id: App.globals.user.id,
         draft_id: draft_id,

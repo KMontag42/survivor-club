@@ -34,7 +34,6 @@ class DraftEventsController < WebsocketRails::BaseController
   end
 
   def pick_contestant
-    puts active_player == current_user
     if active_player == current_user
       pick = Pick.new
       pick.draft_id = message["draft_id"]
@@ -62,7 +61,7 @@ class DraftEventsController < WebsocketRails::BaseController
           send_message :pick_contestant,
                        {
                          success: false,
-                         message: "You are not the active player. "+
+                         message: "You are not the active player. " +
                              "Please wait your turn."
                        },
                        namespace: :drafts

@@ -11,6 +11,8 @@ $(document).ready ->
       active_player = data['active_player']
       picks = data['picks']
       players = data['players']
+      player_cash_picks = data['player_cash_picks']
+      player_drinking_picks = data['player_drinking_picks']
 
       new_player_name = active_player['first_name'] + ' ' +
           active_player['last_name']
@@ -31,7 +33,14 @@ $(document).ready ->
           </p>
         ")
 
+      for cash_pick in player_cash_picks
+        $('.money-picks').append "<p>#{cash_pick['name']}</p>"
+
+      for drinking_pick in player_drinking_picks
+        $('.drinking-picks').append "<p>#{drinking_pick['name']}</p>"
+
       round_display.data 'round-type', data['round_type']
+      round_display.data 'round', data['round_number']
       round_display.html("Round #{data['round_number']}")
 
     dispatcher.unbind 'drafts.next_player'

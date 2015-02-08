@@ -31,7 +31,7 @@ class DraftEventsController < WebsocketRails::BaseController
     message = {
       active_player: active_player,
       current_round: controller_store[:current_round],
-      picks: picks.collect { |x| x.contestant_id }
+      picks: picks.map { |x| x.contestant_id }
     }
     broadcast_message :join_draft, message, namespace: :drafts
   end

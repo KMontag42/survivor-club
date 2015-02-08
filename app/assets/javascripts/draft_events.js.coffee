@@ -50,9 +50,10 @@ $(document).ready ->
     dispatcher.bind 'drafts.take_player', (data) ->
       contestant_name = data['contestant_name']
       contestant_id = data['contestant_id']
-      contestant_tr = $("[data-id=#{contestant_id}]")
+      contestant_tr = $(".character-row[data-id=#{contestant_id}]")
       round_type = round_display.data 'round-type'
       contestant_tr.addClass('danger disabled')
+      $(".draft-contestant[data-id=#{contestant_id}]").addClass 'disabled'
 
       if round_type == 'cash'
         $('.money-picks').append "<p>#{contestant_name}</p>"

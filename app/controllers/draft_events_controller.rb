@@ -32,4 +32,42 @@ class DraftEventsController < WebsocketRails::BaseController
     }
     broadcast_message :join_draft, message, namespace: :drafts
   end
+
+  def pick_contestant
+    puts active_player == current_user
+    if active_player == current_user
+      puts 'in the right spot'
+      puts message
+      puts active_player.id
+      pick = Pick.new
+      pick.draft_id = message["draft_id"]
+      pick.contestant_id = message["contestant_id"]
+      pick.type = message["type"]
+      puts " PICK #{pick}"
+      _message = {
+          pick: pick,
+          contestant_name: pick.contestant.name,
+          contestant_id: message["contestant_id"],
+          success: true
+      }
+      if pick.save
+        WebsocketRails.users[message["user_id"]].send_message :take_player,
+                                                              _message,
+                                                              namespace: :drafts
+
+        broadcast_message :pick_contestant, _message, namespace: :drafts
+        next_player
+      end
+    else
+      puts 'in the wrong spot'
+      puts message['user_id']
+      # broadcast message to emitter that they are not the active player
+      WebsocketRails.users[message["user_id"]].send_message :pick_contestant,
+          {
+              success: false,
+              message: "You are not the active player. Please wait your turn."
+          },
+          namespace: :drafts
+    end
+  end
 end

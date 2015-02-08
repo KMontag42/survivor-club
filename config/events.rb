@@ -23,5 +23,7 @@ WebsocketRails::EventMap.describe do
   namespace :drafts do
     subscribe :next_player, to: DraftEventsController, with_method: :next_player
     subscribe :join_draft, to: DraftEventsController, with_method: :join_draft
+    subscribe :pick_contestant, to: DraftEventsController,
+              with_method: :pick_contestant
   end
 end

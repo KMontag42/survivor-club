@@ -8,6 +8,7 @@
   <script type="text/javascript">
     App.globals.user.email = '<%= current_user.try(:email) %>';
     App.globals.user.name = '<%= current_user.try(:name) %>';
+    App.globals.user.id = '<%= current_user.try(:id) %>';
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">

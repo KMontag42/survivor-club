@@ -18,7 +18,6 @@ $(document).ready ->
     dispatcher.unbind 'drafts.next_player'
     dispatcher.bind 'drafts.next_player', (data) ->
       contestant_name = $('.contestant-name')
-      console.log data
       current_player = contestants_panel.children('p').first()
       new_player = current_player.clone()
 
@@ -38,10 +37,6 @@ $(document).ready ->
 
     dispatcher.unbind 'drafts.pick_contestant'
     dispatcher.bind 'drafts.pick_contestant', (data) ->
-      console.log data
-      console.log data['success'] == true
-      console.log data['success'] == 'true'
-      console.log data['success']
       if data['success'] == true
         contestant_name = data['contestant_name']
         contestant_id = data['contestant_id']

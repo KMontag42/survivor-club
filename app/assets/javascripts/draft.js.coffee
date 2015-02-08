@@ -18,7 +18,11 @@ $(document).ready ->
       confirmButtonText: 'Join'
     }, (confirm) ->
       if confirm
-        dispatcher.trigger 'drafts.join_draft', { draft_id: draft_id }
+        dispatcher.trigger 'drafts.join_draft',
+          {
+            draft_id: draft_id,
+            user_id: App.globals.user.id
+          }
       else
         window.location = '/'
     )

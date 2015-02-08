@@ -31,6 +31,9 @@ $(document).ready ->
           </p>
         ")
 
+      round_display.data 'round-type', data['round_type']
+      round_display.html("Round #{data['round_number']}")
+
     dispatcher.unbind 'drafts.next_player'
     dispatcher.bind 'drafts.next_player', (data) ->
       contestant_name = $('.contestant-name')
@@ -46,8 +49,7 @@ $(document).ready ->
         new_player.addClass 'animated fadeInUp'
         contestants_panel.append(new_player)
 
-        new_player_name = (data['first_name'] != null) ?
-            data['first_name'] + ' ' + data['last_name'] || data['email']
+        new_player_name = data['first_name'] + ' ' + data['last_name']
 
         contestant_name.html(new_player_name)
 
@@ -75,3 +77,8 @@ $(document).ready ->
         $('.money-picks').append "<p>#{contestant_name}</p>"
       else
         $('.drinking-picks').append "<p>#{contestant_name}</p>"
+
+    dispatcher.unbind 'drafts.next_round'
+    dispatcher.bind 'drafts.next_round', (data) ->
+      round_display.data 'round-type', data['round_type']
+      round_display.html("Round #{data['round_number']}")

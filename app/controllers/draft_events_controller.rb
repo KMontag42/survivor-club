@@ -2,12 +2,41 @@ class DraftEventsController < WebsocketRails::BaseController
   def initialize_session
     # perform application setup here
     controller_store[:active_player_index] = 0
-    controller_store[:round_rotation] = [
-      [3, Draft::ROUND_TYPE[0]],
-      [-1, Draft::ROUND_TYPE[1]]
-    ]
-    controller_store[:current_round] = Draft::ROUND_TYPE[0].to_sym
+    controller_store[:round_rotation] = {
+      Draft::ROUND_TYPE[0] => 3,
+      Draft::ROUND_TYPE[1] => -1
+    }
+    controller_store[:round_number] = 1
     controller_store[:players] = User.all.sort
+  end
+
+  def current_round_type
+    rotation = controller_store[:round_rotation]
+    if rotation[Draft::ROUND_TYPE[0]] > 0
+      Draft::ROUND_TYPE[0].to_s
+    else
+      Draft::ROUND_TYPE[1].to_s
+    end
+  end
+
+  def next_round
+    rotation = controller_store[:round_rotation]
+    if current_round_type == Draft::ROUND_TYPE[0]
+      rotation[Draft::ROUND_TYPE[0]] -= 1
+      controller_store[:round_number] += 1
+      _message = {
+        round_number: controller_store[:round_number],
+        round_type: Draft::ROUND_TYPE[0]
+      }
+    else
+      controller_store[:round_number] += 1
+      _message = {
+        round_number: controller_store[:round_number],
+        round_type: Draft::ROUND_TYPE[1]
+      }
+    end
+
+    broadcast_message :next_round, _message, namespace: :drafts
   end
 
   def active_player
@@ -20,6 +49,9 @@ class DraftEventsController < WebsocketRails::BaseController
         controller_store[:active_player_index] %
             controller_store[:players].length
 
+    if controller_store[:active_player_index] == 0
+      next_round
+    end
     broadcast_message :next_player,
                       active_player,
                       namespace: :drafts
@@ -28,15 +60,18 @@ class DraftEventsController < WebsocketRails::BaseController
   def join_draft
     picks = Pick.where(draft_id: message["draft_id"])
 
-    message = {
+    _message = {
       active_player: active_player,
       players: controller_store[:players].rotate(
           controller_store[:active_player_index]
       ),
-      current_round: controller_store[:current_round],
-      picks: picks.map { |x| x.contestant_id }
+      round_type: current_round_type,
+      picks: picks.map { |x| x.contestant_id },
+      round_number: controller_store[:round_number],
     }
-    broadcast_message :join_draft, message, namespace: :drafts
+    WebsocketRails.users[message["user_id"]].send_message :join_draft,
+                                                          _message,
+                                                          namespace: :drafts
   end
 
   def pick_contestant

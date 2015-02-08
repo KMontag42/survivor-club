@@ -31,8 +31,8 @@ class DraftEventsController < WebsocketRails::BaseController
     else
       controller_store[:round_number] += 1
       _message = {
-          round_number: controller_store[:round_number],
-          round_type: Draft::ROUND_TYPE[1]
+        round_number: controller_store[:round_number],
+        round_type: Draft::ROUND_TYPE[1]
       }
     end
 

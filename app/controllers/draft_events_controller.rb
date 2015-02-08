@@ -59,6 +59,18 @@ class DraftEventsController < WebsocketRails::BaseController
 
   def join_draft
     picks = Pick.where(draft_id: message["draft_id"])
+    player_cash_picks = picks.select do |x|
+      x.user_id == current_user.id && x.pick_type == Draft::ROUND_TYPE[0].to_s
+    end
+    player_cash_picks.map! do |x|
+      Contestant.find(x.contestant_id)
+    end
+    player_drinking_picks = picks.select do |x|
+      x.user_id == current_user.id && x.pick_type == Draft::ROUND_TYPE[1].to_s
+    end
+    player_drinking_picks.map! do |x|
+      Contestant.find(x.contestant_id)
+    end
 
     _message = {
       active_player: active_player,
@@ -67,6 +79,8 @@ class DraftEventsController < WebsocketRails::BaseController
       ),
       round_type: current_round_type,
       picks: picks.map { |x| x.contestant_id },
+      player_cash_picks: player_cash_picks,
+      player_drinking_picks: player_drinking_picks,
       round_number: controller_store[:round_number],
     }
     WebsocketRails.users[message["user_id"]].send_message :join_draft,
@@ -77,6 +91,7 @@ class DraftEventsController < WebsocketRails::BaseController
   def pick_contestant
     if active_player == current_user
       pick = Pick.new
+      pick.user_id = active_player.id
       pick.draft_id = message["draft_id"]
       pick.contestant_id = message["contestant_id"]
       pick.pick_type = message["type"]

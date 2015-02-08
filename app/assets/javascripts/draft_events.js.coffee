@@ -14,7 +14,7 @@ $(document).ready ->
 
       new_player_name = active_player['first_name'] + ' ' +
           active_player['last_name']
-      contestant_name.html(new_player_name == ' ' || active_player['email'])
+      contestant_name.html(new_player_name)
 
       for id in picks
         $(".character-row[data-id=#{id}]").addClass 'danger disabled'

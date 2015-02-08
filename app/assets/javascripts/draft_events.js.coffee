@@ -7,13 +7,20 @@ $(document).ready ->
 
     dispatcher.unbind 'drafts.join_draft'
     dispatcher.bind 'drafts.join_draft', (data) ->
+      console.log data
       active_player = data['active_player']
-      console.log active_player
+      picks = data['picks']
 
       new_player_name = active_player['first_name'] + ' ' +
           active_player['last_name']
       contestant_name.html(new_player_name == ' ' || active_player['email'])
+
+      for id in picks
+        $(".character-row[data-id=#{id}]").addClass 'danger disabled'
+        $(".draft-contestant[data-id=#{id}]").addClass 'disabled'
+
       $("#draft_container").removeClass 'hidden'
+
 
     dispatcher.unbind 'drafts.next_player'
     dispatcher.bind 'drafts.next_player', (data) ->

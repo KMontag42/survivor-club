@@ -6,10 +6,11 @@ $(document).ready ->
     dispatcher = App.globals.dispatcher
     dispatcher.unbind 'send_chat'
     dispatcher.bind 'send_chat', (data) ->
-      console.log 'send_chat triggered'
-      $(".chat").append(
+      chat = $(".chat")
+      chat.append(
         "<p>#{data.user}: #{data.message}</p>"
       )
+      chat.scrollTop(chat[0].scrollHeight)
 
     $('.send-chat').off 'click'
     $('.send-chat').on 'click', (e)->

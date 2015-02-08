@@ -26,6 +26,8 @@
     <% end %>
   </div>
   <div class="col-sm-6 col-xs-12">
+    <%= render 'draft_contestants_display',
+               contestants: contestants if contestants%>
     <%= render 'draft_contestants_table',
                contestants: contestants if contestants %>
   </div>

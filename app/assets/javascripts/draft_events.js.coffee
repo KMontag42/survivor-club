@@ -10,6 +10,7 @@ $(document).ready ->
       console.log data
       active_player = data['active_player']
       picks = data['picks']
+      players = data['players']
 
       new_player_name = active_player['first_name'] + ' ' +
           active_player['last_name']
@@ -21,6 +22,14 @@ $(document).ready ->
 
       $("#draft_container").removeClass 'hidden'
 
+      for player in players
+        name_to_append = player['first_name'] + ' ' + player['last_name']
+
+        contestants_panel.append("
+          <p class='textfill' data-name='#{name_to_append}'>
+            <span>#{name_to_append}</span>
+          </p>
+        ")
 
     dispatcher.unbind 'drafts.next_player'
     dispatcher.bind 'drafts.next_player', (data) ->

@@ -26,9 +26,12 @@ class DraftEventsController < WebsocketRails::BaseController
   end
 
   def join_draft
+    picks = Pick.where(draft_id: message["draft_id"])
+
     message = {
       active_player: active_player,
-      current_round: controller_store[:current_round]
+      current_round: controller_store[:current_round],
+      picks: picks.collect { |x| x.contestant_id }
     }
     broadcast_message :join_draft, message, namespace: :drafts
   end
@@ -38,7 +41,7 @@ class DraftEventsController < WebsocketRails::BaseController
       pick = Pick.new
       pick.draft_id = message["draft_id"]
       pick.contestant_id = message["contestant_id"]
-      pick.type = message["type"]
+      pick.pick_type = message["type"]
 
       _message = {
         pick: pick,

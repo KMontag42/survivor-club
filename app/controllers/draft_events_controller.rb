@@ -30,6 +30,9 @@ class DraftEventsController < WebsocketRails::BaseController
 
     message = {
       active_player: active_player,
+      players: controller_store[:players].rotate(
+          controller_store[:active_player_index]
+      ),
       current_round: controller_store[:current_round],
       picks: picks.map { |x| x.contestant_id }
     }

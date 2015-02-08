@@ -26,71 +26,8 @@
     <% end %>
   </div>
   <div class="col-sm-6 col-xs-12">
-    <% contestants.each_with_index do |ct, i| %>
-      <% if i > 0 %>
-        <% panel_class = 'hidden character-info' %>
-      <% else %>
-        <% panel_class = 'character-info' %>
-      <% end %>
-      <%= panel class: panel_class, data: {id: ct.id} do %>
-        <div class="row">
-          <div class="col-sm-5 col-xs-6 textfill">
-            <span><%= ct.name %></span>
-          </div>
-          <div class="col-sm-4 col-xs-6 textfill">
-            <span><%= ct.age %> - <%= ct.job %></span>
-          </div>
-          <div class="col-sm-3 hidden-xs text-muted textfill">
-            <span><%= ct.hometown %></span>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="row">
-          <div class="col-sm-4 hidden-xs">
-            <%= image_tag ct.image_url, class:'img-responsive' %>
-          </div>
-          <div class="col-sm-8 col-xs-12">
-            <br class="visible-xs-block"/>
-            <span class="btn btn-success center-block draft-contestant"
-                  data-id="<%= ct.id %>" data-name="<%= ct.name %>">
-              DRAFT
-            </span>
-          </div>
-          <div class="clearfix"></div>
-        </div>
-        <div class="clearfix"></div>
-      <% end %>
-    <% end %>
-    <div class="row">
-      <div class="col-xs-12 contestant-table">
-        <table class="table table-striped table-hover">
-          <thead>
-          <tr>
-            <th></th>
-            <th>Name</th>
-            <th class="hidden-xs">Age</th>
-            <th class="hidden-xs">Job</th>
-            <th class="hidden-xs">Hometown</th>
-            <th>Tribe</th>
-            <th class="hidden-xs"></th>
-          </tr>
-          </thead>
-          <tbody>
-          <% contestants.try(:each) do |c| %>
-            <tr class="character-row" data-id="<%= c.id %>">
-              <td><%= icon :plus %></td>
-              <td><%= c.name %></td>
-              <td class="hidden-xs"><%= c.age %></td>
-              <td class="hidden-xs"><%= c.job %></td>
-              <td class="hidden-xs"><%= c.hometown %></td>
-              <td>TRIBE</td>
-              <td class="hidden-xs"><%= icon :asterisk %></td>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
-      </div>
-    </div>
+    <%= render 'draft_contestants_table',
+               contestants: contestants if contestants %>
   </div>
   <div class="col-sm-3 col-xs-12">
     <div class="panel panel-success">

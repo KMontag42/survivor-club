@@ -6,19 +6,3 @@
   <p>Progress on the site:</p>
   <%= progress_bar percentage: 45, animated: true %>
 </div>
-<div class="row">
-  <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-left">
-    <h4>Recently Completed:</h4>
-    <ul>
-      <li><span class="label label-info">MOBILE</span> <%= link_to 'Draft', draft_path(1) %> UI is now mobile friendly!</li>
-      <li><span class="label label-danger">DESKTOP</span> Basic <%= link_to 'Draft', draft_path(1) %> UI</li>
-      <li>Backend work for Drafts</li>
-      <li>Filled out the data for
-        <%= link_to @current_season.name, season_path(@current_season) %></li>
-      <li><span class="label label-info">MOBILE</span>
-        <%= link_to 'Seasons', seasons_path %> basic layout and backend</li>
-      <li><span class="label label-info">MOBILE</span>
-        <%= link_to 'Contestants', contestants_path %> basic layout and backend</li>
-    </ul>
-  </div>
-</div>

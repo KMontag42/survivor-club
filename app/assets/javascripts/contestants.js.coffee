@@ -4,3 +4,4 @@
 $(document).ready ->
   if $('body#contestants').length > 0
     container = $('#contestants-container')
+    $('#contestant_modal').modal()

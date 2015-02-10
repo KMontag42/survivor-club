@@ -1,3 +1,4 @@
+<%= content_for :body_id do 'contestants-index' end %>
 <h1>
   Contestants
   <span class="pull-right">
@@ -6,30 +7,36 @@
 </h1>
 
 <hr/>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th class="col-sm-1"></th>
-      <th>Name</th>
-      <th>Job</th>
-      <th>Age</th>
-      <th>From</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @contestants.each do |c| %>
-      <tr>
-        <td>
-          <%= image_tag c.image_url,
-                        class: 'img-responsive img-rounded hidden-xs' %>
-        </td>
-        <td><%= link_to c.name, contestant_path(c) %></td>
-        <td><%= c.job %></td>
-        <td><%= c.age %></td>
-        <td><%= c.hometown %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<div id="contestants-container" class="js-isotope"
+     data-isotope-options='{ "layoutMode": "fitRows", "itemSelector": ".item" }'>
+  <% @contestants.each do |c| %>
+
+    <!-- Contestant tile -->
+    <div class="item">
+      <a href="#" class="btn" data-toggle="modal" data-target="#contestant_modal_<%= c.id %>">
+        <%= image_tag c.image_url, class: 'image' %>
+      </a>
+    </div>
+
+    <!-- Contestant Modal -->
+    <div class="modal fade" id="contestant_modal_<%= c.id %>" tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close">X</button>
+            <h4 class="modal-title"><%= c.name %></h4>
+          </div>
+          <div class="modal-body">
+            <h3>Age: <%= c.age %></h3>
+            <h3>Job: <%= c.job %></h3>
+            <h3>Hometown: <%= c.hometown %></h3>
+            <h3>Tribe: </h3>
+            <h3>Voted Out: </h3>
+            <h3>Drafted By (cash): </h3>
+            <h3>Drafted By (drink): </h3>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

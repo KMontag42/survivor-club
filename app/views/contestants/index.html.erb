@@ -1,3 +1,4 @@
+<%= content_for :body_id do 'contestants-index' end %>
 <h1>
   Contestants
   <span class="pull-right">
@@ -6,30 +7,10 @@
 </h1>
 
 <hr/>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th class="col-sm-1"></th>
-      <th>Name</th>
-      <th>Job</th>
-      <th>Age</th>
-      <th>From</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @contestants.each do |c| %>
-      <tr>
-        <td>
-          <%= image_tag c.image_url,
-                        class: 'img-responsive img-rounded hidden-xs' %>
-        </td>
-        <td><%= link_to c.name, contestant_path(c) %></td>
-        <td><%= c.job %></td>
-        <td><%= c.age %></td>
-        <td><%= c.hometown %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<div id="contestants-container" data-isotope-options='{ "layoutMode": "fitRows", "itemSelector": ".item" }'>
+  <% @contestants.each do |c| %>
+    <div class="item">
+      <%= image_tag c.image_url, class: 'image' %>
+    </div>
+  <% end %>
 </div>

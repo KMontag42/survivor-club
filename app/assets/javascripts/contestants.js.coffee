@@ -5,6 +5,6 @@ $(document).ready ->
   if $('body#contestants-index').length > 0
     container = $('#contestants-container')
     container.isotope {
-      'layoutMode': 'fitRows',
+      'layoutMode': 'masonry',
       'itemSelector': '.item'
     }

@@ -23,8 +23,8 @@ class ContestantsController < ApplicationController
 
   def update
     @contestant = Contestant.find(params[:id])
-    @contestant.update contestant_params
-    redirect_to contestant_path(@contestant)
+    @contestant.update! contestant_params
+    redirect_to contestants_path
   end
 
   private

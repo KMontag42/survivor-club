@@ -37,7 +37,7 @@ class Contestant < ActiveRecord::Base
     _contestant.save!
   end
 
-  def update(params)
+  def update!(params)
     _params = params
 
     seasons = _params.delete :seasons

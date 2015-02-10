@@ -11,11 +11,9 @@
   <% @contestants.each do |c| %>
 
     <!-- Contestant tile -->
-    <div class="item">
-      <a href="#" class="btn" data-toggle="modal"
+    <div class="item" style="background: url(<%= c.image_url %>) no-repeat center center; background-size: cover;"
+         data-toggle="modal"
          data-target="#contestant_modal_<%= c.id %>">
-        <%= image_tag c.image_url, class: 'image' %>
-      </a>
     </div>
 
     <!-- Contestant Modal -->
@@ -33,13 +31,44 @@
             <div class="clearfix"></div>
           </div>
           <div class="modal-body">
-            <h3>Age: <%= c.age %></h3>
-            <h3>Job: <%= c.job %></h3>
-            <h3>Hometown: <%= c.hometown %></h3>
-            <h3>Tribe: </h3>
-            <h3>Voted Out: </h3>
-            <h3>Drafted By (cash): </h3>
-            <h3>Drafted By (drink): </h3>
+            <div class="row">
+              <div class="col-xs-6">
+                <table class="table">
+                  <tr>
+                    <td>Age</td>
+                    <td><%= c.age %></td>
+                  </tr>
+                  <tr>
+                    <td>Job</td>
+                    <td><%= c.job %></td>
+                  </tr>
+                  <tr>
+                    <td>Hometown</td>
+                    <td><%= c.hometown %></td>
+                  </tr>
+                  <tr>
+                    <td>Tribe</td>
+                    <td><%= c.tribes.first.try(:name) %></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-xs-6">
+                <table class="table">
+                  <tr>
+                    <td>Voted Out</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="cash">Cash Drafts</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="drinking">Drinking Drafts</td>
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
           </div>
         </div>
       </div>

@@ -31,6 +31,6 @@ class ContestantsController < ApplicationController
 
   def contestant_params
     params.require(:contestant).permit(:name, :age, :job, :hometown, :image_url,
-                                       seasons: [])
+                                       tribes: [], seasons: [])
   end
 end

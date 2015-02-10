@@ -2,6 +2,9 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
-  if $('body#contestants').length > 0
+  if $('body#contestants-index').length > 0
     container = $('#contestants-container')
-    $('#contestant_modal').modal()
+    container.isotope {
+      'layoutMode': 'fitRows',
+      'itemSelector': '.item'
+    }

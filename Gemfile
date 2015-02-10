@@ -58,10 +58,5 @@ gem 'momentjs-rails'
 
 # for super awesome css animations
 gem 'animate-scss'
-# Use Capistrano for deployment
-# gem 'capistrano-rails', group: :development
-
-# Use debugger
-# gem 'debugger', group: [:development, :test]
 
 ruby '2.2.0'

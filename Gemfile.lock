@@ -93,8 +93,6 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
-    masonry-rails (0.2.4)
-      railties
     mime-types (1.25.1)
     minitest (5.4.3)
     momentjs-rails (2.8.3)
@@ -190,7 +188,6 @@ DEPENDENCIES
   jquery-countdown-rails
   jquery-rails
   jquery-turbolinks
-  masonry-rails
   momentjs-rails
   pg
   rails (= 4.1.5)

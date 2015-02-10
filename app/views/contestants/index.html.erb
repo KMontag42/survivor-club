@@ -7,7 +7,8 @@
 </h1>
 
 <hr/>
-<div id="contestants-container" data-isotope-options='{ "layoutMode": "fitRows", "itemSelector": ".item" }'>
+<div id="contestants-container" class="js-isotope"
+     data-isotope-options='{ "layoutMode": "fitRows", "itemSelector": ".item" }'>
   <% @contestants.each do |c| %>
     <div class="item">
       <%= image_tag c.image_url, class: 'image' %>

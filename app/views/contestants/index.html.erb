@@ -1,3 +1,4 @@
+<%= content_for :body_id do 'contestants-index' end %>
 <h1>
   Contestants
   <span class="pull-right">
@@ -6,30 +7,71 @@
 </h1>
 
 <hr/>
-<div class="table-responsive">
-  <table class="table table-striped">
-    <thead>
-    <tr>
-      <th class="col-sm-1"></th>
-      <th>Name</th>
-      <th>Job</th>
-      <th>Age</th>
-      <th>From</th>
-    </tr>
-    </thead>
-    <tbody>
-    <% @contestants.each do |c| %>
-      <tr>
-        <td>
-          <%= image_tag c.image_url,
-                        class: 'img-responsive img-rounded hidden-xs' %>
-        </td>
-        <td><%= link_to c.name, contestant_path(c) %></td>
-        <td><%= c.job %></td>
-        <td><%= c.age %></td>
-        <td><%= c.hometown %></td>
-      </tr>
-    <% end %>
-    </tbody>
-  </table>
+<div id="contestants-container">
+  <% @contestants.each do |c| %>
+
+    <!-- Contestant tile -->
+    <div class="item" style="background: url(<%= c.image_url %>) no-repeat center center; background-size: cover;"
+         data-toggle="modal"
+         data-target="#contestant_modal_<%= c.id %>">
+    </div>
+
+    <!-- Contestant Modal -->
+    <div class="modal fade" id="contestant_modal_<%= c.id %>"
+         tabindex="-1" role="dialog">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close">X</button>
+            <h4 class="modal-title">
+              <%= c.name %>
+              <%= link_to 'Edit', edit_contestant_path(c),
+                          class: 'btn btn-primary btn-sm' %>
+            </h4>
+            <div class="clearfix"></div>
+          </div>
+          <div class="modal-body">
+            <div class="row">
+              <div class="col-xs-6">
+                <table class="table">
+                  <tr>
+                    <td>Age</td>
+                    <td><%= c.age %></td>
+                  </tr>
+                  <tr>
+                    <td>Job</td>
+                    <td><%= c.job %></td>
+                  </tr>
+                  <tr>
+                    <td>Hometown</td>
+                    <td><%= c.hometown %></td>
+                  </tr>
+                  <tr>
+                    <td>Tribe</td>
+                    <td><%= c.tribes.first.try(:name) %></td>
+                  </tr>
+                </table>
+              </div>
+              <div class="col-xs-6">
+                <table class="table">
+                  <tr>
+                    <td>Voted Out</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="cash">Cash Drafts</td>
+                    <td></td>
+                  </tr>
+                  <tr>
+                    <td class="drinking">Drinking Drafts</td>
+                    <td></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
 </div>

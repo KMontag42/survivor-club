@@ -1,0 +1,9 @@
+.item {
+  cursor: pointer;
+  height: 100px;
+  width: 12%;
+
+  &:hover {
+    box-shadow: 0 1px 2px #000;
+  }
+}

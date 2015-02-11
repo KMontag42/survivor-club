@@ -37,12 +37,20 @@ class Contestant < ActiveRecord::Base
     _contestant.save!
   end
 
-  def update(params)
+  def update!(params)
     _params = params
+
     seasons = _params.delete :seasons
+    tribes = _params.delete :tribes
+
     super _params
+
     seasons = Season.find(seasons.reject(&:empty?))
+    tribes = Tribe.find(tribes.reject(&:empty?))
+
     self.seasons = self.seasons | seasons
+    self.tribes = self.tribes | tribes
+
     self.save!
   end
 end

@@ -3,11 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .tribe-container {
   .tribe-panel {
-    box-shadow: 0 1px 2px #000;
     border-radius: 3px;
+    box-shadow: 0 1px 2px #000;
+    color: #fff;
     height: 200px;
     padding: 1rem;
-    color: #fff;
 
     &:hover {
       border: 2px solid #f00;

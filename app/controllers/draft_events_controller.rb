@@ -3,7 +3,7 @@ class DraftEventsController < WebsocketRails::BaseController
     # perform application setup here
     controller_store[:active_player_index] = 0
     controller_store[:round_rotation] = {
-      Draft::ROUND_TYPE[0] => 2,
+      Draft::ROUND_TYPE[0] => 3,
       Draft::ROUND_TYPE[1] => -1
     }
     controller_store[:round_number] = 1

@@ -1,12 +1,16 @@
 <%= panel_row column_class: 'col-sm-6 col-xs-12' do %>
   <%= panel title: 'Cash Picks', context: :info do %>
-    <% @cash_picks.each do |cp| %>
-      <%= link_to cp.contestant.name, contestant_path(cp) %>
-    <% end %>
+    <ul>
+      <% @cash_picks.each do |cp| %>
+        <li><%= link_to cp.contestant.name, contestant_path(cp) %></li>
+      <% end %>
+    </ul>
   <% end %>
   <%= panel title: 'Drinking Picks', context: :warning do %>
-    <% @drinking_picks.each do |cp| %>
-      <%= link_to cp.contestant.name, contestant_path(cp) %>
-    <% end %>
+    <ul>
+      <% @drinking_picks.each do |cp| %>
+        <li><%= link_to cp.contestant.name, contestant_path(cp) %></li>
+      <% end %>
+    </ul>
   <% end %>
 <% end %>

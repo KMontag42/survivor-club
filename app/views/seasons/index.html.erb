@@ -1,7 +1,8 @@
 <h1>
   Seasons
   <span class="pull-right">
-    <%= link_to 'New', new_season_path, :class => 'btn btn-primary btn-sm' %>
+    <%= link_to 'New', new_season_path,
+                class: 'btn btn-primary btn-sm' if current_user.admin? %>
   </span>
 </h1>
 
@@ -23,7 +24,8 @@
         <td></td>
         <td></td>
         <td>
-          <%= link_to 'Edit', edit_season_path(s), :class => 'btn btn-primary btn-xs' %>
+          <%= link_to 'Edit', edit_season_path(s),
+                      class: 'btn btn-primary btn-xs' if current_user.admin? %>
         </td>
       </tr>
     <% end %>

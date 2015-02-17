@@ -2,7 +2,8 @@
 <h1>
   Contestants
   <span class="pull-right">
-    <%= link_to 'New', new_contestant_path, :class => 'btn btn-primary btn-sm' %>
+    <%= link_to 'New', new_contestant_path,
+                class: 'btn btn-primary btn-sm' if current_user.admin? %>
   </span>
 </h1>
 
@@ -26,7 +27,8 @@
             <h4 class="modal-title">
               <%= c.name %>
               <%= link_to 'Edit', edit_contestant_path(c),
-                          class: 'btn btn-primary btn-sm' %>
+                          class: 'btn btn-primary btn-sm'
+                  if current_user.admin? %>
             </h4>
             <div class="clearfix"></div>
           </div>

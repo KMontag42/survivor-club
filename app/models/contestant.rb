@@ -53,4 +53,8 @@ class Contestant < ActiveRecord::Base
 
     self.save!
   end
+
+  def tribe_for_season(season_id)
+    tribes.find_by(season_id: season_id)
+  end
 end

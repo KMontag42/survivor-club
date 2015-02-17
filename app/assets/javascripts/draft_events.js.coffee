@@ -141,4 +141,12 @@ $(document).ready ->
     dispatcher.unbind 'drafts.end_draft'
     dispatcher.bind 'drafts.end_draft', (data) ->
       $("#draft_container").addClass 'hidden'
-      swal 'AND THAT IS THAT'
+      swal({
+        title: "THAT'S IT!",
+        message: "Press the button to see your picks!",
+        type: "success",
+        showCancelButton: false,
+        confirmButtonText: "SHOW ME"
+      }, ->
+        window.location = window.location + '/picks'
+      )

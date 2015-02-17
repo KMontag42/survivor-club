@@ -14,14 +14,14 @@ class DraftEventsController < WebsocketRails::BaseController
   def current_round_type
     rotation = controller_store[:round_rotation]
     if rotation[Draft::ROUND_TYPE[0]] > 0
-      Draft::ROUND_TYPE[0].to_s
+      Draft::ROUND_TYPE[0].to_s.humanize
     else
-      Draft::ROUND_TYPE[1].to_s
+      Draft::ROUND_TYPE[1].to_s.humanize
     end
   end
 
   def next_round
-    if current_round_type == Draft::ROUND_TYPE[0]
+    if current_round_type == 'Cash'
       controller_store[:round_rotation][Draft::ROUND_TYPE[0]] -= 1
       controller_store[:round_number] += 1
       _message = {

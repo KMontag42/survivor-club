@@ -98,7 +98,7 @@ $(document).ready ->
       contestant_tr.addClass('danger disabled')
       $(".draft-contestant[data-id=#{contestant_id}]").addClass 'disabled'
 
-      if round_type == 'cash'
+      if round_type == 'Cash'
         $('.money-picks').append "<p>#{contestant_name}</p>"
       else
         $('.drinking-picks').append "<p>#{contestant_name}</p>"
@@ -110,8 +110,9 @@ $(document).ready ->
       contestants_panel_heading.html(
         "Round - #{data['round_number']} #{data['round_type']}"
       )
-      $(".draft-contestant").removeClass 'btn-success'
-      $(".draft-contestant").addClass 'btn-warning'
+      if data['round_type'] == 'Drinking'
+        $(".draft-contestant").removeClass 'btn-success'
+        $(".draft-contestant").addClass 'btn-warning'
 
     dispatcher.unbind 'drafts.start_draft'
     dispatcher.bind 'drafts.start_draft', (data) ->

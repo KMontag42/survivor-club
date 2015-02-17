@@ -37,4 +37,8 @@ class User < ActiveRecord::Base
     name = "#{first_name} #{last_name}"
     name == " " ? email : name
   end
+
+  def admin?
+    role == 'admin'
+  end
 end

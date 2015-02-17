@@ -39,12 +39,6 @@ gem 'rails_12factor'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
-# Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
-
-# Use puma as the app server
-# gem 'puma'
-
 # WebSockets!!
 gem 'websocket-rails',
     git: 'git://github.com/websocket-rails/websocket-rails.git',
@@ -58,5 +52,8 @@ gem 'momentjs-rails'
 
 # for super awesome css animations
 gem 'animate-scss'
+
+# for role based actions
+gem 'cancan'
 
 ruby '2.2.0'

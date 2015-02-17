@@ -3,13 +3,13 @@ class DraftEventsController < WebsocketRails::BaseController
     # perform application setup here
     controller_store[:active_player_index] = 0
     controller_store[:round_rotation] = {
-      Draft::ROUND_TYPE[0] => 3,
+      Draft::ROUND_TYPE[0] => 2,
       Draft::ROUND_TYPE[1] => -1
     }
     controller_store[:round_number] = 1
     controller_store[:players] = []
-    controller_store[:max_players] = 2 # TODO: MAKE THIS 9 FOR THE REAL THING
-    controller_store[:max_picks] = 8
+    controller_store[:max_cash_picks] = 2
+    controller_store[:max_picks] = -1
   end
 
   def current_round_type
@@ -100,10 +100,8 @@ class DraftEventsController < WebsocketRails::BaseController
 
       broadcast_message :join_draft, _message, namespace: :drafts
 
-      if controller_store[:players].length == controller_store[:max_players]
-        WebsocketRails.users[1].send_message :ready_to_start, {},
-                                             namespace: :drafts
-      end
+      WebsocketRails.users[1].send_message :ready_to_start, {},
+                                           namespace: :drafts
     else
       _message = {
         success: false,
@@ -172,9 +170,19 @@ class DraftEventsController < WebsocketRails::BaseController
     draft.status = Draft::STATUS[1]
     draft.save!
 
-    # controller_store[:max_picks] = draft.season.contestants.length * 2
+    # 2 cash picks, and 4 drinking picks
+    cash_picks = controller_store[:players].length * 2
+    drinking_picks = controller_store[:players].length * 4
+    controller_store[:max_picks] = cash_picks + drinking_picks
 
-    broadcast_message :start_draft, {}, namespace: :drafts
+    # shuffle the players
+    controller_store[:players].shuffle!
+
+    broadcast_message :start_draft,
+                      {
+                        players: controller_store[:players]
+                      },
+                      namespace: :drafts
   end
 
   def end_draft

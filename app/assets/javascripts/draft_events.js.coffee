@@ -56,7 +56,7 @@ $(document).ready ->
         round_display.html("Round #{data['round_number']}")
       else
         setTimeout(( ->
-          swal 'Already started brah'
+          swal data["message"]
         ), 1000)
 
     dispatcher.unbind 'drafts.next_player'
@@ -115,6 +115,17 @@ $(document).ready ->
     dispatcher.bind 'drafts.start_draft', (data) ->
       setTimeout(->
         swal 'IT BEGINS'
+        players_html = ""
+        for player in players
+          name_to_append = player['first_name'] + ' ' + player['last_name']
+
+          players_html += "
+            <p class='textfill' data-name='#{name_to_append}'>
+              <span>#{name_to_append}</span>
+            </p>
+          "
+
+        contestants_panel_body.html(players_html)
       , 1000)
 
     dispatcher.unbind 'drafts.ready_to_start'

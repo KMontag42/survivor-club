@@ -122,8 +122,8 @@ $(document).ready ->
           showCancelButton: true,
           confirmButtonText: 'Start'
         }, (isConfirm) ->
-        dispatcher.trigger 'drafts.start_draft',
-          {
-            draft_id: draft_id
-          }
+          dispatcher.trigger 'drafts.start_draft',
+            {
+              draft_id: draft_id
+            }
       )

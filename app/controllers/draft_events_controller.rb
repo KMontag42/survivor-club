@@ -21,9 +21,8 @@ class DraftEventsController < WebsocketRails::BaseController
   end
 
   def next_round
-    rotation = controller_store[:round_rotation]
     if current_round_type == Draft::ROUND_TYPE[0]
-      rotation[Draft::ROUND_TYPE[0]] -= 1
+      controller_store[:round_rotation][Draft::ROUND_TYPE[0]] -= 1
       controller_store[:round_number] += 1
       _message = {
         round_number: controller_store[:round_number],
@@ -83,7 +82,9 @@ class DraftEventsController < WebsocketRails::BaseController
       _message = {
         success: true,
         active_player: active_player,
-        players: controller_store[:players],
+        players: controller_store[:players].rotate(
+          controller_store[:active_player_index]
+        ),
         round_type: current_round_type,
         picks: picks.map(&:contestant_id),
         player_cash_picks: player_cash_picks,

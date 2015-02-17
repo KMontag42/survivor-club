@@ -85,7 +85,7 @@ $(document).ready ->
         contestant_id = data['contestant_id']
         contestant_tr = $("[data-id=#{contestant_id}]")
         contestant_tr.addClass('danger disabled')
-      else
+      else if data['success'] == false
         swal 'Oh no!', data['message'], 'error'
 
     dispatcher.unbind 'drafts.take_player'
@@ -114,6 +114,7 @@ $(document).ready ->
     dispatcher.bind 'drafts.start_draft', (data) ->
       setTimeout(->
         swal 'IT BEGINS'
+        players = data['players']
         players_html = ""
         for player in players
           name_to_append = player['first_name'] + ' ' + player['last_name']
@@ -125,6 +126,12 @@ $(document).ready ->
           "
 
         contestants_panel_body.html(players_html)
+
+        contestant_name = $('.contestant-name')
+        active_player = players[0]
+        contestant_name.html(active_player['first_name'] + ' ' +
+          active_player['last_name'])
+
       , 1000)
 
     dispatcher.unbind 'drafts.ready_to_start'

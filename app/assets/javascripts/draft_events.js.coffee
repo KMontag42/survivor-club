@@ -111,7 +111,8 @@ $(document).ready ->
         "Round - #{data['round_number']} #{data['round_type']}"
       )
       if data['round_type'] == 'Drinking'
-        $(".draft-contestant").removeClass 'btn-success'
+        $(".character-row").removeClass 'danger disabled'
+        $(".draft-contestant").removeClass 'btn-success disabled danger'
         $(".draft-contestant").addClass 'btn-warning'
 
     dispatcher.unbind 'drafts.start_draft'

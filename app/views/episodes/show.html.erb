@@ -8,7 +8,7 @@
     </div>
     <div class="col-sm-1 col-xs-2 text-right">
       <%= link_to 'Edit', edit_episode_path(@episode),
-                  class: 'btn btn-primary btn-sm' %>
+                  class: 'btn btn-primary btn-sm' if current_user.admin? %>
     </div>
   </div>
 </h1>

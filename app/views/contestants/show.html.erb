@@ -5,7 +5,8 @@
       <span><%= @contestant.name %> - <span class="text-muted"><%= @contestant.job %></span></span>
     </div>
     <div class="col-sm-1 col-xs-4 text-right">
-      <%= link_to 'Edit', edit_contestant_path(@contestant), :class => 'btn btn-primary btn-sm' %>
+      <%= link_to 'Edit', edit_contestant_path(@contestant),
+                  class: 'btn btn-primary btn-sm' if current_user.admin? %>
     </div>
   </div>
 </h1>

@@ -17,7 +17,10 @@
                         class: 'btn btn-warning btn-sm' if @season.draft %></span>
     </div>
     <div class="col-sm-1 col-xs-2 text-right textfill">
-      <span><%= link_to 'Edit', edit_season_path(@season), :class => 'btn btn-primary btn-sm' %></span>
+      <span>
+        <%= link_to 'Edit', edit_season_path(@season),
+                    class: 'btn btn-primary btn-sm' if current_user.admin? %>
+      </span>
     </div>
   </div>
 </h1>

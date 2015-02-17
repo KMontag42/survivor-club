@@ -3,6 +3,7 @@ $(document).ready ->
     dispatcher = App.globals.dispatcher
     round_display = $('.round-display')
     contestants_panel = $('.contestants-panel')
+    contestants_panel_heading = $('.contestants-panel .panel-heading')
     contestants_panel_body = $('.contestants-panel .panel-body')
     contestant_name = $('.contestant-name')
     draft_id = parseInt $(".draft-id").data('id')
@@ -106,6 +107,11 @@ $(document).ready ->
     dispatcher.bind 'drafts.next_round', (data) ->
       round_display.data 'round-type', data['round_type']
       round_display.html("Round #{data['round_number']}")
+      contestants_panel_heading.html(
+        "Round - #{data['round_number']} #{data['round_type']}"
+      )
+      $(".draft-contestant").removeClass 'btn-success'
+      $(".draft-contestant").addClass 'btn-warning'
 
     dispatcher.unbind 'drafts.start_draft'
     dispatcher.bind 'drafts.start_draft', (data) ->

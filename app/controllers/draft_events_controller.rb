@@ -22,7 +22,7 @@ class DraftEventsController < WebsocketRails::BaseController
   def next_round
     controller_store[:round_rotation][Draft::ROUND_TYPE[0]] -= 1
 
-    if controller_store[:round_rotation][Draft::ROUND_TYPE[0]] <= 0
+    if controller_store[:round_rotation][Draft::ROUND_TYPE[0]] == 0
       broadcast_message :round_type_changed, {}, namespace: :drafts
     end
 

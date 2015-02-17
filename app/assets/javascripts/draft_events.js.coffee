@@ -105,15 +105,17 @@ $(document).ready ->
 
     dispatcher.unbind 'drafts.next_round'
     dispatcher.bind 'drafts.next_round', (data) ->
+      # this happens when the rounds rotate!
+      if data['round_type'] != round_display.data('round-type')
+        $(".character-row").removeClass 'danger disabled'
+        $(".draft-contestant").removeClass 'btn-success disabled danger'
+        $(".draft-contestant").addClass 'btn-warning'
+
       round_display.data 'round-type', data['round_type']
       round_display.html("Round #{data['round_number']}")
       contestants_panel_heading.html(
         "Round - #{data['round_number']} #{data['round_type']}"
       )
-      if data['round_type'] == 'Drinking'
-        $(".character-row").removeClass 'danger disabled'
-        $(".draft-contestant").removeClass 'btn-success disabled danger'
-        $(".draft-contestant").addClass 'btn-warning'
 
     dispatcher.unbind 'drafts.start_draft'
     dispatcher.bind 'drafts.start_draft', (data) ->

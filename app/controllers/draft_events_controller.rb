@@ -89,7 +89,7 @@ class DraftEventsController < WebsocketRails::BaseController
         players: controller_store[:players].rotate(
           controller_store[:active_player_index]
         ),
-        round_type: current_round_type,
+        round_type: current_round_type.to_s.humanize,
         picks: picks.map(&:contestant_id),
         player_cash_picks: player_cash_picks,
         player_drinking_picks: player_drinking_picks,

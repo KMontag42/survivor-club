@@ -168,7 +168,7 @@ class DraftEventsController < WebsocketRails::BaseController
 
   def start_draft
     draft = Draft.find(message["draft_id"])
-    draft.started = true
+    draft.status = Draft::STATUS[1]
     draft.save!
 
     # controller_store[:max_picks] = draft.season.contestants.length * 2
@@ -177,6 +177,10 @@ class DraftEventsController < WebsocketRails::BaseController
   end
 
   def end_draft
+    draft = Draft.find(message["draft_id"])
+    draft.status = Draft::STATUS[2]
+    draft.save!
+
     broadcast_message :end_draft, {}, namespace: :drafts
   end
 end

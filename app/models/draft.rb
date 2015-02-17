@@ -18,4 +18,5 @@ class Draft < ActiveRecord::Base
   has_many :picks
 
   ROUND_TYPE = %w(cash drinking)
+  STATUS = %w(scheduled started ended)
 end

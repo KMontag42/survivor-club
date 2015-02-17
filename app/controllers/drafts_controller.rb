@@ -30,6 +30,13 @@ class DraftsController < ApplicationController
     redirect_to drafts_path(@draft)
   end
 
+  def picks
+    @cash_picks = Pick.where(draft_id: params[:draft_id],
+                             user_id: current_user.id, pick_type: "cash")
+    @drinking_picks = Pick.where(draft_id: params[:draft_id],
+                             user_id: current_user.id, pick_type: "drinking")
+  end
+
   private
 
   def draft_params

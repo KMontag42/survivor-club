@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150216211730) do
+ActiveRecord::Schema.define(version: 20150217030015) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 20150216211730) do
     t.integer  "season_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "started"
+    t.string   "status",     default: "scheduled"
   end
 
   add_index "drafts", ["season_id"], name: "index_drafts_on_season_id", using: :btree

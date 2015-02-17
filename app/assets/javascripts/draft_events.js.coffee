@@ -114,7 +114,7 @@ $(document).ready ->
       round_display.data 'round-type', data['round_type']
       round_display.html("Round #{data['round_number']}")
       contestants_panel_heading.html(
-        "Round - #{data['round_number']} #{data['round_type']}"
+        "Round #{data['round_number']} - #{data['round_type']}"
       )
 
     dispatcher.unbind 'drafts.start_draft'

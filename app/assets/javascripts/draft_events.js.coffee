@@ -137,3 +137,8 @@ $(document).ready ->
       $(".character-row").removeClass 'danger disabled'
       $(".draft-contestant").removeClass 'btn-success disabled danger'
       $(".draft-contestant").addClass 'btn-warning'
+
+    dispatcher.unbind 'drafts.end_draft'
+    dispatcher.bind 'drafts.end_draft', (data) ->
+      $("#draft_container").addClass 'hidden'
+      swal 'AND THAT IS THAT'

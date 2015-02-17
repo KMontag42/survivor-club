@@ -9,6 +9,7 @@ class DraftEventsController < WebsocketRails::BaseController
     controller_store[:round_number] = 1
     controller_store[:players] = []
     controller_store[:max_players] = 2 # TODO: MAKE THIS 9 FOR THE REAL THING
+    controller_store[:max_picks] = 8
   end
 
   def current_round_type
@@ -159,6 +160,10 @@ class DraftEventsController < WebsocketRails::BaseController
                      },
                      namespace: :drafts
     end
+
+    if Pick.where(draft_id: draft).length == controller_store[:max_picks]
+      end_draft
+    end
   end
 
   def start_draft
@@ -166,6 +171,12 @@ class DraftEventsController < WebsocketRails::BaseController
     draft.started = true
     draft.save!
 
+    # controller_store[:max_picks] = draft.season.contestants.length * 2
+
     broadcast_message :start_draft, {}, namespace: :drafts
+  end
+
+  def end_draft
+    broadcast_message :end_draft, {}, namespace: :drafts
   end
 end

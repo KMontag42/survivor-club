@@ -3,60 +3,75 @@ $(document).ready ->
     dispatcher = App.globals.dispatcher
     round_display = $('.round-display')
     contestants_panel = $('.contestants-panel')
+    contestants_panel_body = $('.contestants-panel .panel-body')
     contestant_name = $('.contestant-name')
+    draft_id = parseInt $(".draft-id").data('id')
 
     dispatcher.unbind 'drafts.join_draft'
     dispatcher.bind 'drafts.join_draft', (data) ->
-      console.log data
-      active_player = data['active_player']
-      picks = data['picks']
-      players = data['players']
-      player_cash_picks = data['player_cash_picks']
-      player_drinking_picks = data['player_drinking_picks']
+      if data['success']
+        active_player = data['active_player']
+        picks = data['picks']
+        players = data['players']
+        player_cash_picks = data['player_cash_picks']
+        player_drinking_picks = data['player_drinking_picks']
 
-      new_player_name = active_player['first_name'] + ' ' +
-          active_player['last_name']
-      contestant_name.html(new_player_name)
+        new_player_name = active_player['first_name'] + ' ' +
+            active_player['last_name']
+        contestant_name.html(new_player_name)
 
-      for id in picks
-        $(".character-row[data-id=#{id}]").addClass 'danger disabled'
-        $(".draft-contestant[data-id=#{id}]").addClass 'disabled'
+        for id in picks
+          $(".character-row[data-id=#{id}]").addClass 'danger disabled'
+          $(".draft-contestant[data-id=#{id}]").addClass 'disabled'
 
-      $("#draft_container").removeClass 'hidden'
+        $("#draft_container").removeClass 'hidden'
 
-      for player in players
-        name_to_append = player['first_name'] + ' ' + player['last_name']
+        players_html = ""
+        for player in players
+          name_to_append = player['first_name'] + ' ' + player['last_name']
 
-        contestants_panel.append("
-          <p class='textfill' data-name='#{name_to_append}'>
-            <span>#{name_to_append}</span>
-          </p>
-        ")
+          players_html += "
+            <p class='textfill' data-name='#{name_to_append}'>
+              <span>#{name_to_append}</span>
+            </p>
+          "
 
-      for cash_pick in player_cash_picks
-        $('.money-picks').append "<p>#{cash_pick['name']}</p>"
+        contestants_panel_body.html(players_html)
 
-      for drinking_pick in player_drinking_picks
-        $('.drinking-picks').append "<p>#{drinking_pick['name']}</p>"
+        money_picks_html = ''
+        for cash_pick in player_cash_picks
+          money_picks_html += "<p>#{cash_pick['name']}</p>"
 
-      round_display.data 'round-type', data['round_type']
-      round_display.data 'round', data['round_number']
-      round_display.html("Round #{data['round_number']}")
+        $('.money-picks').html money_picks_html
+
+        drinking_picks_html = ''
+        for drinking_pick in player_drinking_picks
+          drinking_picks_html += "<p>#{drinking_pick['name']}</p>"
+
+        $('.drinking-picks').html drinking_picks_html
+
+        round_display.data 'round-type', data['round_type']
+        round_display.data 'round', data['round_number']
+        round_display.html("Round #{data['round_number']}")
+      else
+        setTimeout(->
+          swal 'Already started brah'
+        , 1000)
 
     dispatcher.unbind 'drafts.next_player'
     dispatcher.bind 'drafts.next_player', (data) ->
       contestant_name = $('.contestant-name')
-      current_player = contestants_panel.children('p').first()
+      current_player = contestants_panel_body.children('p').first()
       new_player = current_player.clone()
 
       current_player.addClass 'animated fadeOutUp'
       current_player.one App.globals.animation_event_callback, ->
         current_player.remove()
-        next_player = contestants_panel.children('p').first()
+        next_player = contestants_panel_body.children('p').first()
 
         new_player.show()
         new_player.addClass 'animated fadeInUp'
-        contestants_panel.append(new_player)
+        contestants_panel_body.append(new_player)
 
         new_player_name = data['first_name'] + ' ' + data['last_name']
 
@@ -91,3 +106,24 @@ $(document).ready ->
     dispatcher.bind 'drafts.next_round', (data) ->
       round_display.data 'round-type', data['round_type']
       round_display.html("Round #{data['round_number']}")
+
+    dispatcher.unbind 'drafts.start_draft'
+    dispatcher.bind 'drafts.start_draft', (data) ->
+      setTimeout(->
+        swal 'IT BEGINS'
+      , 1000)
+
+    dispatcher.unbind 'drafts.ready_to_start'
+    dispatcher.bind 'drafts.ready_to_start', (data) ->
+      swal({
+          title: 'Start the draft?',
+          text: 'D R A F T BOYS',
+          type: 'success'
+          showCancelButton: true,
+          confirmButtonText: 'Start'
+        }, (isConfirm) ->
+        dispatcher.trigger 'drafts.start_draft',
+          {
+            draft_id: draft_id
+          }
+      )

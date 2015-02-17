@@ -12,8 +12,7 @@ class DraftEventsController < WebsocketRails::BaseController
   end
 
   def current_round_type
-    rotation = controller_store[:round_rotation]
-    if rotation[Draft::ROUND_TYPE[0]] > 0
+    if controller_store[:round_rotation][Draft::ROUND_TYPE[0]] > 0
       Draft::ROUND_TYPE[0]
     else
       Draft::ROUND_TYPE[1]
@@ -21,17 +20,18 @@ class DraftEventsController < WebsocketRails::BaseController
   end
 
   def next_round
+    controller_store[:round_rotation][Draft::ROUND_TYPE[0]] -= 1
+
+    if controller_store[:round_rotation][Draft::ROUND_TYPE[0]] <= 0
+      broadcast_message :round_type_changed, {}, namespace: :drafts
+    end
+
     if current_round_type == Draft::ROUND_TYPE[0]
-      controller_store[:round_rotation][Draft::ROUND_TYPE[0]] -= 1
       controller_store[:round_number] += 1
       _message = {
         round_number: controller_store[:round_number],
         round_type: Draft::ROUND_TYPE[0].to_s.humanize
       }
-
-      if controller_store[:round_rotation][Draft::ROUND_TYPE[0]] <= 0
-        broadcast_message :round_type_changed, {}, namespace: :drafts
-      end
     else
       controller_store[:round_number] += 1
       _message = {

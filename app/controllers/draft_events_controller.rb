@@ -3,7 +3,7 @@ class DraftEventsController < WebsocketRails::BaseController
     # perform application setup here
     controller_store[:active_player_index] = 0
     controller_store[:round_rotation] = {
-      Draft::ROUND_TYPE[0] => 3,
+      Draft::ROUND_TYPE[0] => 2,
       Draft::ROUND_TYPE[1] => -1
     }
     controller_store[:round_number] = 1
@@ -26,13 +26,13 @@ class DraftEventsController < WebsocketRails::BaseController
       controller_store[:round_number] += 1
       _message = {
         round_number: controller_store[:round_number],
-        round_type: Draft::ROUND_TYPE[0]
+        round_type: Draft::ROUND_TYPE[0].to_s.humanize
       }
     else
       controller_store[:round_number] += 1
       _message = {
         round_number: controller_store[:round_number],
-        round_type: Draft::ROUND_TYPE[1]
+        round_type: Draft::ROUND_TYPE[1].to_s.humanize
       }
     end
 

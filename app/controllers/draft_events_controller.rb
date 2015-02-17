@@ -117,7 +117,7 @@ class DraftEventsController < WebsocketRails::BaseController
 
   def pick_contestant
     draft = Draft.find message["draft_id"]
-    if draft.status == Draft::STATUS[0]
+    if draft.status == Draft::STATUS[1]
       if active_player == current_user
         pick = Pick.new
         pick.user_id = active_player.id

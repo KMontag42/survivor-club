@@ -54,9 +54,9 @@ $(document).ready ->
         round_display.data 'round', data['round_number']
         round_display.html("Round #{data['round_number']}")
       else
-        setTimeout(->
+        setTimeout(( ->
           swal 'Already started brah'
-        , 1000)
+        ), 1000)
 
     dispatcher.unbind 'drafts.next_player'
     dispatcher.bind 'drafts.next_player', (data) ->

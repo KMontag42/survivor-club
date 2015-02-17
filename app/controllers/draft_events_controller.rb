@@ -61,7 +61,7 @@ class DraftEventsController < WebsocketRails::BaseController
   def join_draft
     draft = Draft.find_by(id: message["draft_id"])
     if draft &&
-        (!draft.started || controller_store[:players].include?(current_user))
+       (!draft.started || controller_store[:players].include?(current_user))
       picks = Pick.where(draft_id: message["draft_id"])
       player_cash_picks = picks.select do |x|
         x.user_id == current_user.id && x.pick_type == Draft::ROUND_TYPE[0].to_s
@@ -85,7 +85,7 @@ class DraftEventsController < WebsocketRails::BaseController
         active_player: active_player,
         players: controller_store[:players],
         round_type: current_round_type,
-        picks: picks.map { |x| x.contestant_id },
+        picks: picks.map(&:contestant_id),
         player_cash_picks: player_cash_picks,
         player_drinking_picks: player_drinking_picks,
         round_number: controller_store[:round_number],
@@ -126,9 +126,8 @@ class DraftEventsController < WebsocketRails::BaseController
         }
 
         if pick.save
-          WebsocketRails.users[message["user_id"]].send_message :take_player,
-                                                                _message,
-                                                                namespace: :drafts
+          WebsocketRails.users[message["user_id"]].
+            send_message :take_player, _message, namespace: :drafts
 
           broadcast_message :pick_contestant, _message, namespace: :drafts
           next_player
@@ -136,24 +135,24 @@ class DraftEventsController < WebsocketRails::BaseController
       else
         # broadcast message to emitter that they are not the active player
         WebsocketRails.users[message["user_id"]].
-            send_message :pick_contestant,
-                         {
-                           success: false,
-                           message: "You are not the active player. " +
-                               "Please wait your turn."
-                         },
-                         namespace: :drafts
+          send_message :pick_contestant,
+                       {
+                         success: false,
+                         message: "You are not the active player. " +
+                           "Please wait your turn."
+                       },
+                       namespace: :drafts
       end
     else
       # broadcast message to emitter that they are not the active player
       WebsocketRails.users[message["user_id"]].
-          send_message :pick_contestant,
-                       {
-                           success: false,
-                           message: "The draft has not started yet!. " +
-                               "Please wait until it begins."
-                       },
-                       namespace: :drafts
+        send_message :pick_contestant,
+                     {
+                       success: false,
+                       message: "The draft has not started yet!. " +
+                         "Please wait until it begins."
+                     },
+                     namespace: :drafts
     end
   end
 

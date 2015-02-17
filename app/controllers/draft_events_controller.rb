@@ -30,7 +30,7 @@ class DraftEventsController < WebsocketRails::BaseController
       }
 
       if controller_store[:round_rotation][Draft::ROUND_TYPE[0]] <= 0
-        broadcast_message :round_type_change, {}, namespace: :drafts
+        broadcast_message :round_type_changed, {}, namespace: :drafts
       end
     else
       controller_store[:round_number] += 1

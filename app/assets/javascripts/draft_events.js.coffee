@@ -80,11 +80,10 @@ $(document).ready ->
 
     dispatcher.unbind 'drafts.pick_contestant'
     dispatcher.bind 'drafts.pick_contestant', (data) ->
-      if data['success'] == true
-        contestant_name = data['contestant_name']
+      round_type = round_display.data 'round-type'
+      if data['success'] == true && round_type == "Cash"
         contestant_id = data['contestant_id']
         contestant_tr = $("[data-id=#{contestant_id}]")
-        round_type = round_display.data 'round-type'
         contestant_tr.addClass('danger disabled')
       else
         swal 'Oh no!', data['message'], 'error'

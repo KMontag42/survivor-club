@@ -6,6 +6,7 @@
 #  season_id  :integer
 #  created_at :datetime
 #  updated_at :datetime
+#  started    :boolean
 #
 # Indexes
 #

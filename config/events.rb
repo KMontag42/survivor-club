@@ -26,5 +26,9 @@ WebsocketRails::EventMap.describe do
     subscribe :pick_contestant,
               to: DraftEventsController,
               with_method: :pick_contestant
+    subscribe :start_draft, to: DraftEventsController, with_method: :start_draft
+    subscribe :ready_to_start,
+              to: DraftsController,
+              with_method: :ready_to_start
   end
 end

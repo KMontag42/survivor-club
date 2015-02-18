@@ -33,6 +33,8 @@ class User < ActiveRecord::Base
   has_many :contestants_users, class_name: "ContestantsUsers"
   has_many :contestants, through: :contestants_users
 
+  has_many :picks
+
   def name
     name = "#{first_name} #{last_name}"
     name == " " ? email : name

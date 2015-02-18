@@ -20,7 +20,7 @@
           <td class="hidden-xs"><%= c.age %></td>
           <td class="hidden-xs"><%= c.job %></td>
           <td class="hidden-xs"><%= c.hometown %></td>
-          <td><%= c.tribe_for_season(@draft.season_id) %></td>
+          <td><%= c.tribe_for_season(@draft.season_id).name %></td>
           <td class="hidden-xs"><%= icon :asterisk %></td>
         </tr>
       <% end %>

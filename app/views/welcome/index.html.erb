@@ -4,7 +4,9 @@
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
   <h4>THE WORLDS APART DRAFT IS HERE!</h4>
-  <h1><%= link_to 'AW YISS', draft_path(1), data: { no_turbolink: true } %></h1>
+  <h1><%= link_to 'DRAFT HERE', draft_path(1),
+                  data: { no_turbolink: true },
+                  class: 'btn btn-primary' %></h1>
   <p>Progress on the site:</p>
   <%= progress_bar percentage: 75, animated: true, context: :success %>
 </div>

@@ -12,16 +12,25 @@
 </h1>
 <hr/>
 <%= panel_row column_class: 'col-sm-4 col-xs-12' do %>
-  <%= panel heading: 'Seasons', context: :success do %>
+  <%= panel heading: 'Seasons', context: :info do %>
     <div class="container-fluid">
       <% @contestant.seasons.each do |s| %>
         <p><%= link_to s.name, season_path(s) %></p>
       <% end %>
     </div>
   <% end %>
-  <%= panel heading: 'Notes', context: :default do %>
+  <%= panel heading: 'Cash', context: :success do %>
     <div class="container-fluid">
-
+      <% @contestant.picks.where(pick_type:'cash').each do |s| %>
+        <p><%= s.name %> - <%= s.user.name %></p>
+      <% end %>
+    </div>
+  <% end %>
+  <%= panel heading: 'Drinking', context: :warning do %>
+    <div class="container-fluid">
+      <% @contestant.picks.where(pick_type:'drinking').each do |s| %>
+        <p><%= s.name %> - <%= s.user.name %></p>
+      <% end %>
     </div>
   <% end %>
 <% end %>

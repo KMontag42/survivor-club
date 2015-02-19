@@ -28,6 +28,8 @@ class Contestant < ActiveRecord::Base
   has_many :contestant_tribes
   has_many :tribes, through: :contestant_tribes
 
+  has_many :picks
+
   def self.create(params)
     _params = params
     seasons = _params.delete :seasons

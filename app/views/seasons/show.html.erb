@@ -12,7 +12,9 @@
       <span><%= @season.name %></span>
     </div>
     <div class="col-sm-1 col-xs-2 text-right textfill">
-      <span><%= link_to 'Draft', draft_path(@season.draft),
+      <% draft_button_text = @season.draft.status != 'ended' ?
+              'Draft' : 'Picks' %>
+      <span><%= link_to draft_button_text, draft_path(@season.draft),
                         data: { no_turbolink: true },
                         class: 'btn btn-warning btn-sm' if @season.draft %></span>
     </div>

@@ -22,14 +22,14 @@
   <%= panel heading: 'Cash', context: :success do %>
     <div class="container-fluid">
       <% @contestant.picks.where(pick_type:'cash').each do |s| %>
-        <p><%= s.name %> - <%= s.user.name %></p>
+        <p><%= s.user.name %></p>
       <% end %>
     </div>
   <% end %>
   <%= panel heading: 'Drinking', context: :warning do %>
     <div class="container-fluid">
       <% @contestant.picks.where(pick_type:'drinking').each do |s| %>
-        <p><%= s.name %> - <%= s.user.name %></p>
+        <p><%= s.user.name %></p>
       <% end %>
     </div>
   <% end %>

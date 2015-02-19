@@ -3,7 +3,7 @@
     <%= panel title: 'Cash Picks', context: :info do %>
       <ul>
         <% p.cash_picks.each do |cp| %>
-          <li><%= link_to cp.contestant.name, contestant_path(cp) %></li>
+          <li><%= link_to cp.contestant.name, contestant_path(cp) %> - <%= cp.user.name %></li>
         <% end %>
       </ul>
     <% end %>

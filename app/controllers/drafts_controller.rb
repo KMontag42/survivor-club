@@ -13,9 +13,6 @@ class DraftsController < ApplicationController
 
   def show
     @draft = Draft.find(params[:id])
-    if @draft.status == Draft::STATUS[2]
-      redirect_to draft_picks_path(@draft)
-    end
   end
 
   def edit

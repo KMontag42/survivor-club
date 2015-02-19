@@ -21,10 +21,10 @@ class Draft < ActiveRecord::Base
   STATUS = %w(scheduled started ended)
 
   def contestants
-    picks.collect(&:contestant)
+    picks.collect(&:contestant).uniq(&:id)
   end
 
   def players
-    picks.collect(&:user)
+    picks.collect(&:user).uniq(&:id)
   end
 end

@@ -43,4 +43,21 @@ class User < ActiveRecord::Base
   def admin?
     role == 'admin'
   end
+
+  def cash_picks(draft_id = nil)
+    if draft_id
+      picks.where(draft_id: draft_id, pick_type: 'cash')
+    else
+      picks.where(pick_type: 'cash')
+    end
+  end
+
+  def drinking_picks(draft_id = nil)
+    if draft_id
+      picks.where(draft_id: draft_id, pick_type: 'drinking')
+    else
+      picks.where(pick_type: 'drinking')
+    end
+  end
+
 end

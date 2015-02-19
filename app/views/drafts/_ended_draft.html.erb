@@ -1,0 +1,18 @@
+<% @draft.players.each do |p| %>
+  <%= panel_row column_class: 'col-sm-6 col-xs-12' do %>
+    <%= panel title: 'Cash Picks', context: :info do %>
+      <ul>
+        <% p.cash_picks.each do |cp| %>
+          <li><%= link_to cp.contestant.name, contestant_path(cp) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+    <%= panel title: 'Drinking Picks', context: :warning do %>
+      <ul>
+        <% p.drinking_picks.each do |dp| %>
+          <li><%= link_to dp.contestant.name, contestant_path(dp) %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>

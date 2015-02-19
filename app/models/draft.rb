@@ -19,4 +19,12 @@ class Draft < ActiveRecord::Base
 
   ROUND_TYPE = %w(cash drinking)
   STATUS = %w(scheduled started ended)
+
+  def contestants
+    picks.collect(&:contestant)
+  end
+
+  def players
+    picks.collect(&:user)
+  end
 end

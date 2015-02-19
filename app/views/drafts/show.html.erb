@@ -2,51 +2,55 @@
 <% contestants = season.try(:contestants) if season %>
 <% users = User.all.sort %>
 <%= content_for :body_id do 'draft' end %>
-<div class="row hidden" id="draft_container">
-  <div class="col-sm-3 col-xs-12">
-    <div class="panel panel-default">
-      <div class="panel-body text-center">
-        <h2 class="textfill"><span>Time Left</span></h2>
-        <h4 class="textfill">
-          <span class="text-muted round-display"
-                data-round="1" data-round-type="Cash"></span>
-        </h4>
-        <p class="contestant-name text-success"><%= users.first.name %></p>
-        <h3 class="textfill"><span class="countdown"></span></h3>
+<% if @draft.status != 'ended' %>
+  <div class="row hidden" id="draft_container">
+    <div class="col-sm-3 col-xs-12">
+      <div class="panel panel-default">
+        <div class="panel-body text-center">
+          <h2 class="textfill"><span>Time Left</span></h2>
+          <h4 class="textfill">
+            <span class="text-muted round-display"
+                  data-round="1" data-round-type="Cash"></span>
+          </h4>
+          <p class="contestant-name text-success"><%= users.first.name %></p>
+          <h3 class="textfill"><span class="countdown"></span></h3>
+        </div>
       </div>
+      <%= panel heading: 'Round 1 - Cash', context: :info, class: 'text-center contestants-panel' do %>
+        <div class="panel-body"></div>
+      <% end %>
     </div>
-    <%= panel heading: 'Round 1 - Cash', context: :info, class: 'text-center contestants-panel' do %>
-      <div class="panel-body"></div>
-    <% end %>
-  </div>
-  <div class="col-sm-6 col-xs-12">
-    <%= render 'draft_contestants_display',
-               contestants: contestants if contestants%>
-    <%= render 'draft_contestants_table',
-               contestants: contestants if contestants %>
-  </div>
-  <div class="col-sm-3 col-xs-12">
-    <div class="panel panel-success">
-      <div class="panel-heading">
-        Your Money Picks
-      </div>
-      <div class="panel-body money-picks">
-      </div>
+    <div class="col-sm-6 col-xs-12">
+      <%= render 'draft_contestants_display',
+                 contestants: contestants if contestants%>
+      <%= render 'draft_contestants_table',
+                 contestants: contestants if contestants %>
     </div>
-    <div class="panel panel-warning">
-      <div class="panel-heading">
-        Your Drinking Picks
+    <div class="col-sm-3 col-xs-12">
+      <div class="panel panel-success">
+        <div class="panel-heading">
+          Your Money Picks
+        </div>
+        <div class="panel-body money-picks">
+        </div>
       </div>
-      <div class="panel-body drinking-picks">
+      <div class="panel panel-warning">
+        <div class="panel-heading">
+          Your Drinking Picks
+        </div>
+        <div class="panel-body drinking-picks">
+        </div>
       </div>
+      <div class="chat"></div>
+      <form class="">
+        <input type="text" id="chat-line" class="form-control"
+               placeholder="Message"/>
+        <button class="btn btn-primary send-chat form-control">Send</button>
+      </form>
     </div>
-    <div class="chat"></div>
-    <form class="">
-      <input type="text" id="chat-line" class="form-control"
-             placeholder="Message"/>
-      <button class="btn btn-primary send-chat form-control">Send</button>
-    </form>
+    <div class="clearfix"></div>
   </div>
-  <div class="clearfix"></div>
-</div>
-<div class="hidden draft-id" data-id="<%= @draft.id %>"></div>
+  <div class="hidden draft-id" data-id="<%= @draft.id %>"></div>
+<% else %>
+  <%= render 'drafts/ended_draft' %>
+<% end %>

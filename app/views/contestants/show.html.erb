@@ -29,7 +29,7 @@
   <%= panel heading: 'Drinking', context: :warning do %>
     <div class="container-fluid">
       <% @contestant.picks.where(pick_type:'drinking').each do |s| %>
-        <p><%= s.user.name %></p>
+        <p><%= link_to s.user.name, user_path(s.user) %></p>
       <% end %>
     </div>
   <% end %>

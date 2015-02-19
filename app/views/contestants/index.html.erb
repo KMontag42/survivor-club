@@ -27,8 +27,7 @@
             <h4 class="modal-title">
               <%= c.name %>
               <%= link_to 'Edit', edit_contestant_path(c),
-                          class: 'btn btn-primary btn-sm'
-                  if current_user.admin? %>
+                          class: 'btn btn-primary btn-sm' if current_user.admin? %>
             </h4>
             <div class="clearfix"></div>
           </div>

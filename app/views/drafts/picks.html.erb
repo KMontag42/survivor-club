@@ -2,14 +2,14 @@
   <%= panel title: 'Cash Picks', context: :info do %>
     <ul>
       <% @cash_picks.each do |cp| %>
-        <li><%= link_to cp.contestant.name, contestant_path(cp) %></li>
+        <li><%= link_to cp.contestant.name, contestant_path(cp.contestant) %></li>
       <% end %>
     </ul>
   <% end %>
   <%= panel title: 'Drinking Picks', context: :warning do %>
     <ul>
       <% @drinking_picks.each do |cp| %>
-        <li><%= link_to cp.contestant.name, contestant_path(cp) %></li>
+        <li><%= link_to cp.contestant.name, contestant_path(cp.contestant) %></li>
       <% end %>
     </ul>
   <% end %>

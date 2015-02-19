@@ -1,9 +1,10 @@
 <% @draft.players.each do |p| %>
+  <h3><%= p.name %></h3>
   <%= panel_row column_class: 'col-sm-6 col-xs-12' do %>
-    <%= panel title: 'Cash Picks', context: :info do %>
+    <%= panel title: "Cash Picks", context: :info do %>
       <ul>
         <% p.cash_picks.each do |cp| %>
-          <li><%= link_to cp.contestant.name, contestant_path(cp) %> - <%= cp.user.name %></li>
+          <li><%= link_to cp.contestant.name, contestant_path(cp) %></li>
         <% end %>
       </ul>
     <% end %>

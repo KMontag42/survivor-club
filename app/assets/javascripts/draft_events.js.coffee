@@ -164,4 +164,6 @@ $(document).ready ->
         type: "success",
         showCancelButton: false,
         confirmButtonText: "SHOW ME"
-      })
+      }, ->
+        window.location = window.location + '/picks'
+      )

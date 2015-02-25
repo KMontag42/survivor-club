@@ -59,4 +59,8 @@ class Contestant < ActiveRecord::Base
   def tribe_for_season(season_id)
     tribes.find_by(season_id: season_id)
   end
+
+  def in_tribe?(tribe_id)
+    tribes.one? { |x| x.id = tribe_id }
+  end
 end

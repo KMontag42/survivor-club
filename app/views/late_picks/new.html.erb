@@ -2,7 +2,7 @@
 <h1>Late Picks!</h1>
 <hr/>
 <div id="contestants-container">
-  <% @contestants.select{ |x| x.tribe_for_season(1) }.each do |c| %>
+  <% @contestants.select{ |x| x.in_tribe?(1) }.each do |c| %>
     <!-- Contestant tile -->
     <div class="item"
          style="background: url(<%= c.image_url %>) no-repeat center center;
@@ -74,7 +74,7 @@
       </div>
     </div>
   <% end %>
-  <% @contestants.select{ |x| x.tribe_for_season(2) }.each do |c| %>
+  <% @contestants.select{ |x| x.in_tribe?(2) }.each do |c| %>
     <!-- Contestant tile -->
     <div class="item" style="background: url(<%= c.image_url %>) no-repeat center center;
             background-size: cover;
@@ -145,7 +145,7 @@
       </div>
     </div>
   <% end %>
-  <% @contestants.select{ |x| x.tribe_for_season(3) }.each do |c| %>
+  <% @contestants.select{ |x| x.in_tribe?(3) }.each do |c| %>
     <!-- Contestant tile -->
     <div class="item" style="background: url(<%= c.image_url %>) no-repeat center center;
             background-size: cover;

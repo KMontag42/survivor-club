@@ -3,7 +3,11 @@
   <span class="col-xs-7"><%= @episode.name %></span>
   
   <span class="col-xs-5 text-right">
-    Starts in - <span class="episode-countdown">04:20:00</span>
+    Starts in -
+    <span class="episode-countdown"
+          data-date="<%= @episode.air_date.iso8601 %>">
+      04:20:00
+    </span>
   </span>
   <div class="clearfix"></div>
 </h3>

@@ -16,7 +16,29 @@
   <div class="col-sm-6 col-xs-12 text-center" style="margin-bottom: 2rem;">
     <%= render 'shared/chat' %>
   </div>
-  <div class="col-sm-3 col-xs-12">
+  <div class="col-sm-6 col-xs-12">
+    <%= panel :heading => 'Pool Players', :context => :default do %>
+      <table class="table table-striped table-bordered">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cash</th>
+          <th>Drinking</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @players.each do |u| %>
+          <tr>
+            <td><%= u.first_name %></td>
+            <td><%= u.cash_picks(1).join ',' %></td>
+            <td><%= u.drinking_picks(1).join ',' %></td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+  <div class="visible-xs-block col-xs-12">
     <%= panel heading: 'Contestants', context: :info do %>
       <ul>
         <% @episode.season.contestants.each do |c| %>
@@ -27,13 +49,12 @@
       </ul>
     <% end %>
   </div>
-  <div class="col-sm-3 col-xs-12">
-    <%= panel :heading => 'Pool Players', :context => :default do %>
+  <div class="col-sm-6 col-sm-offset-6 hidden-xs">
+    <%= panel heading: 'Contestants', context: :info do %>
       <ul>
-        <% @players.each do |u| %>
+        <% @episode.season.contestants.each do |c| %>
           <li>
-            <%= link_to u.first_name, user_path(u), class: 'player',
-                        target: '_blank' %>
+            <%= link_to c.name, contestant_path(c), target: '_blank' %>
           </li>
         <% end %>
       </ul>

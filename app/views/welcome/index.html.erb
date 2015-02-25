@@ -1,12 +1,10 @@
 <div class="jumbotron text-center">
   <h1>Survivor Club</h1>
-  <h2 class="text-muted">We are so cool</h2>
+  <h2 class="text-danger">Worlds Apart</h2>
+  <h2 class="text-muted">No Collar, Blue Collar, White Collar</h2>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
-  <h4>THE WORLDS APART DRAFT IS HERE!</h4>
-  <h1><%= link_to 'DRAFT HERE', draft_path(1),
-                  data: { no_turbolink: true },
+  <h4>WORLDS APART BEGINS!</h4>
+  <h1><%= link_to 'GAME DAY', game_day_path,
                   class: 'btn btn-primary' %></h1>
-  <p>Progress on the site:</p>
-  <%= progress_bar percentage: 75, animated: true, context: :success %>
 </div>

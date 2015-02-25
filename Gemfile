@@ -56,4 +56,7 @@ gem 'animate-scss'
 # for role based actions
 gem 'cancan'
 
+# for sick link detection, MY GEM YEAH WUT BOI
+gem 'autolinkerjs'
+
 ruby '2.2.0'

@@ -8,7 +8,7 @@ $(document).ready ->
     dispatcher.bind 'send_chat', (data) ->
       chat = $(".chat")
       chat.append(
-        "<p>#{data.user}: #{data.message}</p>"
+        "<p>#{data.user}: #{Autolinker.link(data.message)}</p>"
       )
       chat.scrollTop(chat[0].scrollHeight)
 
@@ -17,5 +17,10 @@ $(document).ready ->
       console.log 'clicked send-chat'
       e.preventDefault()
       target = $(e.target)
-      dispatcher.trigger('send_chat', {message: $("#chat-line").val(), user: App.globals.user.name})
+      dispatcher.trigger('send_chat',
+                         {
+                            message: $("#chat-line").val(),
+                            user: App.globals.user.name
+                         }
+      )
       $("#chat-line").val('')

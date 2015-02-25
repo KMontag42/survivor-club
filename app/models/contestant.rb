@@ -61,6 +61,6 @@ class Contestant < ActiveRecord::Base
   end
 
   def in_tribe?(tribe_id)
-    tribes.one? { |x| x.id = tribe_id }
+    tribes.one?{ |x| x.id == tribe_id }
   end
 end

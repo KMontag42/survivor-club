@@ -41,19 +41,6 @@
         </tbody>
       </table>
     <% end %>
-  </div>
-  <div class="visible-xs-block col-xs-12">
-    <%= panel heading: 'Contestants', context: :info do %>
-      <ul>
-        <% @episode.season.contestants.each do |c| %>
-          <li>
-            <%= link_to c.name, contestant_path(c), target: '_blank' %>
-          </li>
-        <% end %>
-      </ul>
-    <% end %>
-  </div>
-  <div class="col-sm-6 col-sm-offset-6 hidden-xs">
     <%= panel heading: 'Contestants', context: :info do %>
       <ul>
         <% @episode.season.contestants.each do |c| %>

@@ -30,8 +30,12 @@
         <% @players.each do |u| %>
           <tr>
             <td><%= u.first_name %></td>
-            <td><%= u.cash_picks(1).join ',' %></td>
-            <td><%= u.drinking_picks(1).join ',' %></td>
+            <td>
+              <%= u.cash_picks(1).collect{ |x| x.contestant.name }.join ',' %>
+            </td>
+            <td>
+              <%= u.drinking_picks(1).collect{ |x| x.contestant.name }.join ',' %>
+            </td>
           </tr>
         <% end %>
         </tbody>

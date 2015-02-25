@@ -2,6 +2,9 @@
 <h1>Late Picks!</h1>
 <h4 class="text-danger text-center">WE ARE ON THE HONOR SYSTEM</h4>
 <h4 class="text-danger text-center">PICK 2 FROM EACH TRIBE</h4>
+<h4 class="text-danger text-center">DRINKING PICKS COUNT</h4>
+<h4 class="text-danger text-center">YOU SHOULD END UP WITH 4 FROM EACH TRIBE (COLOR BORDER)</h4>
+
 <hr/>
 <div id="late-picks-container">
   <% (@contestants.select{ |x| x.in_tribe?(1) }).each do |c| %>
@@ -9,7 +12,7 @@
     <div class="item"
          style="background: url(<%= c.image_url %>) no-repeat center center;
                 background-size: cover;
-                border: 2px red solid;"
+                border: 2px yellow solid;"
          data-toggle="modal"
          data-target="#contestant_modal_<%= c.id %>">
     </div>
@@ -80,7 +83,7 @@
     <!-- Contestant tile -->
     <div class="item" style="background: url(<%= c.image_url %>) no-repeat center center;
             background-size: cover;
-            border: 2px blue solid;"
+            border: 2px red solid;"
          data-toggle="modal"
          data-target="#contestant_modal_<%= c.id %>">
     </div>
@@ -151,7 +154,7 @@
     <!-- Contestant tile -->
     <div class="item" style="background: url(<%= c.image_url %>) no-repeat center center;
             background-size: cover;
-            border: 2px yellow solid;"
+            border: 2px blue solid;"
          data-toggle="modal"
          data-target="#contestant_modal_<%= c.id %>">
     </div>

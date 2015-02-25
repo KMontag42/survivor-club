@@ -3,7 +3,6 @@ class LatePicksController < ApplicationController
     contestants = Contestant.all
     user_picks = Pick.where(user_id: current_user.id).map(&:contestant)
     @contestants = contestants - user_picks
-
   end
 
   def create

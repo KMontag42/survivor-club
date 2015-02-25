@@ -1,7 +1,9 @@
-<%= content_for :body_id do 'contestants-index' end %>
+<%= content_for :body_id do 'late-picks' end %>
 <h1>Late Picks!</h1>
+<h4 class="text-danger text-center">WE ARE ON THE HONOR SYSTEM</h4>
+<h4 class="text-danger text-center">PICK 2 FROM EACH TRIBE</h4>
 <hr/>
-<div id="contestants-container">
+<div id="late-picks-container">
   <% (@contestants.select{ |x| x.in_tribe?(1) }).each do |c| %>
     <!-- Contestant tile -->
     <div class="item"

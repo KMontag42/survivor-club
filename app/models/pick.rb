@@ -9,12 +9,14 @@
 #  pick_type     :string(255)
 #  created_at    :datetime
 #  updated_at    :datetime
+#  season_id     :integer
 #
 
 class Pick < ActiveRecord::Base
   belongs_to :draft
   belongs_to :user
   belongs_to :contestant
+  belongs_to :season
 
   PICK_TYPE = %w(cash drinking)
 end

@@ -14,16 +14,25 @@
   </div>
   <div class="col-sm-3 col-xs-12">
     <%= panel heading: 'Contestants', context: :info do %>
-      <% @episode.season.contestants.each do |c| %>
-        <div><a href="#" class="contestant"><%= icon :flash %><%= c.name %></a></div>
-      <% end %>
+      <ul>
+        <% @episode.season.contestants.each do |c| %>
+          <li>
+            <%= link_to c.name, contestant_path(c), target: '_blank' %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
   </div>
   <div class="col-sm-3 col-xs-12">
     <%= panel :heading => 'Pool Players', :context => :default do %>
-      <% User.all.each do |u| %>
-        <div><a class="player" href="#"><%= icon :flash %> <%= u.first_name || "Kyle" %></a></div>
-      <% end %>
+      <ul>
+        <% @players.each do |u| %>
+          <li>
+            <%= link_to u.first_name, user_path(u), class: 'player',
+                        target: '_blank' %>
+          </li>
+        <% end %>
+      </ul>
     <% end %>
   </div>
 </div>

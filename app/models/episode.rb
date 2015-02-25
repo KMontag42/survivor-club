@@ -14,4 +14,9 @@
 
 class Episode < ActiveRecord::Base
   belongs_to :season
+
+  def players
+
+
+  end
 end

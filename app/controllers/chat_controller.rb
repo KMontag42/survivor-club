@@ -5,6 +5,11 @@ class ChatController < WebsocketRails::BaseController
   end
 
   def send_chat
+    ChatMessage.create!(
+      episode_id: message[:id],
+      message: message[:message],
+      user_id: message[:user_id]
+    )
     broadcast_message :send_chat, message
   end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150225011455) do
+ActiveRecord::Schema.define(version: 20150225045720) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,6 +37,14 @@ ActiveRecord::Schema.define(version: 20150225011455) do
   end
 
   add_index "characters", ["user_id"], name: "index_characters_on_user_id", using: :btree
+
+  create_table "chat_messages", force: true do |t|
+    t.string   "message"
+    t.integer  "user_id"
+    t.integer  "episode_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "contestant_tribes", force: true do |t|
     t.integer  "contestant_id"

@@ -14,7 +14,8 @@
 <hr/>
 <div class="row">
   <div class="col-sm-6 col-xs-12 text-center" style="margin-bottom: 2rem;">
-    <%= render 'shared/chat' %>
+    <%= render 'shared/chat', messages: @episode.chat_messages,
+               id: @episode.id %>
   </div>
   <div class="col-sm-6 col-xs-12">
     <%= panel :heading => 'Pool Players', :context => :default do %>

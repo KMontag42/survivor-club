@@ -20,7 +20,9 @@ $(document).ready ->
       dispatcher.trigger('send_chat',
                          {
                             message: $("#chat-line").val(),
-                            user: App.globals.user.name
+                            user: App.globals.user.name,
+                            user_id: App.globals.user.id,
+                            id: $(".id").data("id")
                          }
       )
       $("#chat-line").val('')

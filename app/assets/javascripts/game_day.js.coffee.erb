@@ -3,6 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   if $("body#game_day").length > 0
+    chat = $ ".chat"
     episode_countdown = $ ".episode-countdown"
     air_date = episode_countdown.data "date"
     air_date_with_time = moment(air_date).local().hour(20).toDate()
@@ -14,3 +15,5 @@ $(document).ready ->
         until: air_date_with_time,
         layout: "{dn}d {hnn}:{mnn}:{snn}"
       }
+
+    chat.html(Autolinker.link(chat.html()))

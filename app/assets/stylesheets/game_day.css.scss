@@ -1,0 +1,19 @@
+body#game_day {
+  &:after {
+    background: #ee8e4a;
+    color: #fff;
+    content: "beta";
+    font-family: sans-serif;
+    font-size: 13px;
+    font-weight: bold;
+    height: 25px;
+    left: -20px;
+    line-height: 27px;
+    position: fixed;
+    text-align: center;
+    text-transform: uppercase;
+    top: 7px;
+    transform: rotate(-45deg);
+    width: 80px;
+  }
+}

@@ -8,7 +8,9 @@ $(document).ready ->
     dispatcher.bind 'send_chat', (data) ->
       chat = $(".chat")
       chat.append(
-        "<p>#{data.user}: #{Autolinker.link(data.message)}</p>"
+        "<p data-id='#{data.id}''>
+          #{data.user}: #{Autolinker.link(data.message)}
+        </p>"
       )
       chat.scrollTop(chat[0].scrollHeight)
 

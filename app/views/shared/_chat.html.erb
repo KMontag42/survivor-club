@@ -1,6 +1,6 @@
 <div class="chat text-left" style="margin-bottom: .5rem;">
   <% messages.each do |cm| %>
-    <p><%= cm.chat_format %></p>
+    <p data-id="<%= cm.id %>"><%= cm.chat_format %></p>
   <% end %>
 </div>
 <form>

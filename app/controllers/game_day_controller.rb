@@ -3,7 +3,7 @@ class GameDayController < ApplicationController
 
   def index
     @episode = Episode.where("air_date >= '#{Date.today}'").
-        sort { |a, b| a.number <=> b.number }.first
+                       sort { |a, b| a.number <=> b.number }.first
   end
 
 end

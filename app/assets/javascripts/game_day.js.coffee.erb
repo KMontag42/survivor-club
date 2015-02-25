@@ -6,7 +6,11 @@ $(document).ready ->
     episode_countdown = $ ".episode-countdown"
     air_date = episode_countdown.data "date"
     air_date_with_time = moment(air_date).local().hour(20).toDate()
-    episode_countdown.countdown {
-      until: air_date_with_time,
-      layout: "{dn}d {hnn}:{mnn}:{snn}"
-    }
+
+    if moment() > moment(air_date).local().hour(20)
+      $(".started").html("STARTED").addClass("text-success bolder")
+    else
+      episode_countdown.countdown {
+        until: air_date_with_time,
+        layout: "{dn}d {hnn}:{mnn}:{snn}"
+      }

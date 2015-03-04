@@ -32,9 +32,9 @@
           <tr>
             <td><%= u.first_name %></td>
             <td>
-              <%= u.cash_picks(@episode.season.id).select { |x| x.vote_out_for_season(@episode.season.id).nil? }
+              <%= u.cash_picks(@episode.season.id).select { |x| x.contestant.vote_out_for_season(@episode.season.id).nil? }
                           .collect{ |x| x.contestant.name }.join ', ' %>
-              <%= u.cash_picks(@episode.season.id).select { |x| !x.vote_out_for_season(@episode.season.id).nil? }
+              <%= u.cash_picks(@episode.season.id).select { |x| !x.contestant.vote_out_for_season(@episode.season.id).nil? }
                           .collect{ |x| x.contestant.name }.join ', '%>
             </td>
             <td>

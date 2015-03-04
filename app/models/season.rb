@@ -18,6 +18,7 @@ class Season < ActiveRecord::Base
   has_many :contestants, through: :contestants_seasons
 
   has_many :picks
+  has_many :vote_outs
 
   has_one :draft
 end

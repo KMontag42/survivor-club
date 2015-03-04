@@ -15,4 +15,5 @@
 class Episode < ActiveRecord::Base
   belongs_to :season
   has_many :chat_messages
+  has_one :vote_out
 end

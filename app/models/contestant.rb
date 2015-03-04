@@ -29,6 +29,7 @@ class Contestant < ActiveRecord::Base
   has_many :tribes, through: :contestant_tribes
 
   has_many :picks
+  has_many :vote_outs
 
   def self.create(params)
     _params = params
@@ -62,5 +63,9 @@ class Contestant < ActiveRecord::Base
 
   def in_tribe?(tribe_id)
     tribes.one?{ |x| x.id == tribe_id }
+  end
+
+  def vote_out_for_season(season_id)
+    vote_outs.find_by(season_id: season_id)
   end
 end

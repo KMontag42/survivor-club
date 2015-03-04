@@ -34,8 +34,10 @@
             <td>
               <%= u.cash_picks(@episode.season.id).select { |x| x.contestant.vote_out_for_season(@episode.season.id).nil? }
                           .collect{ |x| x.contestant.name }.join ', ' %>
-              <%= u.cash_picks(@episode.season.id).select { |x| !x.contestant.vote_out_for_season(@episode.season.id).nil? }
-                          .collect{ |x| x.contestant.name }.join ', '%>
+              <div style="text-decoration: line-through;">
+                <%= u.cash_picks(@episode.season.id).select { |x| !x.contestant.vote_out_for_season(@episode.season.id).nil? }
+                            .collect{ |x| x.contestant.name }.join ', '%>
+              </div>
             </td>
             <td>
               <%= u.drinking_picks(@episode.season.id).collect{ |x| x.contestant.name }.join ', ' %>

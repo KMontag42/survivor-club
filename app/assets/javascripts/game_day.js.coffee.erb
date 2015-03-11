@@ -2,6 +2,48 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
+  replaceFunction = (autolinker, match) ->
+    isImage = false
+    isImage = match.getUrl().indexOf('.gif') != -1
+    isImage = isImage || match.getUrl().indexOf('.jpg') != -1
+    isImage = isImage || match.getUrl().indexOf('.png') != -1
+    isImage = isImage || match.getUrl().indexOf('.jpeg') != -1
+
+    tag = null
+    switch match.getType()
+      when 'url'
+        console.log 'url: ', match.getUrl()
+        if isImage
+          tag = autolinker.getTagBuilder().build(match)
+          tag.tagName = 'img'
+          tag.setAttr 'src', match.getUrl()
+          tag.innerHtml = ''
+          return tag
+        else if match.getUrl().indexOf('mysite.com') == -1
+          tag = autolinker.getTagBuilder().build(match)
+          # returns an `Autolinker.HtmlTag` instance, which provides mutator methods for easy changes
+          tag.setAttr 'rel', 'nofollow'
+          tag.addClass 'external-link'
+          console.log tag
+          return tag
+        else
+          return true
+    # let Autolinker perform its normal anchor tag replacement
+      when 'email'
+        email = match.getEmail()
+        console.log 'email: ', email
+        if email == 'my@own.address'
+          return false
+          # don't auto-link this particular email address; leave as-is
+        else
+          return
+    # no return value will have Autolinker perform its normal anchor tag replacement (same as returning `true`)
+      when 'twitter'
+        twitterHandle = match.getTwitterHandle()
+        console.log twitterHandle
+        return '<a href="http://newplace.to.link.twitter.handles.to/">' + twitterHandle + '</a>'
+    return
+
   if $("body#game_day").length > 0
     chat = $ ".chat"
     episode_countdown = $ ".episode-countdown"
@@ -16,4 +58,4 @@ $(document).ready ->
         layout: "{dn}d {hnn}:{mnn}:{snn}"
       }
 
-    chat.html(Autolinker.link(chat.html()))
+    chat.html(Autolinker.link(chat.html(), { replaceFn: replaceFunction }))

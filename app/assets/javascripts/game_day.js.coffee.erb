@@ -3,7 +3,6 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   replaceFunction = (autolinker, match) ->
-    isImage = false
     isImage = match.getUrl().indexOf('.gif') != -1
     isImage = isImage || match.getUrl().indexOf('.jpg') != -1
     isImage = isImage || match.getUrl().indexOf('.png') != -1
@@ -14,10 +13,15 @@ $(document).ready ->
       when 'url'
         console.log 'url: ', match.getUrl()
         if isImage
+          console.log 'is image'
           tag = autolinker.getTagBuilder().build(match)
+          console.log 'tag built'
           tag.tagName = 'img'
+          console.log 'tag set to img'
           tag.setAttr 'src', match.getUrl()
+          console.log 'tag src set'
           tag.innerHtml = ''
+          console.log 'tag inner html cleared'
           return tag
         else if match.getUrl().indexOf('mysite.com') == -1
           tag = autolinker.getTagBuilder().build(match)

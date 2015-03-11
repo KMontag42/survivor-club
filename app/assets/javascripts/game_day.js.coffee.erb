@@ -18,13 +18,13 @@ $(document).ready ->
             tag.tagName = 'img'
             tag.setAttr 'src', match.getUrl()
             tag.innerHtml = ''
-            return tag
+            break
           else if match.getUrl().indexOf('mysite.com') == -1
             tag = autolinker.getTagBuilder().build(match)
             # returns an `Autolinker.HtmlTag` instance, which provides mutator methods for easy changes
             tag.setAttr 'rel', 'nofollow'
             tag.addClass 'external-link'
-            return tag
+            break
           else
             return true
       # let Autolinker perform its normal anchor tag replacement
@@ -41,7 +41,7 @@ $(document).ready ->
           twitterHandle = match.getTwitterHandle()
           console.log twitterHandle
           return '<a href="http://newplace.to.link.twitter.handles.to/">' + twitterHandle + '</a>'
-      return
+      return tag
 
     chat = $ ".chat"
     episode_countdown = $ ".episode-countdown"

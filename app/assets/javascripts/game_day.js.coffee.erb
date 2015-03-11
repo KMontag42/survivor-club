@@ -4,14 +4,13 @@
 $(document).ready ->
   if $("body#game_day").length > 0
     starterReplaceFunction = (autolinker, match) ->
-      isImage = match.getUrl().indexOf('.gif') != -1
-      isImage = isImage || match.getUrl().indexOf('.jpg') != -1
-      isImage = isImage || match.getUrl().indexOf('.png') != -1
-      isImage = isImage || match.getUrl().indexOf('.jpeg') != -1
-
       tag = null
       switch match.getType()
         when 'url'
+          isImage = match.getUrl().indexOf('.gif') != -1
+          isImage = isImage || match.getUrl().indexOf('.jpg') != -1
+          isImage = isImage || match.getUrl().indexOf('.png') != -1
+          isImage = isImage || match.getUrl().indexOf('.jpeg') != -1
           console.log 'url: ', match.getUrl()
           if isImage
             tag = autolinker.getTagBuilder().build(match)

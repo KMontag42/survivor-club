@@ -13,22 +13,16 @@ $(document).ready ->
       when 'url'
         console.log 'url: ', match.getUrl()
         if isImage
-          console.log 'is image'
           tag = autolinker.getTagBuilder().build(match)
-          console.log 'tag built'
           tag.tagName = 'img'
-          console.log 'tag set to img'
           tag.setAttr 'src', match.getUrl()
-          console.log 'tag src set'
           tag.innerHtml = ''
-          console.log 'tag inner html cleared'
           return tag
         else if match.getUrl().indexOf('mysite.com') == -1
           tag = autolinker.getTagBuilder().build(match)
           # returns an `Autolinker.HtmlTag` instance, which provides mutator methods for easy changes
           tag.setAttr 'rel', 'nofollow'
           tag.addClass 'external-link'
-          console.log tag
           return tag
         else
           return true
@@ -62,4 +56,6 @@ $(document).ready ->
         layout: "{dn}d {hnn}:{mnn}:{snn}"
       }
 
-    chat.html(Autolinker.link(chat.html(), { replaceFn: replaceFunction }))
+    chat_body = Autolinker.link(chat.html(), { replaceFn: replaceFunction })
+    console.log chat_body
+    chat.html(chat_body)

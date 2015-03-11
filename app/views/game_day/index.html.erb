@@ -24,7 +24,6 @@
         <tr>
           <th>Name</th>
           <th>Cash</th>
-          <th>Drinking</th>
         </tr>
         </thead>
         <tbody>
@@ -38,9 +37,6 @@
                 <%= u.cash_picks(@episode.season.id).select { |x| !x.contestant.vote_out_for_season(@episode.season.id).nil? }
                             .collect{ |x| x.contestant.name }.join ', '%>
               </div>
-            </td>
-            <td>
-              <%= u.drinking_picks(@episode.season.id).collect{ |x| x.contestant.name }.join ', ' %>
             </td>
           </tr>
         <% end %>

@@ -1,0 +1,10 @@
+<h1>
+  Who Got Voted Out?
+</h1>
+<hr/>
+<%= form_for VoteOut.new, action: :create, layout: :basic do |f| %>
+  <%= f.select :contestant_id, Contestant.all.collect {|p| [ p.name, p.id ] } %>
+  <%= f.select :episode_id, Episode.all.collect {|p| [ p.name, p.id ] } %>
+  <%= f.hidden_field :season_id, value: 1 %>
+  <%= f.submit 'Save' %>
+<% end %>

@@ -1,4 +1,4 @@
-class VoteOutController < ApplicationController
+class VoteOutsController < ApplicationController
   def index
     @vote_outs = VoteOut.all
   end

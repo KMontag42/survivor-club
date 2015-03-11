@@ -4,14 +4,13 @@
 $(document).ready ->
   if $('.chat').length > 0
     replaceFunction = (autolinker, match) ->
-      isImage = match.getUrl().indexOf('.gif') != -1
-      isImage = isImage || match.getUrl().indexOf('.jpg') != -1
-      isImage = isImage || match.getUrl().indexOf('.png') != -1
-      isImage = isImage || match.getUrl().indexOf('.jpeg') != -1
-
       tag = null
       switch match.getType()
         when 'url'
+          isImage = match.getUrl().indexOf('.gif') != -1
+          isImage = isImage || match.getUrl().indexOf('.jpg') != -1
+          isImage = isImage || match.getUrl().indexOf('.png') != -1
+          isImage = isImage || match.getUrl().indexOf('.jpeg') != -1
           console.log 'url: ', match.getUrl()
           if isImage
             tag = autolinker.getTagBuilder().build(match)
@@ -40,7 +39,7 @@ $(document).ready ->
         when 'twitter'
           twitterHandle = match.getTwitterHandle()
           console.log twitterHandle
-          return '<a href="http://newplace.to.link.twitter.handles.to/">' + twitterHandle + '</a>'
+          return false # we don't use twitter.
       return
 
     dispatcher = App.globals.dispatcher

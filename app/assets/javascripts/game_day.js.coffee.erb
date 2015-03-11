@@ -3,7 +3,7 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   if $("body#game_day").length > 0
-    replaceFunction = (autolinker, match) ->
+    starterReplaceFunction = (autolinker, match) ->
       isImage = match.getUrl().indexOf('.gif') != -1
       isImage = isImage || match.getUrl().indexOf('.jpg') != -1
       isImage = isImage || match.getUrl().indexOf('.png') != -1
@@ -56,6 +56,6 @@ $(document).ready ->
         layout: "{dn}d {hnn}:{mnn}:{snn}"
       }
 
-    chat_body = Autolinker.link(chat.html(), { replaceFn: replaceFunction })
+    chat_body = Autolinker.link(chat.html(), { replaceFn: starterReplaceFunction })
     console.log chat_body
     chat.html(chat_body)

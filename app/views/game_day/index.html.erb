@@ -47,7 +47,9 @@
       <ul>
         <% @episode.season.contestants.each do |c| %>
           <li>
-            <%= link_to c.name, contestant_path(c), target: '_blank' %>
+            <% link_style = '' %>
+            <% link_style = 'text-decoration: line-through;' unless c.vote_out_for_season(@episode.season.id).nil? %>
+            <%= link_to c.name, contestant_path(c), target: '_blank', style: link_style %>
           </li>
         <% end %>
       </ul>

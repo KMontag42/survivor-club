@@ -4,7 +4,12 @@
   <h2 class="text-muted">No Collar, Blue Collar, White Collar</h2>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center" <%= 'hidden' if @show_spoilers %>>
-  <h4>WORLDS APART BEGINS!</h4>
+  <h4>NEW FEATURES!!</h4>
+  <p>Now you can go to your
+    <a href="<%= edit_user_path(current_user) if current_user %>">user settings</a>
+    and set if you want to see spoilers on the homepage!</p>
+  <p>Admins: Sexy new form layout</p>
+  <p></p>
   <h1><%= link_to 'GAME DAY', game_day_path,
                   class: 'btn btn-primary' %></h1>
 </div>
@@ -16,6 +21,8 @@
       <a href="<%= contestant_path(vo.contestant.id) %>"><%= vo.contestant.name %></a>
     </div>
   <% end %>
+  <h4>WE HAVE MERGED</h4>
+
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
   <h1>

@@ -23,7 +23,7 @@ class Season < ActiveRecord::Base
   has_one :draft
 
   def remaining_contestants
-    contestants.all.collect do |c|
+    contestants.all.select do |c|
       c.vote_out_for_season(self.id).nil?
     end
   end

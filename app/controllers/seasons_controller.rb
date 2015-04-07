@@ -11,9 +11,11 @@ class SeasonsController < ApplicationController
 
   def edit
     @season = Season.find(params[:id])
+    render layout: 'center_form'
   end
 
   def new
+    render layout: 'center_form'
   end
 
   def create

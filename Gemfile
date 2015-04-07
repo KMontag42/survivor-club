@@ -59,4 +59,7 @@ gem 'cancan'
 # for sick link detection, MY GEM YEAH WUT BOI
 gem 'autolinkerjs'
 
+# to pass rails variables to javascript
+gem 'gon'
+
 ruby '2.2.0'

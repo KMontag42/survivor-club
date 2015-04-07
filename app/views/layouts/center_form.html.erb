@@ -17,31 +17,31 @@
 <body id="<%= yield :body_id %>"
       class="<%= yield :body_class %>"
       style="<%= yield :body_style %>">
-  <%= navbar do %>
-    <%= vertical do %>
-      <%= link_to 'Home', root_path %>
-    <% end %>
-    <%= horizontal do %>
-      <%= nav class: 'navbar-right' do %>
-        <%= link_to 'Episodes', episodes_path %>
-        <%= link_to 'Seasons', seasons_path %>
-        <%= link_to 'Contestants', contestants_path %>
-        <%= link_to 'Tribes', tribes_path %>
-        <%= link_to 'Game Day', game_day_path %>
-        <% if user_signed_in? %>
-          <%= link_to icon(:user), user_path(current_user) %>
-        <% end %>
+<%= navbar do %>
+  <%= vertical do %>
+    <%= link_to 'Home', root_path %>
+  <% end %>
+  <%= horizontal do %>
+    <%= nav class: 'navbar-right' do %>
+      <%= link_to 'Episodes', episodes_path %>
+      <%= link_to 'Seasons', seasons_path %>
+      <%= link_to 'Contestants', contestants_path %>
+      <%= link_to 'Tribes', tribes_path %>
+      <%= link_to 'Game Day', game_day_path %>
+      <% if user_signed_in? %>
+        <%= link_to icon(:user), user_path(current_user) %>
       <% end %>
     <% end %>
   <% end %>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-        <p class="notice"><%= notice %></p>
-        <p class="alert hidden"><%= alert %></p>
-        <%= yield %>
-      </div>
+<% end %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-6 col-sm-offset-3 col-xs-12">
+      <p class="notice"><%= notice %></p>
+      <p class="alert hidden"><%= alert %></p>
+      <%= yield %>
     </div>
   </div>
+</div>
 </body>
 </html>

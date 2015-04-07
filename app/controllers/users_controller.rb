@@ -11,6 +11,8 @@ class UsersController < ApplicationController
 
   def edit
     @user = User.find(params[:id])
+
+    render layout: 'center_form'
   end
 
   def update
@@ -23,6 +25,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email)
+    params.require(:user).permit(:first_name, :last_name, :email, :show_spoilers)
   end
 end

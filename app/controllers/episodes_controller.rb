@@ -11,9 +11,11 @@ class EpisodesController < ApplicationController
 
   def edit
     @episode = Episode.find(params[:id])
+    render layout: 'center_form'
   end
 
   def new
+    render layout: 'center_form'
   end
 
   def create

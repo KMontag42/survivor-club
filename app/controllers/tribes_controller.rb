@@ -8,6 +8,7 @@ class TribesController < ApplicationController
   end
 
   def new
+    render layout: 'center_form'
   end
 
   def create

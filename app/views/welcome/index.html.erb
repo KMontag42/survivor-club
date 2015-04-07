@@ -3,15 +3,24 @@
   <h2 class="text-danger">Worlds Apart</h2>
   <h2 class="text-muted">No Collar, Blue Collar, White Collar</h2>
 </div>
-<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
+<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center" <%= 'hidden' if @show_spoilers %>>
   <h4>WORLDS APART BEGINS!</h4>
   <h1><%= link_to 'GAME DAY', game_day_path,
                   class: 'btn btn-primary' %></h1>
+</div>
+<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center" <%= 'hidden' unless @show_spoilers %>>
+  <h4>Recent Vote Outs</h4>
+  <% @recent_vote_outs.each do |vo| %>
+    <div>
+      <a href="<%= episode_path(vo.episode.id) %>"><%= vo.episode.name %></a> -
+      <a href="<%= contestant_path(vo.contestant.id) %>"><%= vo.contestant.name %></a>
+    </div>
+  <% end %>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
   <h1>
     <%= link_to 'RULES',
                 'https://www.dropbox.com/s/ae6ceaox7eigfbl/Scurvy%20Drinking'+
-                      '%20Game%20Rules%202015%2C%20First%20Session.pdf?dl=0' %>
+                        '%20Game%20Rules%202015%2C%20First%20Session.pdf?dl=0' %>
   </h1>
 </div>

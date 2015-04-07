@@ -21,4 +21,10 @@ class Season < ActiveRecord::Base
   has_many :vote_outs
 
   has_one :draft
+
+  def remaining_contestants
+    contestants.all.map do |c|
+      c.vote_out_for_season(self.id).nil?
+    end
+  end
 end

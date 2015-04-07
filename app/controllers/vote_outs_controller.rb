@@ -9,6 +9,7 @@ class VoteOutsController < ApplicationController
 
   def new
     @vote_out = VoteOut.new
+    @season = Season.find(1)
   end
 
   def create

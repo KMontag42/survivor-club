@@ -22,10 +22,10 @@ class Episode < ActiveRecord::Base
     if vote_out
       User.who_picked(vote_out.contestant).select { |x|
         # get the users picks
-        x.picks.where(pick_type: 'cash').any? { |y|
+        x.picks.where(pick_type: 'cash').select { |y|
           # check to see if voted out
           y.contestant.vote_outs.length == 1
-        }
+        }.length == 2
       }
     else
       []

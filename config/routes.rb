@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # The priority is based upon order of creation:
   #   first created -> highest priority.
@@ -9,7 +10,7 @@ Rails.application.routes.draw do
   get 'game_day', to: 'game_day#index', as: 'game_day'
   get 'drafts/:draft_id/picks', to: 'drafts#picks', as: 'draft_picks'
   resources :seasons, :episodes, :contestants, :drafts, :tribes, :users,
-            :vote_outs
+            :vote_outs, :second_chance_votes
   resources :late_picks, only: %w(new create)
 
 end

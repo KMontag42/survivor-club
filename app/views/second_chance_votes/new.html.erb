@@ -1,0 +1,57 @@
+<%= form_tag second_chance_votes_path, method: :post do |f| %>
+  <h1 class="text-center">Males</h1>
+  <%= image_tag 'second-chance-men.png', class: 'img-responsive' %>
+  <div class="form-group">
+    <%= select nil,
+               :males,
+               [
+                       ['Jeremy Collins', 1],
+                       ['Jim Rice', 2],
+                       ['Keith Nale', 3],
+                       ['Shane Powers', 4],
+                       ['Steven Fishbach', 5],
+                       ['Jeff Varner', 6],
+                       ['Joe Anglim', 7],
+                       ['Max Dawson', 8],
+                       ['Mike Holloway', 9],
+                       ['Spencer Bledsoe', 10],
+                       ['Troyzan Robertson', 11],
+                       ['Woo Hwang', 12],
+                       ['Terry Deitz', 13],
+                       ['Andrew Savage', 14],
+                       ['Brad Culpepper', 15],
+                       ['Vytas Baskauskas', 16]
+               ],
+               {include_hidden: false},
+               multiple: true, style: "width: 100%;", class: 'form-control' %>
+  </div>
+
+  <h1 class="text-center">Females</h1>
+  <%= image_tag 'second-chance-women.png', class: 'img-responsive' %>
+  <div class="form-group">
+    <%= select nil,
+               :females,
+               [
+                       ['Ciera Easton', 17],
+                       ['Kass McQuillen', 18],
+                       ['Monica Padilla', 19],
+                       ['Natalie Tenerelli', 20],
+                       ['Peih-Gee Law', 21],
+                       ['Sabrina Thompson', 22],
+                       ['Stephanie Valencia', 23],
+                       ['Tasha Fox', 24],
+                       ['Teresa T-Bird Cooper', 25],
+                       ['Carolyn Rivera', 26],
+                       ['Kelley Wentworth', 27],
+                       ['Kelly Wiglesworth', 28],
+                       ['Kimmi Kappenberg', 29],
+                       ['Mikayla Wingle', 30],
+                       ['Shirin Oskooi', 31],
+                       ['Abi-Maria Gomes', 32]
+               ],
+               {include_hidden: false},
+               multiple: true, style: "width: 100%;", class: 'form-control' %>
+  </div>
+
+  <button class="submit btn btn-lg btn-block btn-primary">Submit Votes!</button>
+<% end %>

@@ -1,0 +1,38 @@
+.wrapper {
+  width:300px;
+  border:1px solid #ccc;
+  font-family: "lucida grande",tahoma,verdana,arial,sans-serif;
+  float:left;
+}
+
+.top {
+  margin:5px;
+  border-bottom:2px solid #e1e1e1;
+  float: left;
+  width:290px;
+}
+
+.single {
+  margin:5px;
+  border-bottom:1px dashed #e1e1e1;
+  float:left;
+}
+
+.img {
+  float:left;
+  width:60px;
+  text-align:center;
+  margin:5px 5px 5px 0px;
+  border-right:1px dashed #e1e1e1;
+}
+
+.text {
+  width:220px;
+  float:left;
+  font-size:10px;
+}
+
+a {
+  text-decoration: none;
+  color: #3b5998;
+}

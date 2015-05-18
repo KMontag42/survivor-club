@@ -37,6 +37,8 @@ class User < ActiveRecord::Base
 
   has_many :picks
 
+  has_many :second_chance_votes
+
   def name
     name = "#{first_name} #{last_name}"
     name == " " ? email : name

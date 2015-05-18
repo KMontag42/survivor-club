@@ -62,4 +62,7 @@ gem 'autolinkerjs'
 # to pass rails variables to javascript
 gem 'gon'
 
+# quiet logging thank god
+gem 'quiet_assets'
+
 ruby '2.2.0'

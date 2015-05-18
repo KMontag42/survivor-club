@@ -1,7 +1,40 @@
 # This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
+# The data can then be loaded with the rake db:seed (or initialized alongside the db with db:setup).
 #
 # Examples:
 #
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+#   cities = City.initialize([{ name: 'Chicago' }, { name: 'Copenhagen' }])
+#   Mayor.initialize(name: 'Emanuel', city: cities.first)
+
+SecondChancePotential.where(name: 'Jeremy Collins').update_or_create(gender: 'male', name: 'Jeremy Collins')
+SecondChancePotential.where(name: 'Jim Rice').update_or_create(gender: 'male', name: 'Jim Rice')
+SecondChancePotential.where(name: 'Keith Nale').update_or_create(gender: 'male', name: 'Keith Nale')
+SecondChancePotential.where(name: 'Shane Powers').update_or_create(gender: 'male', name: 'Shane Powers')
+SecondChancePotential.where(name: 'Stephen Fishbach').update_or_create(gender: 'male', name: 'Stephen Fishbach')
+SecondChancePotential.where(name: 'Jeff Varner').update_or_create(gender: 'male', name: 'Jeff Varner')
+SecondChancePotential.where(name: 'Joe Anglim').update_or_create(gender: 'male', name: 'Joe Anglim')
+SecondChancePotential.where(name: 'Max Dawson').update_or_create(gender: 'male', name: 'Max Dawson')
+SecondChancePotential.where(name: 'Mike Holloway').update_or_create(gender: 'male', name: 'Mike Holloway')
+SecondChancePotential.where(name: 'Spencer Bledsoe').update_or_create(gender: 'male', name: 'Spencer Bledsoe')
+SecondChancePotential.where(name: 'Troyzan Robertson').update_or_create(gender: 'male', name: 'Troyzan Robertson')
+SecondChancePotential.where(name: 'Woo Hwang').update_or_create(gender: 'male', name: 'Woo Hwang')
+SecondChancePotential.where(name: 'Terry Deitz').update_or_create(gender: 'male', name: 'Terry Deitz')
+SecondChancePotential.where(name: 'Andrew Savage').update_or_create(gender: 'male', name: 'Andrew Savage')
+SecondChancePotential.where(name: 'Brad Culpepper').update_or_create(gender: 'male', name: 'Brad Culpepper')
+SecondChancePotential.where(name: 'Vytas Baskauskas').update_or_create(gender: 'male', name: 'Vytas Baskauskas')
+SecondChancePotential.where(name: 'Cierra Eastin').update_or_create(gender:'female', name: 'Cierra Eastin')
+SecondChancePotential.where(name: 'Kass McQuillen').update_or_create(gender:'female', name: 'Kass McQuillen')
+SecondChancePotential.where(name: 'Monica Padilla').update_or_create(gender:'female', name: 'Monica Padilla')
+SecondChancePotential.where(name: 'Natalie Tenerelli').update_or_create(gender:'female', name: 'Natalie Tenerelli')
+SecondChancePotential.where(name: 'Peih-Gee Law').update_or_create(gender:'female', name: 'Peih-Gee Law')
+SecondChancePotential.where(name: 'Sabrina Thompson').update_or_create(gender:'female', name: 'Sabrina Thompson')
+SecondChancePotential.where(name: 'Stephanie Valencia').update_or_create(gender:'female', name: 'Stephanie Valencia')
+SecondChancePotential.where(name: 'Tasha Fox').update_or_create(gender:'female', name: 'Tasha Fox')
+SecondChancePotential.where(name: 'Teresa T-Bird Cooper').update_or_create(gender:'female', name: 'Teresa T-Bird Cooper')
+SecondChancePotential.where(name: 'Carolyn Rivera').update_or_create(gender:'female', name: 'Carolyn Rivera')
+SecondChancePotential.where(name: 'Kelley Wentworth').update_or_create(gender:'female', name: 'Kelley Wentworth')
+SecondChancePotential.where(name: 'Kelly Wiglesworth').update_or_create(gender:'female', name: 'Kelly Wiglesworth')
+SecondChancePotential.where(name: 'Kimmi Kappenberg').update_or_create(gender:'female', name: 'Kimmi Kappenberg')
+SecondChancePotential.where(name: 'Mikayla Wingle').update_or_create(gender:'female', name: 'Mikayla Wingle')
+SecondChancePotential.where(name: 'Shirin Oskooi').update_or_create(gender:'female', name: 'Shirin Oskooi')
+SecondChancePotential.where(name: 'Abi-Maria Gomes').update_or_create(gender:'female', name: 'Abi-Maria Gomes')

@@ -24,7 +24,7 @@ class Episode < ActiveRecord::Base
         # get the users picks
         x.picks.where(pick_type: 'cash').select { |y|
           # check to see if voted out
-          y.contestant.vote_outs.length == 1
+          y.contestant.vote_outs.length >= 1
         }.length == 2
       }
     else

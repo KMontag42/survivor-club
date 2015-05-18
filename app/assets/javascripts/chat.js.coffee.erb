@@ -56,6 +56,26 @@ $(document).ready ->
       )
       chat.scrollTop(chat[0].scrollHeight)
 
+    dispatcher.unbind 'user_joined'
+    dispatcher.bind 'user_joined', (data) ->
+      online_users = $("#online-chat-users")
+      tbody = ''
+      users = data['online_users']
+      for u in users
+        tbody += "<tr><td>#{u}</td></tr>"
+
+      online_users.html(tbody)
+
+    dispatcher.unbind 'user_left'
+    dispatcher.bind 'user_left', (data) ->
+      online_users = $("#online-chat-users")
+      tbody = ''
+      users = data['online_users']
+      for u in users
+        tbody += "<tr><td>#{u}</td></tr>"
+
+      online_users.html(tbody)
+
     $('.send-chat').off 'click'
     $('.send-chat').on 'click', (e)->
       console.log 'clicked send-chat'
@@ -70,3 +90,10 @@ $(document).ready ->
                          }
       )
       $("#chat-line").val('')
+      $("#chat-line").focus()
+
+    dispatcher.trigger('user_joined', {})
+
+    window.onbeforeunload = (e) ->
+      dispatcher.trigger('user_left', {})
+      return undefined

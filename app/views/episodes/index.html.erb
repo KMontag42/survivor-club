@@ -20,7 +20,7 @@
     <% @episodes.each do |e| %>
       <tr>
         <td><%= link_to e.name, episode_path(e) %></td>
-        <td><%= e.vote_out.contestant.name %></td>
+        <td><%= e.vote_out.try(:contestant).try(:name) %></td>
         <td>
           <%= link_to 'Edit', edit_episode_path(e),
                       class: 'btn btn-primary btn-xs' if current_user.admin? %>

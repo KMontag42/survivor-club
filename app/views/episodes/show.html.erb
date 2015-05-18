@@ -15,7 +15,7 @@
 <hr/>
 <%= panel_row :column_class => 'col-sm-6 col-xs-12' do %>
   <%= panel :heading => 'Contestants', :context => :success do %>
-    <p><%= icon :user %> <%= @episode.vote_out.contestant.name %></p>
+    <p><%= icon :user %> <%= @episode.vote_out.try(:contestant).try(:name) %></p>
   <% end %>
   <%= panel :heading => 'Pool Players', :context => :warning do %>
     <% @episode.knocked_out.each do |k| %>

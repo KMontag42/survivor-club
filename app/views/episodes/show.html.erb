@@ -19,7 +19,7 @@
   <% end %>
   <%= panel :heading => 'Pool Players', :context => :warning do %>
     <% @episode.knocked_out.each do |k| %>
-      <p><%= icon :flash %> <%= k.name %></p>
+      <p><%= icon :flash %> <%= k.try(:name) %></p>
     <% end %>
   <% end %>
 <% end %>

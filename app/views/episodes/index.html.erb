@@ -13,7 +13,6 @@
     <tr>
       <th class="col-xs-2">Name</th>
       <th>Voted Out</th>
-      <th>Knocked Out of Pool</th>
       <th class="col-xs-1">Action</th>
     </tr>
     </thead>
@@ -21,8 +20,7 @@
     <% @episodes.each do |e| %>
       <tr>
         <td><%= link_to e.name, episode_path(e) %></td>
-        <td></td>
-        <td></td>
+        <td><%= e.vote_out.contestant.name %></td>
         <td>
           <%= link_to 'Edit', edit_episode_path(e),
                       class: 'btn btn-primary btn-xs' if current_user.admin? %>

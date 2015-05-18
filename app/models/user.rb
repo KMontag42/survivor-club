@@ -64,4 +64,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.who_picked(contestant, cash = true)
+    # get users who picked the given contestant
+    User.joins(:picks).where(picks: {contestant_id: contestant.id})
+  end
 end

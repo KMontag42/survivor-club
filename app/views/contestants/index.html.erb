@@ -57,15 +57,11 @@
                 <table class="table">
                   <tr>
                     <td>Voted Out</td>
-                    <td></td>
+                    <td><%= c.vote_outs.first.try(:episode).try(:name) %></td>
                   </tr>
                   <tr>
                     <td class="cash">Cash Drafts</td>
-                    <td></td>
-                  </tr>
-                  <tr>
-                    <td class="drinking">Drinking Drafts</td>
-                    <td></td>
+                    <td><%= User.who_picked(c) %></td>
                   </tr>
                 </table>
               </div>

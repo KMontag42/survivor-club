@@ -40,6 +40,10 @@ class SecondChanceVotesController < ApplicationController
   end
 
   def new
+    if current_user.nil?
+      flash[:danger] = 'You need to log in'
+      return redirect_to new_user_session_path
+    end
     @user = current_user
     unless @user.second_chance_votes.empty?
       flash[:danger] = 'You have already entered your picks!'

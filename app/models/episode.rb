@@ -19,9 +19,11 @@ class Episode < ActiveRecord::Base
   has_one :vote_out
 
   def knocked_out
-    User.who_picked(vote_out.contestant).collect { |x|
-      x.picks.where(pick_type: 'cash').length <= 0
-    }
+    if vote_out
+      User.who_picked(vote_out.contestant).collect { |x|
+        x.picks.where(pick_type: 'cash').length <= 0
+      }
+    end
   end
 
 end

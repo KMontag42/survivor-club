@@ -61,7 +61,7 @@
                   </tr>
                   <tr>
                     <td class="cash">Cash Drafts</td>
-                    <td><%= User.who_picked(c) %></td>
+                    <td><%= User.who_picked(c).collect { |x| x.name } %></td>
                   </tr>
                 </table>
               </div>

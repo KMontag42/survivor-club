@@ -23,6 +23,8 @@ class Episode < ActiveRecord::Base
       User.who_picked(vote_out.contestant).collect { |x|
         x.picks.where(pick_type: 'cash').length <= 0
       }
+    else
+      []
     end
   end
 

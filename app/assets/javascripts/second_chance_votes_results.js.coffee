@@ -7,8 +7,8 @@ $("#second-change-votes-results").ready ->
       type: 'pie'
     },
     size: {
-      width: 640,
-      height: 480
+      width: 720,
+      height: 720
     },
     pie: {
       label: {

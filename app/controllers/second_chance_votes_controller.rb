@@ -51,4 +51,16 @@ class SecondChanceVotesController < ApplicationController
     end
   end
 
+  def get_data
+    voted_for = SecondChancePotential.all.select { |x|
+      !SecondChanceVote.where(second_chance_potential_id: x).empty?
+    }.collect { |x|
+      [x.name, [SecondChanceVote.where(second_chance_potential_id: x).length]]
+    }
+
+    render json: voted_for.to_h, status: :ok
+  end
+
+  def results
+  end
 end

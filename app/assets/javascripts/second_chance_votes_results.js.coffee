@@ -1,0 +1,19 @@
+$("#second-change-votes-results").ready ->
+  c3.generate({
+    bindTo: '#chart',
+    data: {
+      url: '/second_chance_votes/get_data.json',
+      mimeType: 'json',
+      type: 'pie'
+    },
+    size: {
+      width: 640,
+      height: 480
+    },
+    pie: {
+      label: {
+        format: (value, ratio, id) ->
+          value
+      }
+    }
+  })

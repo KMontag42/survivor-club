@@ -6,10 +6,6 @@ $("#second-change-votes-results").ready ->
       mimeType: 'json',
       type: 'pie'
     },
-    size: {
-      width: 720,
-      height: 720
-    },
     pie: {
       label: {
         format: (value, ratio, id) ->

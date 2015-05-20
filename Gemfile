@@ -39,6 +39,10 @@ gem 'rails_12factor'
 # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
 gem 'spring',        group: :development
 
+# d3/c3
+gem 'd3-rails'
+gem 'c3-rails'
+
 # WebSockets!!
 gem 'websocket-rails',
     git: 'git://github.com/websocket-rails/websocket-rails.git',

@@ -3,26 +3,69 @@
   <h2 class="text-muted">Money, Alcohol, and Jeff Probst</h2>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
-  <h4>NEW FEATURES!!</h4>
-  <p>Now you can go to your
-    <a href="<%= edit_user_path(current_user) if current_user %>">user settings</a>
-    and set if you want to see spoilers on the homepage!</p>
-  <p>Admins: Sexy new form layout</p>
-  <!--<h1><%#= link_to 'GAME DAY', game_day_path, class: 'btn btn-primary' %></h1>-->
+  <p>Don't forget to enable spoilers for your account!</p>
+  <%= link_to 'User Settings', edit_user_path(current_user) if current_user %>
+  <hr/>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center" <%= 'hidden' unless @show_spoilers %>>
-  <p class="lead">Congrats to our winner! Larry!!!</p>
-  <p>Results for the side pools are basically all determined as well.</p>
-  <p>Be on the lookout for an update!</p>
+  <h2 style="margin-top:0;">Congrats to our winner! Larry!!!</h2>
+  <hr/>
+  <p class="lead"><b>Results are in for the second chance pool!</b></p>
+  <p class="lead">Congrats to the winner! John Fichera with 17/20 correct guesses!</p>
+  <p>For those interested here is the full results list (alpha order for ties):</p>
+  <table class="table table-condensed" style="width: 50%; margin: 0 auto;">
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>John Fichera</td>
+      <td><b>17</b></td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>Larry</td>
+      <td><b>16</b></td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Brian Conlon</td>
+      <td><b>15</b></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Robby Grodin</td>
+      <td><b>14</b></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Tim McCann</td>
+      <td><b>14</b></td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Kyle Montag</td>
+      <td><b>14</b></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Anthony Colletti</td>
+      <td><b>13</b></td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>Kathleen Kemple</td>
+      <td><b>13</b></td>
+    </tr>
+    </tbody>
+  </table>
+  <br/>
+  <%= link_to 'GRAPHS', second_chance_votes_path,
+              class: 'btn btn-info' %>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
-  <h2>SECOND CHANCE VOTING RESULTS!</h2>
-  <%= link_to 'GRAPHS', second_chance_votes_path,
-              class: 'btn btn-lg btn-info btn-block' %>
-  <p>We will announce the winner very soon.</p>
-  <p>In the meantime, get ready for the next season!</p>
+  <hr/>
   <p>If you have any feature requests or ideas for the site going into next
     season let me know!</p>
+  <hr/>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
   <h1>

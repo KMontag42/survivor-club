@@ -4,7 +4,8 @@ $("#second-change-votes-results").ready ->
     data: {
       url: '/second_chance_votes/get_data.json',
       mimeType: 'json',
-      type: 'pie'
+      type: 'pie',
+      labels: true
     },
     size: {
       height: 720
@@ -21,7 +22,8 @@ $("#second-change-votes-results").ready ->
     data: {
       url: '/second_chance_votes/get_data.json',
       mimeType: 'json',
-      type: 'bar'
+      type: 'bar',
+      labels: true
     },
     size: {
       height: 720

@@ -1,33 +1,28 @@
 <div class="jumbotron text-center">
   <h1>Survivor Club</h1>
-  <h2 class="text-danger">Worlds Apart</h2>
-  <h2 class="text-muted">No Collar, Blue Collar, White Collar</h2>
+  <h2 class="text-muted">Money, Alcohol, and Jeff Probst</h2>
 </div>
-<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center" <%= 'hidden' if @show_spoilers %>>
+<div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
   <h4>NEW FEATURES!!</h4>
   <p>Now you can go to your
     <a href="<%= edit_user_path(current_user) if current_user %>">user settings</a>
     and set if you want to see spoilers on the homepage!</p>
   <p>Admins: Sexy new form layout</p>
-  <p></p>
-  <h1><%= link_to 'GAME DAY', game_day_path,
-                  class: 'btn btn-primary' %></h1>
+  <!--<h1><%#= link_to 'GAME DAY', game_day_path, class: 'btn btn-primary' %></h1>-->
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center" <%= 'hidden' unless @show_spoilers %>>
-  <h4>Recent Vote Outs</h4>
-  <% @recent_vote_outs.each do |vo| %>
-    <div>
-      <a href="<%= episode_path(vo.episode.id) %>"><%= vo.episode.name %></a> -
-      <a href="<%= contestant_path(vo.contestant.id) %>"><%= vo.contestant.name %></a>
-    </div>
-  <% end %>
-  <h4>WE HAVE MERGED</h4>
-
+  <p class="lead">Congrats to our winner! Larry!!!</p>
+  <p>Results for the side pools are basically all determined as well.</p>
+  <p>Be on the lookout for an update!</p>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
-  <h2>SECOND CHANCE VOTING IS UP!</h2>
-  <a href="http://www.cbs.com/shows/survivor/second-chance/">HERE!</a>
-  <%= link_to 'PICK YOUR TEAM HERE', second_chance_votes_path, class: 'btn btn-lg btn-info btn-block' %>
+  <h2>SECOND CHANCE VOTING RESULTS!</h2>
+  <%= link_to 'GRAPHS', second_chance_votes_path,
+              class: 'btn btn-lg btn-info btn-block' %>
+  <p>We will announce the winner very soon.</p>
+  <p>In the meantime, get ready for the next season!</p>
+  <p>If you have any feature requests or ideas for the site going into next
+    season let me know!</p>
 </div>
 <div class="col-sm-6 col-sm-offset-3 col-xs-12 text-center">
   <h1>

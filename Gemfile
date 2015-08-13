@@ -66,4 +66,4 @@ gem 'gon'
 # quiet logging thank god
 gem 'quiet_assets'
 
-ruby '2.2.0'
+# ruby '2.2.0'

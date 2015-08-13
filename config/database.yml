@@ -2,12 +2,14 @@ development:
   adapter: postgresql
   database: phoenix-down
   pool: 5
+  port: 5439
   timeout: 5000
 
 test:
   adapter: postgresql
   database: phoenix-down
   pool: 5
+  port: 5439
   timeout: 5000
 
 production:

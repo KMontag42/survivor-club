@@ -1,0 +1,17 @@
+<%= navbar do %>
+  <%= vertical do %>
+    <%= link_to 'Home', root_path %>
+  <% end %>
+  <%= horizontal do %>
+    <%= nav class: 'navbar-right' do %>
+      <%= link_to 'Episodes', episodes_path %>
+      <%= link_to 'Seasons', seasons_path %>
+      <%= link_to 'Contestants', contestants_path %>
+      <%= link_to 'Tribes', tribes_path %>
+      <%= link_to 'Game Day', game_day_path %>
+      <% if user_signed_in? %>
+        <%= link_to icon(:user), user_path(current_user) %>
+      <% end %>
+    <% end %>
+  <% end %>
+<% end %>

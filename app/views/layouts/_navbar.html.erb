@@ -12,6 +12,7 @@
           <%= link_to 'Castaways', castaways_path %>
           <%= link_to 'Players', users_path %>
           <%= link_to 'Game Day', game_day_path %>
+          <%= link_to 'Admin', admin_path if current_user && current_user.admin? %>
         <% end %>
         <%= nav class: 'navbar-right' do %>
           <% if user_signed_in? %>

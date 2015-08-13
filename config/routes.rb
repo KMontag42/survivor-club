@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   devise_for :users
   # The priority is based upon order of creation:
   #   first created -> highest priority.
@@ -8,7 +9,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'game_day', to: 'game_day#index', as: 'game_day'
   get 'drafts/:draft_id/picks', to: 'drafts#picks', as: 'draft_picks'
-  get 'rules/index', to: 'rules#index', as: 'rules'
+  get 'rules', to: 'rules#index', as: 'rules'
+  get 'admin', to: 'admin#index', as: 'admin'
 
   # route for the chart data
   get 'second_chance_votes/get_data', to: 'second_chance_votes#get_data',

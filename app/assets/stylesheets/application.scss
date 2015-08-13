@@ -19,7 +19,7 @@
 @import "bootswatch/flatly/variables";
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
-@import 'variables';
+@import "variables";
 @import "bootstrap";
 
 @import "bootswatch/flatly/bootswatch";
@@ -54,18 +54,22 @@
 .navbar-center {
   text-align: center;
 }
+
 row {
   @include make-row();
   display: block;
 }
+
 .mobile-nav-link {
   padding-top: 10px;
 }
+
 @media (max-width: 768px) {
   .visible-xs-table {
     display: table !important;
   }
 }
+
 @media (min-width: 768px) {
   .visible-xs-table {
     display: none !important;

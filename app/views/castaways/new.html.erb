@@ -1,0 +1,7 @@
+<h1 class="text-center">New Castaway</h1>
+<%= form_for Castaway.new, layout: :basic do |f| %>
+  <%= f.text_field :name %>
+  <%= f.select :season_id, Season.all.collect{|x| [x.name, x.id]} %>
+  <%= f.select :original_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
+  <%= f.submit 'Save', class: 'btn-primary' %>
+<% end %>

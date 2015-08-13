@@ -1,8 +1,12 @@
 class EpisodesController < ApplicationController
-  before_action :authenticate_user!
+  # before_action :authenticate_user!
 
   def index
     @episodes = Episode.all
+    respond_to do |format|
+      format.html
+      format.json { render json: @episodes }
+    end
   end
 
   def show

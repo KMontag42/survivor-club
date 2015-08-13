@@ -32,4 +32,13 @@ class Episode < ActiveRecord::Base
     end
   end
 
+  def to_json
+    {
+        name: name,
+        won_reward: 'Kyle',
+        won_immunity: 'Kyle',
+        voted_out: 'Robby',
+        season: season.id
+    }
+  end
 end

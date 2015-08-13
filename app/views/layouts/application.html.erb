@@ -3,8 +3,12 @@
 <head>
   <title>Survivor Club</title>
   <%= Gon::Base.render_data({init: true}) %>
+  <link href="http://js-grid.com/css/jsgrid.min.css" rel="stylesheet" />
+  <link href="http://js-grid.com/css/jsgrid-theme.min.css" rel="stylesheet" />
+  <%= stylesheet_link_tag font_awesome_css(version: '4.4.0') %>
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
+  <script src="http://js-grid.com/js/jsgrid.min.js"></script>
   <%= csrf_meta_tags %>
   <script type="text/javascript">
     App.globals.user.email = '<%= current_user.try(:email) %>';
@@ -17,28 +21,10 @@
 <body id="<%= yield :body_id %>"
       class="<%= yield :body_class %>"
       style="<%= yield :body_style %>">
-  <%= navbar do %>
-    <%= vertical do %>
-      <%= link_to 'Home', root_path %>
-    <% end %>
-    <%= horizontal do %>
-      <%= nav class: 'navbar-right' do %>
-        <%= link_to 'Episodes', episodes_path %>
-        <%= link_to 'Seasons', seasons_path %>
-        <%= link_to 'Contestants', contestants_path %>
-        <%= link_to 'Tribes', tribes_path %>
-        <%= link_to 'Game Day', game_day_path %>
-        <% if user_signed_in? %>
-          <%= link_to icon(:user), user_path(current_user) %>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
+  <%= render partial: 'layouts/navbar' %>
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-10 col-sm-offset-1 col-xs-12">
-        <p class="notice"><%= notice %></p>
-        <p class="alert hidden"><%= alert %></p>
         <!-- flash notifications -->
         <% flash.each do |key, value| %>
           <%= alert_box value, dismissible: true, context: key %>

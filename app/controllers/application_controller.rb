@@ -5,8 +5,18 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   # check_authorization unless: :devise_controller?
 
+  layout :determine_layout
+
   def after_sign_out_path_for(*)
     root_path
+  end
+
+  def determine_layout
+    if devise_controller?
+      'center_form'
+    else
+      'application'
+    end
   end
 
   protected

@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'game_day', to: 'game_day#index', as: 'game_day'
   get 'drafts/:draft_id/picks', to: 'drafts#picks', as: 'draft_picks'
+  get 'rules', to: 'rules#index', as: 'rules'
+  get 'admin', to: 'admin#index', as: 'admin'
 
   # route for the chart data
   get 'second_chance_votes/get_data', to: 'second_chance_votes#get_data',
@@ -17,7 +19,7 @@ Rails.application.routes.draw do
   get 'second_chance_votes/results', to: 'second_chance_votes#results',
       as: 'second_chance_votes_results'
 
-  resources :seasons, :episodes, :contestants, :drafts, :tribes, :users,
+  resources :seasons, :episodes, :castaways, :drafts, :tribes, :users,
             :vote_outs, :second_chance_votes
   resources :late_picks, only: %w(new create)
 

@@ -1,14 +1,26 @@
-<h2>Sign in</h2>
+<%= content_for :body_id do 'devise' end %>
 
-<%= form_for(resource, as: resource_name, url: session_path(resource_name), layout: :basic) do |f| %>
-  <%= f.email_field :email, autofocus: true %>
-  <%= f.password_field :password, autocomplete: "off" %>
+<div class="text-center login-container">
+    <img src="//fillmurray.com/300/300" alt="Survivor Club Logo"/>
+    <h1>Welcome to Survivor Club</h1>
+    <h3>Login to access member features</h3>
+    <hr/>
+    <%= form_for(resource, as: resource_name, url: session_path(resource_name), layout: :inline) do |f| %>
+      <%= f.email_field :email, autofocus: true %>
+      <%= f.password_field :password, autocomplete: "off" %>
 
-  <% if devise_mapping.rememberable? -%>
-    <%= f.check_box :remember_me %>
-  <% end -%>
+      <br/>
+      <div>
+          <% if devise_mapping.rememberable? -%>
+            <%= f.check_box :remember_me %>
+          <% end -%>
+      </div>
+      <div>
+          <%= f.submit "Log in" %>
+          <%= link_to 'Cancel', root_path, class: 'btn btn-danger' %>
+      </div>
+      <%= render "devise/shared/links" %>
 
-  <%= f.submit "Sign in" %>
-<% end %>
-<br/>
-<%= render "devise/shared/links" %>
+    <% end %>
+</div>
+

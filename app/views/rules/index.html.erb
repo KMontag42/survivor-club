@@ -1,0 +1,32 @@
+<%= content_for :body_id do 'rules' end %>
+<h1 class="text-center">Official Rules of the Survivor Club Drinking Game</h1>
+<div class="col-xs-12 col-sm-4">
+    <%= nav as: :pills, layout: :stacked, class: 'text-right' do %>
+      <%= link_to 'Preamble', '#preamble', class: 'rules-link' %>
+      <%= link_to 'SR1 Duties and Powers', '#sr1', class: 'rules-link' %>
+      <%= link_to 'SR2 Definitions', '#sr2', class: 'rules-link' %>
+      <%= link_to 'SR3 Character Selections', '#sr3', class: 'rules-link' %>
+      <%= link_to 'SR3b Standard Character Limit', '#sr3b', class: 'rules-link' %>
+      <%= link_to 'SR4 General Game Rules', '#sr4', class: 'rules-link' %>
+      <%= link_to 'SR5 Challenges', '#sr5', class: 'rules-link' %>
+      <%= link_to 'SR6 Jeff Probst', '#sr6', class: 'rules-link' %>
+      <%= link_to 'SR7 Name of the Episode', '#sr7', class: 'rules-link' %>
+      <%= link_to 'SR8 Specific Non-Canon Events', '#sr8', class: 'rules-link' %>
+      <%= link_to 'SR9 Conditional Drinks', '#sr9', class: 'rules-link' %>
+    <% end %>
+</div>
+<div class="col-xs-12 col-sm-6">
+  <div class="rules-container">
+      <div id="preamble" class="active-rule">p</div>
+      <div id="sr1" class="hidden">1</div>
+      <div id="sr2" class="hidden">2</div>
+      <div id="sr3" class="hidden">3</div>
+      <div id="sr3b" class="hidden">3b</div>
+      <div id="sr4" class="hidden">4</div>
+      <div id="sr5" class="hidden">5</div>
+      <div id="sr6" class="hidden">6</div>
+      <div id="sr7" class="hidden">7</div>
+      <div id="sr8" class="hidden">8</div>
+      <div id="sr9" class="hidden">9</div>
+  </div>
+</div>

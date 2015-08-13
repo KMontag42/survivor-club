@@ -1,0 +1,59 @@
+<%= content_for :body_id do 'game_day' end %>
+<h3>
+  <span class="col-xs-7"><%= @episode.name %></span>
+  <span class="col-xs-5 text-right started">
+    Starts in -
+    <span class="episode-countdown"
+          data-date="<%= @episode.air_date.iso8601 %>">
+      04:20:00
+    </span>
+  </span>
+</h3>
+
+<div class="clearfix"></div>
+<hr/>
+<div class="row">
+  <div class="col-sm-6 col-xs-12 text-center" style="margin-bottom: 2rem;">
+    <%= render 'shared/chat', messages: @episode.chat_messages,
+               id: @episode.id %>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <table class="table table-striped table-condesed">
+      <thead>
+      <tr>
+        <td>Online Users</td>
+      </tr>
+      </thead>
+      <tbody id="online-chat-users">
+
+      </tbody>
+    </table>
+  </div>
+  <div class="col-sm-6 col-xs-12">
+    <%= panel :context => :default do %>
+      <table class="table table-striped table-bordered table-condensed">
+        <thead>
+        <tr>
+          <th>Name</th>
+          <th>Cash</th>
+        </tr>
+        </thead>
+        <tbody>
+        <% @players.each do |u| %>
+          <tr>
+            <td><%= u.first_name %></td>
+            <td>
+              <%= u.cash_picks(@episode.season.id).select { |x| x.contestant.vote_out_for_season(@episode.season.id).nil? }
+                          .collect{ |x| x.contestant.name }.join ', ' %>
+              <div style="text-decoration: line-through;">
+                <%= u.cash_picks(@episode.season.id).select { |x| !x.contestant.vote_out_for_season(@episode.season.id).nil? }
+                            .collect{ |x| x.contestant.name }.join ', '%>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>

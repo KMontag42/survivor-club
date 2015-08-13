@@ -55,3 +55,7 @@
     text-align: center;
   }
 }
+row {
+  @include make-row();
+  display: block;
+}

@@ -11,10 +11,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150518200117) do
+ActiveRecord::Schema.define(version: 20150813182108) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "castaways", force: true do |t|
+    t.integer  "season_id"
+    t.integer  "original_tribe_id"
+    t.integer  "swapped_tribe_id"
+    t.integer  "merged_tribe_id"
+    t.integer  "voted_out_episode_id"
+    t.integer  "finish"
+    t.integer  "tribal_votes"
+    t.integer  "total_votes"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "voted_out_number"
+  end
 
   create_table "chat_messages", force: true do |t|
     t.string   "message"

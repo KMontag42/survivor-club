@@ -1,23 +1,53 @@
-<%= navbar do %>
-  <%= vertical do %>
-    <%= link_to root_path do %>
-      <img src="//fillmurray.com/50/50" alt="logo" class="img-responsive"/>
-    <% end %>
-  <% end %>
-  <%= horizontal class: 'navbar-center' do %>
-    <%= nav do %>
-      <%= link_to 'Rules', rules_path %>
-      <%= link_to 'Episodes', episodes_path %>
-      <%= link_to 'Castaways', castaways_path %>
-      <%= link_to 'Players', users_path %>
-      <%= link_to 'Game Day', game_day_path %>
-    <% end %>
-    <%= nav class: 'navbar-right' do %>
-      <% if user_signed_in? %>
-        <%= link_to current_user.name, user_path(current_user) %>
-      <% else %>
-        <%= link_to 'Log In', new_user_session_path %>
+<div class="hidden-xs">
+    <%= navbar do %>
+      <%= vertical do %>
+        <%= link_to root_path do %>
+          <img src="//fillmurray.com/50/50" alt="logo" class="img-responsive"/>
+        <% end %>
+      <% end %>
+      <%= horizontal class: 'navbar-center' do %>
+        <%= nav do %>
+          <%= link_to 'Rules', rules_path %>
+          <%= link_to 'Episodes', episodes_path %>
+          <%= link_to 'Castaways', castaways_path %>
+          <%= link_to 'Players', users_path %>
+          <%= link_to 'Game Day', game_day_path %>
+        <% end %>
+        <%= nav class: 'navbar-right' do %>
+          <% if user_signed_in? %>
+            <%= link_to current_user.name, user_path(current_user) %>
+          <% else %>
+            <%= link_to 'Log In', new_user_session_path %>
+          <% end %>
+        <% end %>
       <% end %>
     <% end %>
-  <% end %>
-<% end %>
+</div>
+<div class="visible-xs-block">
+    <%= navbar position: :bottom, padding: 100 do %>
+      <%= horizontal class: 'navbar-center' do %>
+        <%= nav do %>
+          <%= link_to rules_path do %>
+            <i class="fa fa-2x fa-legal mobile-nav-link"></i>
+            <!--<div>Rules</div>-->
+          <% end %>
+          <%= link_to episodes_path do %>
+            <i class="fa fa-2x fa-television mobile-nav-link"></i>
+            <!--<div>Episodes</div>-->
+          <% end %>
+          <%= link_to game_day_path do %>
+            <i class="fa fa-3x fa-gamepad"></i>
+            <!--<div>Game Day</div>-->
+          <% end %>
+          <%= link_to castaways_path do %>
+            <i class="fa fa-2x fa-users mobile-nav-link"></i>
+            <!--<div>Castaways</div>-->
+          <% end %>
+          <%= link_to users_path do %>
+            <i class="fa fa-2x fa-trophy mobile-nav-link"></i>
+            <!--<div>Players</div>-->
+          <% end %>
+        <% end %>
+      <% end %>
+    <% end %>
+</div>

@@ -19,6 +19,7 @@
 @import "bootswatch/flatly/variables";
 // "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
 @import "bootstrap-sprockets";
+@import 'variables';
 @import "bootstrap";
 
 @import "bootswatch/flatly/bootswatch";
@@ -44,18 +45,19 @@
   padding: 4px 15px 20.5px;
 }
 
-@media (min-width: 768px) {
-  .navbar .navbar-nav {
-    display: inline-block;
-    float: none;
-    vertical-align: top;
-  }
+.navbar .navbar-nav {
+  display: inline-block;
+  float: none;
+  vertical-align: top;
+}
 
-  .navbar-center {
-    text-align: center;
-  }
+.navbar-center {
+  text-align: center;
 }
 row {
   @include make-row();
   display: block;
+}
+.mobile-nav-link {
+  padding-top: 10px;
 }

@@ -1,11 +1,15 @@
-<div class="chat text-left" style="margin-bottom: .5rem;">
+<div class="col-xs-12 chat text-left" style="margin-bottom: .5rem;">
   <% messages.each do |cm| %>
     <p data-id="<%= cm.id %>"><%= cm.chat_format %></p>
   <% end %>
 </div>
 <form>
-  <input type="text" id="chat-line" class="form-control"
-         placeholder="Message"/>
-  <button class="btn btn-primary send-chat form-control">Send</button>
+    <!--<div class="col-xs-12">-->
+        <input type="text" id="chat-line" class="form-control"
+               placeholder="Message"/>
+    <!--</div>-->
+    <!--<div class="col-xs-1">-->
+        <button class="btn btn-primary send-chat form-control visible-xs-block visible-sm-block">Send</button>
+    <!--</div>-->
 </form>
 <div class="hidden id" data-id="<%= id %>"></div>

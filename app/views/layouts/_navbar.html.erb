@@ -1,16 +1,22 @@
 <%= navbar do %>
   <%= vertical do %>
-    <%= link_to 'Home', root_path %>
+    <%= link_to root_path do %>
+      <img src="//fillmurray.com/50/50" alt="logo" class="img-responsive"/>
+    <% end %>
   <% end %>
-  <%= horizontal do %>
-    <%= nav class: 'navbar-right' do %>
+  <%= horizontal class: 'navbar-center' do %>
+    <%= nav do %>
+      <%= link_to 'Rules', episodes_path %>
       <%= link_to 'Episodes', episodes_path %>
-      <%= link_to 'Seasons', seasons_path %>
-      <%= link_to 'Contestants', contestants_path %>
-      <%= link_to 'Tribes', tribes_path %>
+      <%= link_to 'Castaways', contestants_path %>
+      <%= link_to 'Players', tribes_path %>
       <%= link_to 'Game Day', game_day_path %>
+    <% end %>
+    <%= nav class: 'navbar-right' do %>
       <% if user_signed_in? %>
-        <%= link_to icon(:user), user_path(current_user) %>
+        <%= link_to current_user.name, user_path(current_user) %>
+      <% else %>
+        <%= link_to 'Log In', new_user_session_path %>
       <% end %>
     <% end %>
   <% end %>

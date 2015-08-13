@@ -1,7 +1,7 @@
 <h1>
   Episodes
   <span class="pull-right">
-    <%= link_to 'New', new_episode_path,
+    <%#= link_to 'New', new_episode_path,
                 class: 'btn btn-primary btn-sm' if current_user.admin? %>
   </span>
 </h1>
@@ -22,7 +22,7 @@
         <td><%= link_to e.name, episode_path(e) %></td>
         <td><%= e.vote_out.try(:contestant).try(:name) %></td>
         <td>
-          <%= link_to 'Edit', edit_episode_path(e),
+          <%#= link_to 'Edit', edit_episode_path(e),
                       class: 'btn btn-primary btn-xs' if current_user.admin? %>
         </td>
       </tr>

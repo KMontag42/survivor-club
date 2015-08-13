@@ -39,3 +39,19 @@
 .bolder {
   font-weight: bolder;
 }
+
+.navbar-brand {
+  padding: 4px 15px 20.5px;
+}
+
+@media (min-width: 768px) {
+  .navbar .navbar-nav {
+    display: inline-block;
+    float: none;
+    vertical-align: top;
+  }
+
+  .navbar-center {
+    text-align: center;
+  }
+}

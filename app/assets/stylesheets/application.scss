@@ -61,3 +61,13 @@ row {
 .mobile-nav-link {
   padding-top: 10px;
 }
+@media (max-width: 768px) {
+  .visible-xs-table {
+    display: table !important;
+  }
+}
+@media (min-width: 768px) {
+  .visible-xs-table {
+    display: none !important;
+  }
+}

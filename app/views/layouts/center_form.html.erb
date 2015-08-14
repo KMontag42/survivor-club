@@ -3,6 +3,10 @@
 <head>
   <title>Survivor Club</title>
   <%= Gon::Base.render_data({init: true}) %>
+  <link rel="apple-touch-startup-image" href="//fillmurray.com/320/480">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon" href="//fillmurray.com/60/60">
   <%= stylesheet_link_tag 'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>

@@ -1,7 +1,4 @@
-<h1>
-  New Tribe
-</h1>
-<hr/>
+<h1 class="text-center">New Tribe</h1>
 <%= form_for Tribe.new, action: :create, layout: :basic do |f| %>
   <%= f.text_field :name %>
   <%= f.text_field :color, placeholder: '#abcdef' %>

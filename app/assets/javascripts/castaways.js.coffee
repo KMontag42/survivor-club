@@ -1,6 +1,6 @@
 $('#castaways').ready ->
   $('#jsGrid').jsGrid
-    height: '100%'
+    height: '400px'
     width: '100%'
     filtering: true
     sorting: true

@@ -3,6 +3,7 @@ class EpisodesController < ApplicationController
 
   def index
     @episodes = Episode.all
+    @episodes = @episodes.where(season_id: params[:season]) if params[:season]
     respond_to do |format|
       format.html
       format.json { render json: @episodes }

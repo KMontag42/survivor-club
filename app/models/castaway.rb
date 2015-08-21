@@ -23,4 +23,19 @@ class Castaway < ActiveRecord::Base
   belongs_to :swapped_tribe, class_name: 'Tribe'
   belongs_to :merged_tribe, class_name: 'Tribe'
   belongs_to :voted_out_episode, class_name: 'Episode'
+
+  def as_json(options={})
+    {
+        name: name,
+        original_tribe: original_tribe.name,
+        swapped_tribe: swapped_tribe.try(:name),
+        merged_tribe: merged_tribe.try(:name),
+        voted_out_number: voted_out_number,
+        finish: finish,
+        tribal_votes: tribal_votes,
+        total_votes: total_votes,
+        voted_out_episode: voted_out_episode.try(:name),
+        season: season.name
+    }
+  end
 end

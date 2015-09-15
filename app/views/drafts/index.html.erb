@@ -17,7 +17,7 @@
         <div class="col-xs-6">
           <h4>Contestants</h4>
           <% @current_draft.season.contestants.each do |c| %>
-            <p><%= link_to c.name, contestant_path(c) %></p>
+            <p><%= c.name %></p>
           <% end %>
         </div>
       </div>
@@ -34,7 +34,7 @@
         <div class="col-xs-6">
           <h4>Contestants</h4>
           <% @last_draft.season.contestants.each do |c| %>
-            <p><%= link_to c.name, contestant_path(c) %></p>
+            <p><%= c.name %></p>
           <% end %>
         </div>
       </div>

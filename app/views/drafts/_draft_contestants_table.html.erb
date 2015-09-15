@@ -11,7 +11,7 @@
       <% contestants.try(:each) do |c| %>
         <tr class="character-row" data-id="<%= c.id %>">
           <td><%= c.name %></td>
-          <td><%= c.tribe_for_season(@draft.season_id).name %></td>
+          <td><%= c.tribe_for_season(@draft.season_id) %></td>
         </tr>
       <% end %>
       </tbody>

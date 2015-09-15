@@ -36,7 +36,7 @@ $(document).ready ->
     $('body').on 'click', '.draft-contestant', (event) ->
       event.preventDefault()
       target = $(event.target)
-      contestant_id = parseInt target.data 'id'
+      contestant_id = parseInt(target.data('id'))
       round_type = round_display.data 'round-type'
 
       dispatcher.trigger('drafts.pick_contestant', {

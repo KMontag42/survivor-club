@@ -105,7 +105,7 @@ class DraftEventsController < WebsocketRails::BaseController
 
         _message = {
           pick: pick,
-          contestant_name: pick.contestant.name,
+          contestant_name: pick.castaway.name,
           contestant_id: message["contestant_id"],
           success: true
         }
@@ -118,8 +118,7 @@ class DraftEventsController < WebsocketRails::BaseController
           next_player
         else
           # broadcast message to emitter that there was an error
-          WebsocketRails.users[message["user_id"]].
-              send_message :pick_contestant,
+          broadcast_message :pick_contestant,
                            {
                                success: false,
                                message: "There was an error. #{pick.errors}"
@@ -138,7 +137,6 @@ class DraftEventsController < WebsocketRails::BaseController
                        namespace: :drafts
       end
     else
-      p 'not active'
       # broadcast message to emitter that they are not the active player
       WebsocketRails.users[message["user_id"]].
         send_message :pick_contestant,

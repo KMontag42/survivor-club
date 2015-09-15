@@ -65,19 +65,6 @@ class DraftEventsController < WebsocketRails::BaseController
   def join_draft
     draft = Draft.find_by(id: message["draft_id"])
     if draft && draft.status == Draft::STATUS[0]
-      picks = Pick.where(draft_id: message["draft_id"])
-      player_cash_picks = picks.select do |x|
-        x.user_id == current_user.id && x.pick_type == Draft::ROUND_TYPE[0].to_s
-      end
-      player_cash_picks.map! do |x|
-        Contestant.find(x.contestant_id)
-      end
-      player_drinking_picks = picks.select do |x|
-        x.user_id == current_user.id && x.pick_type == Draft::ROUND_TYPE[1].to_s
-      end
-      player_drinking_picks.map! do |x|
-        Contestant.find(x.contestant_id)
-      end
 
       unless controller_store[:players].include? current_user
         controller_store[:players] << current_user
@@ -86,14 +73,7 @@ class DraftEventsController < WebsocketRails::BaseController
       _message = {
         success: true,
         active_player: active_player,
-        players: controller_store[:players].rotate(
-          controller_store[:active_player_index]
-        ),
-        round_type: current_round_type.to_s.humanize,
-        picks: picks.map(&:contestant_id),
-        player_cash_picks: player_cash_picks,
-        player_drinking_picks: player_drinking_picks,
-        round_number: controller_store[:round_number],
+        players: controller_store[:players]
       }
 
       broadcast_message :join_draft, _message, namespace: :drafts

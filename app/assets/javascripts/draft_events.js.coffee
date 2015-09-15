@@ -13,18 +13,11 @@ $(document).ready ->
       console.log data
       if data['success']
         active_player = data['active_player']
-        picks = data['picks']
         players = data['players']
-        player_cash_picks = data['player_cash_picks']
-        player_drinking_picks = data['player_drinking_picks']
 
         new_player_name = active_player['first_name'] + ' ' +
             active_player['last_name']
         contestant_name.html(new_player_name)
-
-        for id in picks
-          $(".character-row[data-id=#{id}]").addClass 'danger disabled'
-          $(".draft-contestant[data-id=#{id}]").addClass 'disabled'
 
         $("#draft_container").removeClass 'hidden'
 
@@ -39,22 +32,6 @@ $(document).ready ->
           "
 
         contestants_panel_body.html(players_html)
-
-        money_picks_html = ''
-        for cash_pick in player_cash_picks
-          money_picks_html += "<p>#{cash_pick['name']}</p>"
-
-        $('.money-picks').html money_picks_html
-
-        drinking_picks_html = ''
-        for drinking_pick in player_drinking_picks
-          drinking_picks_html += "<p>#{drinking_pick['name']}</p>"
-
-        $('.drinking-picks').html drinking_picks_html
-
-        round_display.data 'round-type', data['round_type']
-        round_display.data 'round', data['round_number']
-        round_display.html("Round #{data['round_number']}")
       else
         setTimeout(( ->
           swal data["message"]

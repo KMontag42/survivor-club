@@ -123,10 +123,11 @@ $(document).ready ->
           showCancelButton: true,
           confirmButtonText: 'Start'
         }, (isConfirm) ->
-          dispatcher.trigger 'drafts.start_draft',
-            {
-              draft_id: draft_id
-            }
+          if isConfirm
+            dispatcher.trigger 'drafts.start_draft',
+              {
+                draft_id: draft_id
+              }
       )
 
     dispatcher.unbind 'drafts.round_type_changed'

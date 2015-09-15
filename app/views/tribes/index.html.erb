@@ -3,7 +3,7 @@
 </h1>
 <hr/>
 <div class="row tribe-container">
-  <% @tribes[0..2].each do |t| %>
+  <% @tribes.each do |t| %>
     <div class="col-xs-4">
       <div class="tribe-panel no-collar">
         <%= t.name %> <%= icon t.icon %>

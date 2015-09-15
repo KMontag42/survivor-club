@@ -2,7 +2,6 @@ $('#castaways').ready ->
   $('#jsGrid').jsGrid
     height: '400px'
     width: '100%'
-    filtering: true
     sorting: true
     paging: true
     autoload: true
@@ -16,15 +15,15 @@ $('#castaways').ready ->
           data: filter
     fields: [
       { name: 'name', type: 'text', title: 'Castaway' }
-      { name: 'original_tribe', type: 'select', title: 'Original Tribe', items: [ 'Kyle', 'Hony', 'Larry', 'Brian' ] }
-      { name: 'swapped_tribe', type: 'select', title: 'Swapped Tribe', items: [ 'Kyle', 'Hony', 'Larry', 'Brian' ] }
-      { name: 'merged_tribe', type: 'select', title: 'Merged Tribe', items: [ 'Kyle', 'Hony', 'Larry', 'Brian', 'Robby' ] }
+      { name: 'original_tribe', title: 'Original Tribe' }
+      { name: 'swapped_tribe', title: 'Swapped Tribe' }
+      { name: 'merged_tribe', title: 'Merged Tribe' }
       { name: 'voted_out_number', type: 'text', title: 'Voted Out' }
+      { name: 'voted_out_episode', type: 'text', title: 'V.O. Episode' }
       { name: 'finish', type: 'text', title: 'Finish' }
       { name: 'tribal_votes', type: 'text', title: 'Tribal Votes' }
       { name: 'total_votes', type: 'text', title: 'Total Votes' }
-      { name: 'voted_out_episode', type: 'text', title: 'Episode Name' }
-      { name: 'season', type: 'select', title: 'Season', items: [ '1', '2', '3', '4', '5' ] }
+      { name: 'season', title: 'Season' }
     ]
 
   $('#spoilers').on 'change', (e) ->

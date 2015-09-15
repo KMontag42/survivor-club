@@ -40,6 +40,6 @@ class Castaway < ActiveRecord::Base
   end
 
   def tribe_for_season(season_id)
-    Struct.new(:name)
+    original_tribe.name
   end
 end

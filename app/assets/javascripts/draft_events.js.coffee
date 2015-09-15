@@ -10,6 +10,7 @@ $(document).ready ->
 
     dispatcher.unbind 'drafts.join_draft'
     dispatcher.bind 'drafts.join_draft', (data) ->
+      console.log data
       if data['success']
         active_player = data['active_player']
         picks = data['picks']

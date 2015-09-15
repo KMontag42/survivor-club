@@ -19,6 +19,7 @@
 #  last_name              :string(255)
 #  role                   :string(255)      default("user")
 #  show_spoilers          :boolean          default(FALSE)
+#  picture_url            :string(255)
 #
 # Indexes
 #

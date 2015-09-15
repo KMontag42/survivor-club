@@ -4,7 +4,11 @@
 <div class="hidden-xs">
     <h1 class="text-center">Player Info - <%= @user.name %></h1>
     <div class="col-sm-4">
-        <img src="//fillmurray.com/420/420" alt="<%= @user.name %>" class="img-responsive center-block"/>
+        <% if @user.picture_url %>
+          <%= image_tag @user.picture_url, class: 'img-responsive center-block' %>
+        <% else %>
+          <img src="//fillmurray.com/420/420" alt="<%= @user.name %>" class="img-responsive center-block"/>
+        <% end %>
         <div class="text-center">
             <p><strong>Nickname:</strong> <%= @user.name %></p>
             <p><strong>Member Since:</strong> <%= @user.created_at.strftime('%Y') %></p>

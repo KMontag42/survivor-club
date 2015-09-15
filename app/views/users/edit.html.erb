@@ -3,6 +3,7 @@
 <%= form_for @user, action: :update, layout: :basic do |f| %>
   <%= f.text_field :first_name %>
   <%= f.text_field :last_name %>
+  <%= f.text_field :picture_url %>
   <%= f.text_field :email %>
   <%= f.check_box :show_spoilers %>
   <%= f.submit 'Save' %>

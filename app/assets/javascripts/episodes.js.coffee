@@ -2,7 +2,6 @@ $('#episodes').ready ->
   $('#jsGrid').jsGrid
     height: '400px'
     width: '100%'
-    filtering: true
     sorting: true
     paging: true
     autoload: true
@@ -16,11 +15,11 @@ $('#episodes').ready ->
           data: filter
     fields: [
       { name: 'name', type: 'text', title: 'Episode Name' }
-      { name: 'won_reward', type: 'select', title: 'Won Reward', items: [ 'Kyle', 'Hony', 'Larry', 'Brian' ] }
-      { name: 'won_immunity', type: 'select', title: 'Won Immunity', items: [ 'Kyle', 'Hony', 'Larry', 'Brian' ] }
-      { name: 'voted_out', type: 'select', title: 'Voted Out', items: [ 'Kyle', 'Hony', 'Larry', 'Brian', 'Robby' ] }
-      { name: 'season', type: 'select', title: 'Season', items: [ '1', '2', '3', '4', '5' ] }
-      { name: 'notes', type: 'text', title: 'Special Notes', filtering: false }
+      { name: 'won_reward', title: 'Won Reward' }
+      { name: 'won_immunity', title: 'Won Immunity' }
+      { name: 'voted_out', title: 'Voted Out' }
+      { name: 'season', title: 'Season' }
+      { name: 'notes', type: 'text', title: 'Special Notes' }
     ]
 
   $('#spoilers').on 'change', (e) ->

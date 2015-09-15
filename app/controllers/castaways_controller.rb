@@ -48,6 +48,7 @@ class CastawaysController < ApplicationController
   protected
 
   def allowed_params
-    params.require(:castaway).permit(:id, :name, :season_id, :original_tribe_id)
+    params.require(:castaway).permit(:id, :name, :season_id,
+                                     :original_tribe_id, :picture_url)
   end
 end

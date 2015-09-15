@@ -6,8 +6,11 @@
   <% end %>
   <%= panel class: panel_class, data: {id: ct.id} do %>
     <div class="row">
-      <div class="col-xs-12 textfill">
+      <div class="col-xs-10 textfill">
         <span><%= ct.name %></span>
+      </div>
+      <div class="col-xs-2">
+        <img src="<%= ct.picture_url %>" alt="" class="img-responsive"/>
       </div>
       <div class="clearfix"></div>
     </div>

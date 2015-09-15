@@ -3,5 +3,6 @@
   <%= f.text_field :name %>
   <%= f.select :season_id, Season.all.collect{|x| [x.name, x.id]} %>
   <%= f.select :original_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
+  <%= f.text_field :picture_url, required: true %>
   <%= f.submit 'Save', class: 'btn-primary' %>
 <% end %>

@@ -15,6 +15,7 @@
 #  created_at           :datetime
 #  updated_at           :datetime
 #  voted_out_number     :integer
+#  picture_url          :string(255)
 #
 
 class Castaway < ActiveRecord::Base

@@ -65,9 +65,10 @@ class DraftEventsController < WebsocketRails::BaseController
   def join_draft
     draft = Draft.find_by(id: message["draft_id"])
     if draft && draft.status == Draft::STATUS[0]
+      user = User.find(message['user_id'])
 
-      unless controller_store[:players].include? current_user
-        controller_store[:players] << current_user
+      unless controller_store[:players].include? user
+        controller_store[:players] << user
       end
 
       _message = {

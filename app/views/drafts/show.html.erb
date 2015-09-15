@@ -20,9 +20,12 @@
         <div class="panel-body"></div>
       <% end %>
     </div>
+      <div class="col-xs-12 text-center">
+        <h1>DO NOT REFRESH THIS PAGE, YOU WILL NOT BE ABLE TO GET BACK INTO THE DRAFT.</h1>
+      </div>
     <div class="col-sm-6 col-xs-12">
       <%= render 'draft_contestants_display',
-                 contestants: contestants if contestants%>
+                 contestants: contestants if contestants %>
       <%= render 'draft_contestants_table',
                  contestants: contestants if contestants %>
     </div>

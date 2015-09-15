@@ -4,9 +4,10 @@ class UsersController < ApplicationController
   end
 
   def show
-    # @user = User.find(params[:id])
-    # @cash_picks = @user.picks.where(pick_type: 'cash')
-    # @drinking_picks = @user.picks.where(pick_type: 'drinking')
+    @user = User.find(params[:id])
+    @cash_picks = @user.picks.where(pick_type: 'cash')
+    @drinking_picks = @user.picks.where(pick_type: 'drinking')
+    @voted_out = @user.picks.voted_out
   end
 
   def edit

@@ -1,57 +1,9 @@
 <h1 class="text-center">Select A Player</h1>
 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
-    <row>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//fillmurray.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//placecage.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//stevensegallery.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//fillmurray.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-    </row>
-    <row>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//placecage.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//stevensegallery.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//placecage.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//fillmurray.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-    </row>
-    <row>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//fillmurray.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//stevensegallery.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//fillmurray.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-        <a href="/users/1" class="col-xs-3 player-card">
-            <img src="//placecage.com/200/200" alt="anthony" class="img-responsive"/>
-            <p>Anthony</p>
-        </a>
-    </row>
+    <% User.all.each do |u| %>
+      <a href="<%= user_path(u) %>" class="col-xs-3 player-card">
+          <img src="//fillmurray.com/200/200" alt="<%= u.name %>" class="img-responsive"/>
+          <p><%= u.name %></p>
+      </a>
+    <% end %>
 </div>

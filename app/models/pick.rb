@@ -15,8 +15,10 @@
 class Pick < ActiveRecord::Base
   belongs_to :draft
   belongs_to :user
-  belongs_to :castaway, foreign_key: 'contestant_id'
+  belongs_to :castaway, foreign_key: 'contestant_id', class_name: 'Castaway'
   belongs_to :season
+
+  scope :voted_out, ->{joins(:castaway).where.not(castaways: {voted_out_number: nil})}
 
   PICK_TYPE = %w(cash drinking)
 end

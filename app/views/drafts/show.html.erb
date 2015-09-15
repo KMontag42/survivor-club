@@ -1,5 +1,5 @@
 <% season = @draft.try(:season) %>
-<% contestants = season.try(:contestants) if season %>
+<% contestants = season.try(:castaways) if season %>
 <% users = User.all.sort %>
 <% if @draft.status != 'ended' %>
   <%= content_for :body_id do 'draft' end %>
@@ -41,7 +41,7 @@
         <div class="panel-body drinking-picks">
         </div>
       </div>
-      <%= render partial: 'shared/chat' %>
+      <%= render partial: 'shared/chat', locals: {messages: [], id: 0} %>
     </div>
     <div class="clearfix"></div>
   </div>

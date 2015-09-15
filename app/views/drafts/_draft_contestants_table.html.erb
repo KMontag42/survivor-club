@@ -4,9 +4,6 @@
       <thead>
       <tr>
         <th>Name</th>
-        <th class="hidden-xs">Age</th>
-        <th class="hidden-xs">Job</th>
-        <th class="hidden-xs">Hometown</th>
         <th>Tribe</th>
       </tr>
       </thead>
@@ -14,9 +11,6 @@
       <% contestants.try(:each) do |c| %>
         <tr class="character-row" data-id="<%= c.id %>">
           <td><%= c.name %></td>
-          <td class="hidden-xs"><%= c.age %></td>
-          <td class="hidden-xs"><%= c.job %></td>
-          <td class="hidden-xs"><%= c.hometown %></td>
           <td><%= c.tribe_for_season(@draft.season_id).name %></td>
         </tr>
       <% end %>

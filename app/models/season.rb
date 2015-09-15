@@ -17,6 +17,8 @@ class Season < ActiveRecord::Base
   has_many :contestants_seasons, class_name: "ContestantsSeasons"
   has_many :contestants, through: :contestants_seasons
 
+  has_many :castaways
+
   has_many :picks
   has_many :vote_outs
 

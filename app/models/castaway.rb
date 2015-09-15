@@ -38,4 +38,8 @@ class Castaway < ActiveRecord::Base
         season: season.name
     }
   end
+
+  def tribe_for_season(season_id)
+    Struct.new(:name)
+  end
 end

@@ -80,6 +80,7 @@ $(document).ready ->
 
     dispatcher.unbind 'drafts.pick_contestant'
     dispatcher.bind 'drafts.pick_contestant', (data) ->
+      console.log 'yo dude wtf'
       round_type = round_display.data 'round-type'
       if data['success'] == true && round_type == "Cash"
         contestant_id = data['contestant_id']
@@ -90,6 +91,7 @@ $(document).ready ->
 
     dispatcher.unbind 'drafts.take_player'
     dispatcher.bind 'drafts.take_player', (data) ->
+      console.log 'yo'
       contestant_name = data['contestant_name']
       contestant_id = data['contestant_id']
       contestant_tr = $(".character-row[data-id=#{contestant_id}]")

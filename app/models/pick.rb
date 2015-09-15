@@ -15,7 +15,7 @@
 class Pick < ActiveRecord::Base
   belongs_to :draft
   belongs_to :user
-  belongs_to :contestant
+  belongs_to :castaway, foreign_key: 'contestant_id'
   belongs_to :season
 
   PICK_TYPE = %w(cash drinking)

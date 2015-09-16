@@ -2,7 +2,7 @@
     <%= link_to '< Back', users_path %>
 </span>
 <div class="hidden-xs">
-    <h1 class="text-center">Player Info - <%= @user.name %></h1>
+    <h1 class="text-center">Player Info - <%= @user.name %> <%= link_to 'Edit Profile', edit_user_path(@user.id), class: 'btn btn-primary' if current_user == @user %></h1>
     <div class="col-sm-4">
         <% if @user.picture_url %>
           <%= image_tag @user.picture_url, class: 'img-responsive center-block' %>

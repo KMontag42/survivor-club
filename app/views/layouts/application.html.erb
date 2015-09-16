@@ -27,12 +27,20 @@
       style="<%= yield :body_style %>">
 <div class="hidden-xs">
     <%= render partial: 'layouts/navbar' %>
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-10 col-sm-offset-1 col-xs-12">
                 <!-- flash notifications -->
                 <% flash.each do |key, value| %>
                   <%= alert_box value, dismissible: true, context: key %>
+                <% end %>
+                <% unless params[:controller] == 'drafts' %>
+                  <div class="row">
+                      <div class="col-xs-4 col-xs-offset-4">
+                          <a href="<%= drafts_path %>" class="btn btn-lg btn-danger center-block">DRAFT</a>
+                      </div>
+                  </div>
                 <% end %>
                 <%= yield %>
             </div>

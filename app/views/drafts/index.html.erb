@@ -1,24 +1,26 @@
 <h1>
   Drafts
   <%= link_to 'New', new_draft_path,
-              class: 'btn btn-sm btn-primary pull-right' %>
+              class: 'btn btn-sm btn-primary pull-right' if current_user.admin? %>
   <div class="clearfix"></div>
 </h1>
 <hr/>
-<%= panel_row column_class: 'col-sm-6 col-xs-12' do %>
+<%= panel_row column_class: 'col-xs-12' do %>
   <% if @current_draft %>
     <%= panel heading: 'Current Draft', context: :success do %>
       <div class="container-fluid">
         <div class="col-xs-6">
           <h4>Season</h4>
-          <%= link_to @current_draft.season.name,
-                      draft_path(@current_draft) %>
+          <p><%= @current_draft.season.name %></p>
         </div>
         <div class="col-xs-6">
           <h4>Contestants</h4>
           <% @current_draft.season.contestants.each do |c| %>
             <p><%= c.name %></p>
           <% end %>
+        </div>
+        <div class="col-xs-12">
+            <%= link_to 'JOIN', draft_path(@current_draft.id), class: 'btn btn-lg btn-success center-block' %>
         </div>
       </div>
     <% end %>

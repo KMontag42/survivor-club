@@ -3,6 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 $(document).ready ->
   if $('body#draft').length > 0
+
+    window.onbeforeunload = () ->
+      return "YOU WILL NOT BE ABLE TO REJOIN THE DRAFT. DO NOT REFRESH"
+
     dispatcher = App.globals.dispatcher
     round_display = $('.round-display')
     countdown_elements = $('.countdown')

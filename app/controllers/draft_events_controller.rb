@@ -167,7 +167,7 @@ class DraftEventsController < WebsocketRails::BaseController
     controller_store[:players].shuffle!
 
     # john is user id 7
-    first_pick_id = 1
+    first_pick_id = 7
     # set first pick person
     if controller_store[:players].index { |x| x.id == first_pick_id }
       controller_store[:players]

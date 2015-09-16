@@ -4,6 +4,9 @@
 <% if @draft.status != 'ended' %>
   <%= content_for :body_id do 'draft' end %>
   <div class="row hidden" id="draft_container">
+    <div class="col-xs-12 text-center">
+        <h1>DO NOT REFRESH THIS PAGE, YOU WILL NOT BE ABLE TO GET BACK INTO THE DRAFT.</h1>
+    </div>
     <div class="col-sm-3 col-xs-12">
       <div class="panel panel-default">
         <div class="panel-body text-center">
@@ -20,9 +23,6 @@
         <div class="panel-body"></div>
       <% end %>
     </div>
-      <div class="col-xs-12 text-center">
-        <h1>DO NOT REFRESH THIS PAGE, YOU WILL NOT BE ABLE TO GET BACK INTO THE DRAFT.</h1>
-      </div>
     <div class="col-sm-6 col-xs-12">
       <%= render 'draft_contestants_display',
                  contestants: contestants if contestants %>

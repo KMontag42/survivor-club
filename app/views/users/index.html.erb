@@ -5,7 +5,7 @@
           <% if u.picture_url %>
             <%= image_tag u.picture_url, class: 'img-responsive center-block' %>
           <% else %>
-            <img src="//fillmurray.com/420/420" alt="<%= u.name %>" class="img-responsive center-block"/>
+            <img src="//fillmurray.com/<%= rand(420) %>/<%= rand(420) %>" alt="<%= u.name %>" class="img-responsive center-block"/>
           <% end %>
           <p><%= u.name %></p>
       </a>

@@ -1,13 +1,19 @@
-<row>
-    <div class="col-xs-12 col-sm-4 col-sm-offset-4 col-lg-2 col-lg-offset-5">
-        <%= nav layout: :justified do %>
-          <%= link_to 'Current', '#' %>
-          <%= link_to 'Archive', '#' %>
-        <% end %>
-    </div>
-    <div class="clearfix"></div>
-</row>
+<!--<row>-->
+    <!--<div class="col-xs-12 col-sm-4 col-sm-offset-4 col-lg-2 col-lg-offset-5">-->
+        <!--<%#= nav layout: :justified do %>-->
+          <!--<%#= link_to 'Current', '#' %>-->
+          <!--<%#= link_to 'Archive', '#' %>-->
+        <!--<%# end %>-->
+    <!--</div>-->
+    <!--<div class="clearfix"></div>-->
+<!--</row>-->
 <h1 class="text-center">Survivor: Cambodia - 3101 - Name of the Episode</h1>
+<row>
+    <div class="col-xs-12 text-center" style="margin-bottom: 2rem;">
+        <%= render 'shared/chat', messages: @episode.try(:chat_messages) || [],
+                   id: @episode.try(:id) %>
+    </div>
+</row>
 <row>
     <div class="col-xs-12">
         <table class="table table-condensed table-bordered table-striped hidden-xs">
@@ -187,11 +193,5 @@
             </tr>
             </tbody>
         </table>
-    </div>
-</row>
-<row>
-    <div class="col-xs-12 text-center" style="margin-bottom: 2rem;">
-        <%= render 'shared/chat', messages: @episode.try(:chat_messages) || [],
-                   id: @episode.try(:id) %>
     </div>
 </row>

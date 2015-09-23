@@ -47,11 +47,11 @@
             <tbody>
               <% @players.in_groups(2)[1].each do |p| %>
                 <tr>
-                    <% p.cash_picks.each do |p| %>
+                    <% p.try(:cash_picks).each do |p| %>
                       <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
                     <% end %>
 
-                    <% p.drinking_picks.each do |p| %>
+                    <% p.try(:drinking_picks).each do |p| %>
                       <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
                     <% end %>
                 </tr>

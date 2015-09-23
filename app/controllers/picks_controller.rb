@@ -1,5 +1,5 @@
-class PicksController < ActiveRecord::Base
-  before_filter :authenticate_user!
+class PicksController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @picks = Pick.all

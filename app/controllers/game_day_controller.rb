@@ -2,7 +2,7 @@ class GameDayController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @players = User.joins(:picks).where.not(picks: {id: nil})
+    @players = User.joins(:picks).where.not(picks: {user_id: nil}).uniq
   end
 
   def old_index

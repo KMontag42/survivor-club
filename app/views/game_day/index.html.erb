@@ -14,184 +14,48 @@
                    id: @episode.try(:id) %>
     </div>
 </row>
-<!--<row>-->
-    <!--<div class="col-xs-12">-->
-        <!--<table class="table table-condensed table-bordered table-striped hidden-xs">-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
+<row>
+    <div class="col-xs-12">
+        <table class="table table-condensed table-bordered table-striped hidden-xs">
+            <thead>
+            <tr>
+                <% @players.each do |p| %>
+                  <th colspan="2" class="text-center"><%= p.name %></th>
+                <% end %>
+            </tr>
+            </thead>
+            <tbody>
+            <% @players.each do |p| %>
+              <tr>
+                  <% p.cash_picks.each do |p| %>
+                    <td class="text-center"><%= p.castaway.name %></td>
+                  <% end %>
 
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-                <!--<th colspan="2" class="text-center">Anthony</th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-        <!--</table>-->
-        <!--<table class="table table-condensed table-bordered table-striped visible-xs-table">-->
-            <!--<thead>-->
-            <!--<tr>-->
-                <!--<th colspan="2" class="text-center">Kyle</th>-->
-            <!--</tr>-->
-            <!--</thead>-->
-            <!--<tbody>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--<tr>-->
-                <!--<td class="text-center">Bayon</td>-->
-                <!--<td class="text-center">Ta Keo</td>-->
-            <!--</tr>-->
-            <!--</tbody>-->
-        <!--</table>-->
-    <!--</div>-->
-<!--</row>-->
+                  <% p.drinking_picks.each do |p| %>
+                    <td class="text-center"><%= p.castaway.name %></td>
+                  <% end %>
+              </tr>
+            <% end %>
+        </table>
+        <table class="table table-condensed table-bordered table-striped visible-xs-table">
+            <thead>
+            <tr>
+                <th colspan="2" class="text-center"><% current_user.name %></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <% current_user.cash_picks.each do |p| %>
+                  <td class="text-center"><%= p.castaway.name %></td>
+                <% end %>
+            </tr>
+            <% current_user.drinking_picks.each_slice(2) do |p| %>
+            <tr>
+                <td class="text-center"><%= p[0].castaway.name %></td>
+                <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
+            </tr>
+            <% end %>
+            </tbody>
+        </table>
+    </div>
+</row>

@@ -40,7 +40,7 @@
             <thead>
             <tr>
                 <% @players.in_groups(2)[1].each do |p| %>
-                  <th colspan="2" class="text-center"><%= p.name %></th>
+                  <th colspan="2" class="text-center"><%= p.try(:name) %></th>
                 <% end %>
             </tr>
             </thead>
@@ -48,11 +48,11 @@
               <% @players.in_groups(2)[1].each do |p| %>
                 <tr>
                     <% p.cash_picks.each do |p| %>
-                      <td class="text-center"><%= p.castaway.name %></td>
+                      <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
                     <% end %>
 
                     <% p.drinking_picks.each do |p| %>
-                      <td class="text-center"><%= p.castaway.name %></td>
+                      <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
                     <% end %>
                 </tr>
               <% end %>

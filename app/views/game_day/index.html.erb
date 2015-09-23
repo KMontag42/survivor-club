@@ -47,12 +47,16 @@
             <tbody>
               <% @players.in_groups(2)[1].each do |p| %>
                 <tr>
-                    <% p.try(:cash_picks).each do |p| %>
-                      <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
+                    <% if p.try(:cash_picks) %>
+                      <% p.cash_picks.each do |p| %>
+                        <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
+                      <% end %>
                     <% end %>
 
-                    <% p.try(:drinking_picks).each do |p| %>
-                      <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
+                    <% if p.try(:drinking_picks) %>
+                      <% p.drinking_picks.each do |p| %>
+                        <td class="text-center"><%= p.try(:castaway).try(:name) %></td>
+                      <% end %>
                     <% end %>
                 </tr>
               <% end %>

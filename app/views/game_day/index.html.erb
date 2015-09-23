@@ -18,11 +18,11 @@
     <div class="col-xs-12">
         <table class="table table-condensed table-bordered table-striped hidden-xs">
             <thead>
-            <tr>
-                <% @players.each do |p| %>
-                  <th colspan="2" class="text-center"><%= p.name %></th>
-                <% end %>
-            </tr>
+              <% @players.each do |p| %>
+                <tr>
+                    <th colspan="2" class="text-center"><%= p.name %></th>
+                </tr>
+              <% end %>
             </thead>
             <tbody>
             <% @players.each do |p| %>

@@ -14,7 +14,7 @@
 
 class Pick < ActiveRecord::Base
   belongs_to :draft
-  belongs_to :user
+  belongs_to :user, primary_key: 'id'
   belongs_to :castaway, foreign_key: 'contestant_id', class_name: 'Castaway'
   belongs_to :season
 

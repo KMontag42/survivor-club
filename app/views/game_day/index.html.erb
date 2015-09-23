@@ -19,23 +19,44 @@
         <table class="table table-condensed table-bordered table-striped hidden-xs">
             <thead>
             <tr>
-                <% @players.each do |p| %>
+                <% @players.in_groups(2)[0].each do |p| %>
                   <th colspan="2" class="text-center"><%= p.name %></th>
                 <% end %>
             </tr>
             </thead>
             <tbody>
-            <% @players.each do |p| %>
-              <tr>
-                  <% p.cash_picks.each do |p| %>
-                    <td class="text-center"><%= p.castaway.name %></td>
-                  <% end %>
+              <% @players.in_groups(2)[0].each do |p| %>
+                <tr>
+                    <% p.cash_picks.each do |p| %>
+                      <td class="text-center"><%= p.castaway.name %></td>
+                    <% end %>
 
-                  <% p.drinking_picks.each do |p| %>
-                    <td class="text-center"><%= p.castaway.name %></td>
-                  <% end %>
-              </tr>
-            <% end %>
+                    <% p.drinking_picks.each do |p| %>
+                      <td class="text-center"><%= p.castaway.name %></td>
+                    <% end %>
+                </tr>
+              <% end %>
+            </tbody>
+            <thead>
+            <tr>
+                <% @players.in_groups(2)[1].each do |p| %>
+                  <th colspan="2" class="text-center"><%= p.name %></th>
+                <% end %>
+            </tr>
+            </thead>
+            <tbody>
+              <% @players.in_groups(2)[1].each do |p| %>
+                <tr>
+                    <% p.cash_picks.each do |p| %>
+                      <td class="text-center"><%= p.castaway.name %></td>
+                    <% end %>
+
+                    <% p.drinking_picks.each do |p| %>
+                      <td class="text-center"><%= p.castaway.name %></td>
+                    <% end %>
+                </tr>
+              <% end %>
+            </tbody>
         </table>
         <table class="table table-condensed table-bordered table-striped visible-xs-table">
             <thead>

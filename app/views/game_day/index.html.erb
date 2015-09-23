@@ -51,8 +51,7 @@
                 <tr>
                     <% if p.try(:cash_picks) %>
                       <% p.cash_picks.each do |p| %>
-                        <td class="text-center"><%= p[0].castaway.name %></td>
-                        <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
+                        <td class="text-center"><%= p.castaway.name %></td>
                       <% end %>
                     <% end %>
                 </tr>

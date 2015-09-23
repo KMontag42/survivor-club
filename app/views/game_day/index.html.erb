@@ -27,17 +27,16 @@
             <tbody>
               <% @players.in_groups(2)[0].each do |p| %>
                 <tr>
-                    <% p.cash_picks.each_slice(2) do |p| %>
-                      <td class="text-center"><%= p[0].castaway.name %></td>
-                      <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
-                    <% end %>
+                  <% p.cash_picks.each do |p| %>
+                    <td class="text-center"><%= p.castaway.name %></td>
+                  <% end %>
                 </tr>
-                <tr>
-                    <% p.drinking_picks.each_slice(2) do |p| %>
-                      <td class="text-center"><%= p[0].castaway.name %></td>
-                      <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
-                    <% end %>
-                </tr>
+                <% p.drinking_picks.each_slice(2) do |p| %>
+                  <tr>
+                    <td class="text-center"><%= p[0].castaway.name %></td>
+                    <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
+                  </tr>
+                <% end %>
               <% end %>
             </tbody>
             <thead>
@@ -51,20 +50,20 @@
               <% @players.in_groups(2)[1].each do |p| %>
                 <tr>
                     <% if p.try(:cash_picks) %>
-                      <% p.cash_picks.each_slice(2) do |p| %>
+                      <% p.cash_picks.each do |p| %>
                         <td class="text-center"><%= p[0].castaway.name %></td>
                         <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
                       <% end %>
                     <% end %>
                 </tr>
-                <tr>
-                    <% if p.try(:drinking_picks) %>
-                      <% p.drinking_picks.each_slice(2) do |p| %>
-                        <td class="text-center"><%= p[0].castaway.name %></td>
-                        <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
-                      <% end %>
-                    <% end %>
-                </tr>
+                <% if p.try(:drinking_picks) %>
+                  <% p.drinking_picks.each_slice(2) do |p| %>
+                    <tr>
+                      <td class="text-center"><%= p[0].castaway.name %></td>
+                      <td class="text-center"><%= p[1].try(:castaway).try(:name) %></td>
+                    </tr>
+                  <% end %>
+                <% end %>
               <% end %>
             </tbody>
         </table>

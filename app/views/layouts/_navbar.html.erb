@@ -15,9 +15,9 @@
     <% end %>
     <%= nav class: 'navbar-right' do %>
       <% if user_signed_in? %>
-        <%= link_to current_user.name, user_path(current_user) %>
+        <%= link_to current_user.name, user_path(current_user), class: 'hidden-xs' %>
       <% else %>
-        <%= link_to 'Log In', new_user_session_path %>
+        <%= link_to 'Log In', new_user_session_path, class: 'hidden-xs' %>
       <% end %>
     <% end %>
   <% end %>

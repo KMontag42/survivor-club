@@ -7,7 +7,7 @@
     <!--</div>-->
     <!--<div class="clearfix"></div>-->
 <!--</row>-->
-<h1 class="text-center">Survivor: Cambodia - s31e<%= @episode.try(:number) %> - <%= @episode.try(:name).try(:humanize) %></h1>
+<h1 class="text-center">Survivor: Cambodia - s31e<%= @episode.try(:number) %> - <%= @episode.try(:name).try(:titleize) %></h1>
 <row>
     <div class="col-xs-12 text-center" style="margin-bottom: 2rem;">
         <%= render 'shared/chat', messages: @episode.try(:chat_messages) || [],

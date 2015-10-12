@@ -1,12 +1,11 @@
 <div class="text-center col-xs-12 col-sm-8 col-sm-offset-2">
-    <img src="//fillmurray.com/300/300" alt="Survivor Club Logo"/>
+    <%= image_tag 'Survivor Club Logo (Cambodia Edition).png', class: 'img-responsive center-block' %>
     <h1>Welcome to Survivor Club</h1>
-    <%= nav layout: :justified do %>
+    <%= nav layout: :justified, class: 'welcome-nav' do %>
       <%= link_to 'Rules', rules_path %>
       <%= link_to 'Episodes', episodes_path %>
       <%= link_to 'Castaways', castaways_path %>
       <%= link_to 'Players', users_path %>
-      <%= link_to 'Game Day', game_day_path %>
       <%= link_to 'Log In', new_user_session_path %>
     <% end %>
 </div>

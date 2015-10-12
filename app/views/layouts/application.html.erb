@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
   <title>Survivor Club</title>
   <%= Gon::Base.render_data({init: true}) %>
   <link href="http://js-grid.com/css/jsgrid.min.css" rel="stylesheet" />
@@ -19,8 +21,6 @@
     App.globals.user.name = '<%= current_user.try(:name) %>';
     App.globals.user.id = '<%= current_user.try(:id) %>';
   </script>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body id="<%= yield :body_id %>"
       class="<%= yield :body_class %>"

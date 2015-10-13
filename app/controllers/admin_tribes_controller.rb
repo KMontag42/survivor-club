@@ -69,6 +69,6 @@ class AdminTribesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_tribe_params
-      params[:tribe]
+      params.require(:tribe).permit(:name, :color, :season)
     end
 end

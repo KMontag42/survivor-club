@@ -69,6 +69,9 @@ class AdminCastawaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_castaway_params
-      params[:castaway]
+      params.require(:castaway).permit(:id, :name, :season_id,
+                                       :original_tribe_id, :swapped_tribe_id,
+                                       :merged_tribe_id, :voted_out_episode_id,
+                                       :picture_url)
     end
 end

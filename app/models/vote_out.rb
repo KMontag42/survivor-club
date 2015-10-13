@@ -12,6 +12,6 @@
 
 class VoteOut < ActiveRecord::Base
   belongs_to :season
-  belongs_to :contestant
+  belongs_to :contestant, class_name: 'Castaway'
   belongs_to :episode
 end

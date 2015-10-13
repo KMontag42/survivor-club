@@ -9,7 +9,6 @@ class VoteOutsController < ApplicationController
 
   def new
     @vote_out = VoteOut.new
-    @season = Season.find(1)
     render layout: 'center_form'
   end
 

@@ -1,4 +1,4 @@
-<%= form_for(@admin_tribe, layout: :basic) do |f| %>
+<%= form_for(@admin_tribe, layout: :basic, url: {controller: 'admin_tribes', action: "#{@admin_tribe.id ? 'update' : 'create'}"}) do |f| %>
   <% if @admin_tribe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_tribe.errors.count, "error") %> prohibited this admin_tribe from being saved:</h2>

@@ -1,6 +1,8 @@
 <div class="text-center">
     <h1>Admin Home</h1>
     <h2><%= link_to 'Episodes', admin_episodes_path %></h2>
+    <h2><%= link_to 'Rules', rule_articles_path %></h2>
+    <h2><%= link_to 'Voted Out', new_vote_out_path %></h2>
     <h2>Castaways</h2>
     <%= link_to 'New', new_castaway_path, class: 'btn btn-primary' %>
     <h2>Seasons</h2>

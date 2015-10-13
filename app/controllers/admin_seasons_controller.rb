@@ -28,7 +28,7 @@ class AdminSeasonsController < ApplicationController
 
     respond_to do |format|
       if @admin_season.save
-        format.html { redirect_to @admin_season, notice: ' season was successfully created.' }
+        format.html { redirect_to admin_seasons_url, notice: ' season was successfully created.' }
         format.json { render :show, status: :created, location: @admin_season }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AdminSeasonsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_season.update(admin_season_params)
-        format.html { redirect_to @admin_season, notice: ' season was successfully updated.' }
+        format.html { redirect_to admin_seasons_url, notice: ' season was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_season }
       else
         format.html { render :edit }

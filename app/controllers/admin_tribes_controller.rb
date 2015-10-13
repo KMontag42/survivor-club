@@ -28,7 +28,7 @@ class AdminTribesController < ApplicationController
 
     respond_to do |format|
       if @admin_tribe.save
-        format.html { redirect_to @admin_tribe, notice: ' tribe was successfully created.' }
+        format.html { redirect_to admin_tribes_url, notice: ' tribe was successfully created.' }
         format.json { render :show, status: :created, location: @admin_tribe }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AdminTribesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_tribe.update(admin_tribe_params)
-        format.html { redirect_to @admin_tribe, notice: ' tribe was successfully updated.' }
+        format.html { redirect_to admin_tribes_url, notice: ' tribe was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_tribe }
       else
         format.html { render :edit }

@@ -28,7 +28,7 @@ class AdminEpisodesController < ApplicationController
 
     respond_to do |format|
       if @admin_episode.save
-        format.html { redirect_to @admin_episode, notice: 'Admin episode was successfully created.' }
+        format.html { redirect_to admin_episodes_path, notice: 'Admin episode was successfully created.' }
         format.json { render :show, status: :created, location: @admin_episode }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class AdminEpisodesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_episode.update(admin_episode_params)
-        format.html { redirect_to @admin_episode, notice: 'Admin episode was successfully updated.' }
+        format.html { redirect_to admin_episodes_path, notice: 'Admin episode was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_episode }
       else
         format.html { render :edit }

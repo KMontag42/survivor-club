@@ -69,6 +69,6 @@ class AdminEpisodesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_episode_params
-      params[:admin_episode]
+      params[:episode]
     end
 end

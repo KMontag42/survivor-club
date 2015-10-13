@@ -69,6 +69,6 @@ class AdminCastawaysController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_castaway_params
-      params[:admin_castaway]
+      params[:castaway]
     end
 end

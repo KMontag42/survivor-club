@@ -13,11 +13,11 @@
 
   <div class="actions">
       <%= f.text_field :name %>
-      <%= f.select :season_id, Season.all.collect{|x| [x.name, x.id]} %>
-      <%= f.select :original_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
-      <%= f.select :swapped_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
-      <%= f.select :merged_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
-      <%= f.select :voted_out_episode_id, Episode.all.collect{|x| [x.name, x.id]} %>
+      <%= f.select :season_id, Season.all.collect{|x| [x.name, x.id]}, include_blank: true %>
+      <%= f.select :original_tribe_id, Tribe.all.collect{|x| [x.name, x.id]}, include_blank: true %>
+      <%= f.select :swapped_tribe_id, Tribe.all.collect{|x| [x.name, x.id]}, include_blank: true %>
+      <%= f.select :merged_tribe_id, Tribe.all.collect{|x| [x.name, x.id]}, include_blank: true %>
+      <%= f.select :voted_out_episode_id, Episode.all.collect{|x| [x.name, x.id]}, include_blank: true %>
     <%= f.submit %>
   </div>
 <% end %>

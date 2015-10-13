@@ -1,34 +1,32 @@
-<%= content_for :body_id do 'rules' end %>
-<h1 class="text-center">Official Rules of the Survivor Club Drinking Game</h1>
+<%= content_for :body_id do
+  'rules'
+end %>
+<h1 class="text-center">Official Rules</h1>
 <div class="hidden-xs">
     <div class="col-xs-12 col-sm-4">
         <%= nav as: :pills, layout: :stacked, class: 'text-right' do %>
           <%= link_to 'Preamble', '#preamble', class: 'rules-link' %>
-          <%= link_to 'SR1 Duties and Powers', '#sr1', class: 'rules-link' %>
-          <%= link_to 'SR2 Definitions', '#sr2', class: 'rules-link' %>
-          <%= link_to 'SR3 Character Selections', '#sr3', class: 'rules-link' %>
-          <%= link_to 'SR3b Standard Character Limit', '#sr3b', class: 'rules-link' %>
-          <%= link_to 'SR4 General Game Rules', '#sr4', class: 'rules-link' %>
-          <%= link_to 'SR5 Challenges', '#sr5', class: 'rules-link' %>
-          <%= link_to 'SR6 Jeff Probst', '#sr6', class: 'rules-link' %>
-          <%= link_to 'SR7 Name of the Episode', '#sr7', class: 'rules-link' %>
-          <%= link_to 'SR8 Specific Non-Canon Events', '#sr8', class: 'rules-link' %>
-          <%= link_to 'SR9 Conditional Drinks', '#sr9', class: 'rules-link' %>
+          <% @rules.each do |rule| %>
+            <%= link_to rule.title.try(:titleize), "#sr#{rule.number}", class: 'rules-link' %>
+          <% end %>
         <% end %>
     </div>
     <div class="col-xs-12 col-sm-6">
         <div class="rules-container">
-            <div id="preamble" class="active-rule">p</div>
-            <div id="sr1" class="hidden">1</div>
-            <div id="sr2" class="hidden">2</div>
-            <div id="sr3" class="hidden">3</div>
-            <div id="sr3b" class="hidden">3b</div>
-            <div id="sr4" class="hidden">4</div>
-            <div id="sr5" class="hidden">5</div>
-            <div id="sr6" class="hidden">6</div>
-            <div id="sr7" class="hidden">7</div>
-            <div id="sr8" class="hidden">8</div>
-            <div id="sr9" class="hidden">9</div>
+            <div id="preamble" class="active-rule">
+                Enumerated below are rules representing a legal compact between
+                the consenting participants in the Congress of the Unofficial
+                Scurvy Family Game Night Best Friends Gang. They outline the
+                terms and frameworks for which the Official Survivor: The
+                Drinking Game is conducted. All participants are expected to
+                follow these rules without exception, lest they be subjected to
+                disciplinary measures upon being duly convicted.
+            </div>
+            <% @rules.each do |rule| %>
+              <div id="sr<%= rule.number %>" class="hidden">
+                  <%= rule.body.try(:html_safe) %>
+              </div>
+            <% end %>
         </div>
     </div>
 </div>
@@ -44,162 +42,30 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+                Enumerated below are rules representing a legal compact between
+                the consenting participants in the Congress of the Unofficial
+                Scurvy Family Game Night Best Friends Gang. They outline the
+                terms and frameworks for which the Official Survivor: The
+                Drinking Game is conducted. All participants are expected to
+                follow these rules without exception, lest they be subjected to
+                disciplinary measures upon being duly convicted.
             </div>
         </div>
     </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingTwo">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                    SR1 Duties and Powers
-                </a>
-            </h4>
-        </div>
-        <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-            <div class="panel-body">
-                SR2 Definitions
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR3 Character Selections
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR2 Definitions
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR3 Character Selections
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR3b Standard Character Limit
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR4 General Game Rules
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR5 Challenges
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR6 Jeff Probst
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR7 Name of the Episode
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR8 Specific Non-Canon Events
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
-    <div class="panel panel-default">
-        <div class="panel-heading" role="tab" id="headingThree">
-            <h4 class="panel-title">
-                <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                    SR9 Conditional Drinks
-                </a>
-            </h4>
-        </div>
-        <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-            <div class="panel-body">
-                Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-            </div>
-        </div>
-    </div>
+    <% @rules.each do |rule| %>
+      <div class="panel panel-default">
+          <div class="panel-heading" role="tab">
+              <h4 class="panel-title">
+                  <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse_<%= rule.number %>" aria-expanded="false">
+                      <%= rule.title.try(:titleize) %>
+                  </a>
+              </h4>
+          </div>
+          <div id="collapse_<%= rule.number %>" class="panel-collapse collapse" role="tabpanel">
+              <div class="panel-body">
+                  <%= rule.body.try(:html_safe) %>
+              </div>
+          </div>
+      </div>
+    <% end %>
 </div>

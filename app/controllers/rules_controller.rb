@@ -1,9 +1,5 @@
 class RulesController < ApplicationController
   def index
-    @rules = {
-        preamble: '',
-        sr1_duties_and_powers: '',
-        sr2_definitions: ''
-    }
+    @rules = RuleArticle.all
   end
 end

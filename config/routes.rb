@@ -20,7 +20,7 @@ Rails.application.routes.draw do
       as: 'second_chance_votes_results'
 
   resources :seasons, :episodes, :castaways, :drafts, :tribes, :users,
-            :vote_outs, :second_chance_votes, :rule_articles
+            :vote_outs, :second_chance_votes, :rule_articles, :admin_episodes
   resources :late_picks, only: %w(new create)
 
 end

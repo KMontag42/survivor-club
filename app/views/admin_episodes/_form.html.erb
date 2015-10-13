@@ -1,0 +1,27 @@
+<%= form_for(@admin_episode, layout: :basic) do |f| %>
+  <% if @admin_episode.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_episode.errors.count, "error") %> prohibited this admin_episode from being saved:</h2>
+
+      <ul>
+      <% @admin_episode.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.number_field :number %>
+    <%= f.text_field :name %>
+    <%= f.select :season_id do %>
+      <% Season.all.each do |s| %>
+        <%= content_tag(:option, s.name, :value => s.id) %>
+      <% end %>
+    <% end %>
+    <%= f.date_field :air_date %>
+    <%= f.text_area :description %>
+    <%= f.submit 'Update' %>
+    <%= f.submit %>
+  </div>
+<% end %>

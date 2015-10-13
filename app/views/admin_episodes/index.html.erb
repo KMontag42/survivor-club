@@ -1,0 +1,26 @@
+<h1>Listing Episodes</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th colspan="5"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_episodes.each do |admin_episode| %>
+      <tr>
+        <td><%= admin_episode.name %></td>
+        <td><%= admin_episode.season.name %></td>
+        <td><%= link_to 'Show', admin_episode %></td>
+        <td><%= link_to 'Edit', edit_admin_episode_path(admin_episode) %></td>
+        <td><%= link_to 'Destroy', admin_episode, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Episode', new_admin_episode_path %>
+<%= link_to 'Admin Home', admin_path %>

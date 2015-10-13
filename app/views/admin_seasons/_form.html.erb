@@ -1,4 +1,4 @@
-<%= form_for(@admin_season) do |f| %>
+<%= form_for(@admin_season, layout: :basic) do |f| %>
   <% if @admin_season.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_season.errors.count, "error") %> prohibited this admin_season from being saved:</h2>
@@ -12,6 +12,9 @@
   <% end %>
 
   <div class="actions">
+    <%= f.number_field :number %>
+    <%= f.text_field :name %>
+    <%= f.text_field :image_url %>
     <%= f.submit %>
   </div>
 <% end %>

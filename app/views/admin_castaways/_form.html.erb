@@ -1,4 +1,4 @@
-<%= form_for(@admin_castaway) do |f| %>
+<%= form_for(@admin_castaway, layout: :basic) do |f| %>
   <% if @admin_castaway.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_castaway.errors.count, "error") %> prohibited this admin_castaway from being saved:</h2>
@@ -12,6 +12,12 @@
   <% end %>
 
   <div class="actions">
+      <%= f.text_field :name %>
+      <%= f.select :season_id, Season.all.collect{|x| [x.name, x.id]} %>
+      <%= f.select :original_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
+      <%= f.select :swapped_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
+      <%= f.select :merged_tribe_id, Tribe.all.collect{|x| [x.name, x.id]} %>
+      <%= f.select :voted_out_episode_id, Episode.all.collect{|x| [x.name, x.id]} %>
     <%= f.submit %>
   </div>
 <% end %>

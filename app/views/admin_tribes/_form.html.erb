@@ -1,4 +1,4 @@
-<%= form_for(@admin_tribe) do |f| %>
+<%= form_for(@admin_tribe, layout: :basic) do |f| %>
   <% if @admin_tribe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin_tribe.errors.count, "error") %> prohibited this admin_tribe from being saved:</h2>
@@ -12,6 +12,9 @@
   <% end %>
 
   <div class="actions">
+      <%= f.text_field :name %>
+      <%= f.text_field :color, placeholder: '#abcdef' %>
+      <%= f.select :season_id, Season.all.collect {|p| [ p.name, p.id ] } %>
     <%= f.submit %>
   </div>
 <% end %>

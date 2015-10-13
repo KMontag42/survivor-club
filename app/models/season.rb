@@ -25,8 +25,8 @@ class Season < ActiveRecord::Base
   has_one :draft
 
   def remaining_contestants
-    contestants.all.select do |c|
-      c.vote_out_for_season(self.id).nil?
+    castaways.all.select do |c|
+      !(episodes.collect(&:id).include? c.voted_out_episode_id)
     end
   end
 end

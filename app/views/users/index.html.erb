@@ -1,7 +1,7 @@
 <h1 class="text-center">Select A Player</h1>
 <div class="col-xs-12 col-sm-8 col-sm-offset-2 col-lg-6 col-lg-offset-3 text-center">
     <% User.all.each do |u| %>
-      <a href="<%= user_path(u) %>" class="col-xs-3 player-card well">
+      <a href="<%= user_path(u) %>" class="col-xs-3 player-card">
           <% if u.picture_url %>
             <%= image_tag u.picture_url, class: 'img-responsive center-block' %>
           <% else %>

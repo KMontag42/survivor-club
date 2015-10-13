@@ -42,7 +42,7 @@ class AdminCastawaysController < ApplicationController
   def update
     respond_to do |format|
       if @admin_castaway.update(admin_castaway_params)
-        format.html { redirect_to @admin_castaway, notice: ' castaway was successfully updated.' }
+        format.html { redirect_to @admin_castaway, notice: 'castaway was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin_castaway }
       else
         format.html { render :edit }

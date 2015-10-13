@@ -1,0 +1,25 @@
+<h1>Listing admin_castaways</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_castaways.each do |admin_castaway| %>
+      <tr>
+        <td><%= admin_castaway.name %></td>
+        <td><%= link_to 'Show', admin_castaway %></td>
+        <td><%= link_to 'Edit', edit_admin_castaway_path(admin_castaway) %></td>
+        <td><%= link_to 'Destroy', admin_castaway, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin castaway', new_admin_castaway_path %>
+<%= link_to 'Admin Home', admin_path %>

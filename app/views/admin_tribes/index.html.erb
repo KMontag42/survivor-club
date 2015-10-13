@@ -1,0 +1,25 @@
+<h1>Listing admin_tribes</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_tribes.each do |admin_tribe| %>
+      <tr>
+        <td><%= admin_tribe.name %></td>
+        <td><%= link_to 'Show', admin_tribe %></td>
+        <td><%= link_to 'Edit', edit_admin_tribe_path(admin_tribe) %></td>
+        <td><%= link_to 'Destroy', admin_tribe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin tribe', new_admin_tribe_path %>
+<%= link_to 'Admin Home', admin_path %>

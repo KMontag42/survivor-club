@@ -1,0 +1,17 @@
+<%= form_for(@admin_castaway) do |f| %>
+  <% if @admin_castaway.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_castaway.errors.count, "error") %> prohibited this admin_castaway from being saved:</h2>
+
+      <ul>
+      <% @admin_castaway.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

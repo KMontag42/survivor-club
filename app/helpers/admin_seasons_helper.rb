@@ -1,0 +1,2 @@
+module AdminSeasonsHelper
+end

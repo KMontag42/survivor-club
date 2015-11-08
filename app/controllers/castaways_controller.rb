@@ -8,10 +8,9 @@ class CastawaysController < ApplicationController
     # be a bit costly
 
     if params[:original_tribe]
-      @castaways
-          .joins(:original_tribe)
-          .where('UPPER(original_tribes.name) LIKE ?',
-                 "%#{params[:original_tribe].upcase}%")
+      @castaways.select! do |x|
+        x.original_tribe.try(:name).try(:upcase) =~ params[:original_tribe].upcase
+      end
     end
 
     respond_to do |format|

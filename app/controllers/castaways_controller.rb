@@ -1,7 +1,7 @@
 class CastawaysController < ApplicationController
   def index
     @castaways = Castaway.all #filters
-                     .where("name LIKE ?", "%#{params[:name]}%")
+                     .where('UPPER(name) LIKE ?', "%#{params[:name].upcase}%")
 
     respond_to do |format|
       format.html

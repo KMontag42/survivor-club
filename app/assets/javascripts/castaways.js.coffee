@@ -24,7 +24,7 @@ $('#castaways').ready ->
       { name: 'finish', type: 'text', title: 'Finish', filtering: false }
       { name: 'tribal_votes', type: 'text', title: 'Tribal Votes', filtering: false }
       { name: 'total_votes', type: 'text', title: 'Total Votes', filtering: false }
-      { name: 'season', title: 'Season' }
+      { name: 'season', title: 'Season', filtering: false }
     ]
 
   $('#spoilers').on 'change', (e) ->

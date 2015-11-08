@@ -3,6 +3,14 @@ class CastawaysController < ApplicationController
     @castaways = Castaway.all #filters
                      .where('UPPER(name) LIKE ?', "%#{params[:name].try(:upcase)}%")
 
+    # filters that require a join
+    # we don't want to do these unless the params are there since a join can
+    # be a bit costly
+
+    if params[:original_tribe]
+      @castaways.joins(:original_tribe).where('UPPER(name) LIKE ?', "%#{params[:original_tribe].upcase}%")
+    end
+
     respond_to do |format|
       format.html
       format.json { render json: @castaways }

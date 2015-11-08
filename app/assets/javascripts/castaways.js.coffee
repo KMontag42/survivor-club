@@ -16,7 +16,7 @@ $('#castaways').ready ->
           data: filter
     fields: [
       { name: 'name', type: 'text', title: 'Castaway' }
-      { name: 'original_tribe', title: 'Original Tribe', filtering: false }
+      { name: 'original_tribe', title: 'Original Tribe' }
       { name: 'swapped_tribe', title: 'Swapped Tribe', filtering: false }
       { name: 'merged_tribe', title: 'Merged Tribe', filtering: false }
       { name: 'voted_out_number', type: 'text', title: 'Voted Out', filtering: false }

@@ -6,10 +6,9 @@ class CastawaysController < ApplicationController
     # filters that require a join
     # we don't want to do these unless the params are there since a join can
     # be a bit costly
-
     unless params[:original_tribe].try(:empty?)
       @castaways = @castaways.select do |x|
-        params[:original_tribe].upcase =~ x.original_tribe.try(:name).try(:upcase)
+        params[:original_tribe].try(:upcase) =~ x.original_tribe.try(:name).try(:upcase)
       end
     end
 

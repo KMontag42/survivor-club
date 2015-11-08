@@ -8,7 +8,7 @@ class CastawaysController < ApplicationController
     # be a bit costly
 
     if params[:original_tribe]
-      Rails.logger.debug('hi kyle')
+      p 'rubaorbaroubawirubawhebfaskjdbckasjdbc'
       @castaways.joins(:original_tribe).where('UPPER(original_tribe.name) LIKE ?', "%#{params[:original_tribe].upcase}%")
     end
 

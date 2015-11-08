@@ -1,6 +1,8 @@
 class CastawaysController < ApplicationController
   def index
-    @castaways = Castaway.all
+    @castaways = Castaway.all #filters
+                     .where("name LIKE ?", "%#{params[:name]}%")
+
     respond_to do |format|
       format.html
       format.json { render json: @castaways }

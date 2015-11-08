@@ -7,9 +7,9 @@ class CastawaysController < ApplicationController
     # we don't want to do these unless the params are there since a join can
     # be a bit costly
 
-    if params[:original_tribe]
+    unless params[:original_tribe].empty?
       @castaways = @castaways.select do |x|
-        x.original_tribe.try(:name).try(:upcase) =~ params[:original_tribe].upcase
+        params[:original_tribe].upcase =~ x.original_tribe.try(:name).try(:upcase)
       end
     end
 

@@ -28,7 +28,7 @@ class Castaway < ActiveRecord::Base
   def as_json(options={})
     {
         name: name,
-        original_tribe: original_tribe.name,
+        original_tribe: original_tribe.try(:name),
         swapped_tribe: swapped_tribe.try(:name),
         merged_tribe: merged_tribe.try(:name),
         voted_out_number: voted_out_number,

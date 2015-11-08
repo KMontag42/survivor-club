@@ -8,7 +8,7 @@ class CastawaysController < ApplicationController
     # be a bit costly
     unless params[:original_tribe].try(:blank?)
       @castaways = @castaways.select do |x|
-        params[:original_tribe].try(:upcase) =~ x.original_tribe.try(:name).try(:upcase)
+        x.original_tribe.try(:name).try(:upcase).try(:include?, params[:original_tribe].try(:upcase))
       end
     end
 

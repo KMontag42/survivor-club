@@ -67,7 +67,6 @@ class DraftEventsController < WebsocketRails::BaseController
 
   def join_draft
     draft = Draft.find_by(id: message["draft_id"])
-    kyle = User.find_by(email: 'thekylemontag@gmail.com')
     if draft && draft.status == Draft::STATUS[0]
       user = User.find(message['user_id'])
 
@@ -82,9 +81,6 @@ class DraftEventsController < WebsocketRails::BaseController
       }
 
       broadcast_message :join_draft, _message, namespace: :drafts
-
-      WebsocketRails.users[kyle.id].send_message :ready_to_start, {},
-                                           namespace: :drafts
     else
       _message = {
         success: false,

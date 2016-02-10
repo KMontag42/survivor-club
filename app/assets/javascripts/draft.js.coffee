@@ -49,3 +49,9 @@ $(document).ready ->
         contestant_id: contestant_id,
         type: round_type
       })
+
+    $('#start-draft').on 'click', () ->
+      dispatch.trigger 'drafts.start_draft',
+        {
+          draft_id: draft_id
+        }

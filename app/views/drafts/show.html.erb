@@ -6,6 +6,9 @@
   <div class="row hidden" id="draft_container">
     <div class="col-xs-12 text-center">
         <h1>DO NOT REFRESH THIS PAGE, YOU WILL NOT BE ABLE TO GET BACK INTO THE DRAFT.</h1>
+      <% if current_user.admin? %>
+        <div class="btn btn-primary" id="start-draft">START DRAFT</div>
+      <% end %>
     </div>
     <div class="col-sm-3 col-xs-12">
       <div class="panel panel-default">

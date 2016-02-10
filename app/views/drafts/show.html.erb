@@ -26,28 +26,11 @@
         <div class="panel-body"></div>
       <% end %>
     </div>
-    <div class="col-sm-6 col-xs-12">
+    <div class="col-sm-9 col-xs-12">
       <%= render 'draft_contestants_display',
                  contestants: contestants if contestants %>
       <%= render 'draft_contestants_table',
                  contestants: contestants if contestants %>
-    </div>
-    <div class="col-sm-3 col-xs-12">
-      <div class="panel panel-success">
-        <div class="panel-heading">
-          Your Money Picks
-        </div>
-        <div class="panel-body money-picks">
-        </div>
-      </div>
-      <div class="panel panel-warning">
-        <div class="panel-heading">
-          Your Drinking Picks
-        </div>
-        <div class="panel-body drinking-picks">
-        </div>
-      </div>
-      <%#= render partial: 'shared/chat', locals: {messages: [], id: 0} %>
     </div>
     <div class="clearfix"></div>
   </div>

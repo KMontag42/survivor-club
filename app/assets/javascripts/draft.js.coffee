@@ -51,7 +51,7 @@ $(document).ready ->
       })
 
     $('#start-draft').on 'click', () ->
-      dispatch.trigger 'drafts.start_draft',
+      dispatcher.trigger 'drafts.start_draft',
         {
           draft_id: draft_id
         }

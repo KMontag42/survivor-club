@@ -35,9 +35,11 @@
                 <% flash.each do |key, value| %>
                   <%= alert_box value, dismissible: true, context: key %>
                 <% end %>
-                <div class="alert alert-warning">
-                  <h2><%= link_to 'KAOH RONG DRAFT', draft_path(14) %></h2>
-                </div>
+                <% unless controller.controller_name == 'drafts' %>
+                  <div class="alert alert-warning">
+                    <h2><%= link_to 'KAOH RONG DRAFT', draft_path(14) %></h2>
+                  </div>
+                <% end %>
                 <%= yield %>
             </div>
         </div>

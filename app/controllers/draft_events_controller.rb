@@ -41,6 +41,9 @@ class DraftEventsController < WebsocketRails::BaseController
       }
     end
 
+    # reverse the order (snake style)
+    controller_store[:players].reverse!
+
     broadcast_message :next_round, _message, namespace: :drafts
   end
 
@@ -79,7 +82,7 @@ class DraftEventsController < WebsocketRails::BaseController
 
       broadcast_message :join_draft, _message, namespace: :drafts
 
-      WebsocketRails.users[1].send_message :ready_to_start, {},
+      broadcast_message :ready_to_start, {},
                                            namespace: :drafts
     else
       _message = {

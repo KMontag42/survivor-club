@@ -111,11 +111,6 @@ class DraftEventsController < WebsocketRails::BaseController
         }
 
         if pick.save
-          Rails.logger.debug 'all the users in WebsocketRails.users'
-          Rails.logger.debug WebsocketRails.users.users
-          WebsocketRails.users[message["user_id"]].
-            send_message :take_player, _message, namespace: :drafts
-
           broadcast_message :pick_contestant, _message, namespace: :drafts
           next_player
         else

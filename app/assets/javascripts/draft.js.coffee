@@ -36,6 +36,15 @@ $(document).ready ->
       contestant_id = target.parent().data 'id'
       $(".character-info:visible").addClass('hidden')
       $(".character-info[data-id=#{contestant_id}]").removeClass('hidden')
+      contestant_name = data['contestant_name']
+      contestant_id = data['contestant_id']
+      round_type = round_display.data 'round-type'
+      $(".draft-contestant[data-id=#{contestant_id}]").addClass 'disabled'
+
+      if round_type == 'Cash'
+        $('.money-picks').append "<p>#{contestant_name}</p>"
+      else
+        $('.drinking-picks').append "<p>#{contestant_name}</p>"
 
     $('body').on 'click', '.draft-contestant', (event) ->
       event.preventDefault()

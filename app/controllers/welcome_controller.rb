@@ -5,7 +5,7 @@ class WelcomeController < ApplicationController
     @recent_vote_outs = VoteOut.all.reverse_order[0..2]
 
     if current_user
-      # redirect_to game_day_path
+      redirect_to game_day_path
     end
   end
 end

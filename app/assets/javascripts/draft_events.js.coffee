@@ -85,6 +85,8 @@ $('body#draft').ready ->
     contestants_panel_heading.html(
       "Round #{data['round_number']} - #{data['round_type']}"
     )
+    # do snake draft
+    contestants_panel_body.children().each((i,li) -> contestants_panel_body.prepend(li))
 
   dispatcher.unbind 'drafts.start_draft'
   dispatcher.bind 'drafts.start_draft', (data) ->

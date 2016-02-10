@@ -35,6 +35,10 @@
                 <% flash.each do |key, value| %>
                   <%= alert_box value, dismissible: true, context: key %>
                 <% end %>
+                <div class="alert alert-success">
+                  <h1>THE KAOH RONG DRAFT IS HERE</h1>
+                  <h2><%= link_to draft_path(14) %></h2>
+                </div>
                 <%= yield %>
             </div>
         </div>

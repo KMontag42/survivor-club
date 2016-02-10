@@ -111,6 +111,9 @@ class DraftEventsController < WebsocketRails::BaseController
         }
 
         if pick.save
+          WebsocketRails.users.each do |u|
+            p u.inspect
+          end
           WebsocketRails.users[message["user_id"]].
             send_message :take_player, _message, namespace: :drafts
 

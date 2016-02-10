@@ -36,7 +36,13 @@ $(document).ready ->
       contestant_id = target.parent().data 'id'
       $(".character-info:visible").addClass('hidden')
       $(".character-info[data-id=#{contestant_id}]").removeClass('hidden')
-      contestant_tr = target.parent('tr')
+
+    $('body').on 'click', '.draft-contestant', (event) ->
+      event.preventDefault()
+      target = $(event.target)
+      contestant_id = parseInt(target.data('id'))
+      round_type = round_display.data 'round-type'
+      contestant_tr = $("tr[data-id=#{contestant_id}]")
       contestant_name = contestant_tr.children('td').first().html()
       contestant_id = contestant_tr.data('contestant_id')
       round_type = round_display.data 'round-type'
@@ -46,12 +52,6 @@ $(document).ready ->
         $('.money-picks').append "<p>#{contestant_name}</p>"
       else
         $('.drinking-picks').append "<p>#{contestant_name}</p>"
-
-    $('body').on 'click', '.draft-contestant', (event) ->
-      event.preventDefault()
-      target = $(event.target)
-      contestant_id = parseInt(target.data('id'))
-      round_type = round_display.data 'round-type'
 
       dispatcher.trigger('drafts.pick_contestant', {
         user_id: App.globals.user.id,

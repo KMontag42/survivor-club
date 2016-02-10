@@ -40,25 +40,26 @@ $(document).ready ->
     $('body').on 'click', '.draft-contestant', (event) ->
       event.preventDefault()
       target = $(event.target)
-      contestant_id = parseInt(target.data('id'))
-      round_type = round_display.data 'round-type'
-      contestant_tr = $("tr[data-id=#{contestant_id}]")
-      contestant_name = contestant_tr.children('td').first().html()
-      contestant_id = contestant_tr.data('contestant_id')
-      round_type = round_display.data 'round-type'
-      $(".draft-contestant[data-id=#{contestant_id}]").addClass 'disabled'
+      if !target.hasClass('disabled')
+        contestant_id = parseInt(target.data('id'))
+        round_type = round_display.data 'round-type'
+        contestant_tr = $("tr[data-id=#{contestant_id}]")
+        contestant_name = contestant_tr.children('td').first().html()
+        contestant_id = contestant_tr.data('contestant_id')
+        round_type = round_display.data 'round-type'
+        $(".draft-contestant[data-id=#{contestant_id}]").addClass 'disabled'
 
-      dispatcher.trigger('drafts.pick_contestant', {
-        user_id: App.globals.user.id,
-        draft_id: draft_id,
-        contestant_id: contestant_id,
-        type: round_type
-      })
+        dispatcher.trigger('drafts.pick_contestant', {
+          user_id: App.globals.user.id,
+          draft_id: draft_id,
+          contestant_id: contestant_id,
+          type: round_type
+        })
 
-      if round_type == 'Cash'
-        $('.money-picks').append "<p>#{contestant_name}</p>"
-      else
-        $('.drinking-picks').append "<p>#{contestant_name}</p>"
+        if round_type == 'Cash'
+          $('.money-picks').append "<p>#{contestant_name}</p>"
+        else
+          $('.drinking-picks').append "<p>#{contestant_name}</p>"
 
     $('#start-draft').on 'click', () ->
       dispatcher.trigger 'drafts.start_draft',

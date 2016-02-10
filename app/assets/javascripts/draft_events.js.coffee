@@ -90,9 +90,9 @@ $('body#draft').ready ->
 
   dispatcher.unbind 'drafts.start_draft'
   dispatcher.bind 'drafts.start_draft', (data) ->
-    $('#start-draft').addClass('hide')
-    $('.draft-contestant').removeClass('disabled')
     setTimeout(->
+      $('#start-draft').addClass('hide')
+      $('.draft-contestant').removeClass('disabled')
       swal 'IT BEGINS'
       players = data['players']
       players_html = ""

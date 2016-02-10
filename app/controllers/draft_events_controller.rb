@@ -107,7 +107,8 @@ class DraftEventsController < WebsocketRails::BaseController
           pick: pick,
           contestant_name: pick.castaway.name,
           contestant_id: message["contestant_id"],
-          success: true
+          success: true,
+          user: user.first_name
         }
 
         if pick.save

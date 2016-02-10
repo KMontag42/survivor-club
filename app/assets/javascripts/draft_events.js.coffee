@@ -61,6 +61,7 @@ $('body#draft').ready ->
       contestant_id = data['contestant_id']
       contestant_tr = $("[data-id=#{contestant_id}]")
       contestant_tr.addClass('danger disabled')
+      contestant_tr.children().last().html(data['user'])
     else if data['success'] == false
       swal 'Oh no!', data['message'], 'error'
 

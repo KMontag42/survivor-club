@@ -48,17 +48,17 @@ $(document).ready ->
       round_type = round_display.data 'round-type'
       $(".draft-contestant[data-id=#{contestant_id}]").addClass 'disabled'
 
-      if round_type == 'Cash'
-        $('.money-picks').append "<p>#{contestant_name}</p>"
-      else
-        $('.drinking-picks').append "<p>#{contestant_name}</p>"
-
       dispatcher.trigger('drafts.pick_contestant', {
         user_id: App.globals.user.id,
         draft_id: draft_id,
         contestant_id: contestant_id,
         type: round_type
       })
+
+      if round_type == 'Cash'
+        $('.money-picks').append "<p>#{contestant_name}</p>"
+      else
+        $('.drinking-picks').append "<p>#{contestant_name}</p>"
 
     $('#start-draft').on 'click', () ->
       dispatcher.trigger 'drafts.start_draft',
